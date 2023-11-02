@@ -19,3 +19,28 @@ module controller(
 
 
 endmodule
+
+
+/*
+Processor Controller
+- The ‘brains’ of the processor, and perhaps the most challenging aspect of the design process, is the controller.
+- The controller needs to determine the output of each of the control signals for the processor (shown as red in Fig. 1).
+- The list of outputs, given in Table 2, are combinational logic that depend on the current timestep T and the current instruction INSTR (from the list in Table 1).
+- It is suggested that a time-instruction table similar to that in class is created, and behavioral or procedural logic is derived.
+
+Table 2: Processor Control Signal Outputs
+
+Signal Bit-width Description
+- IMM   10  Immediate value to be used for the two immediate instructions
+- Rin   2   Address for the register to be written to, from the shared data bus
+- Rout  2   Address for the register to be read from, to the shared data bus
+- ENW   1   Enable signal to write data to the register file
+- ENR   1   Enable signal to read data from the register file
+- Ain   1   Enable signal to save data to the intermediate ALU input “A”
+- Gin   1   Enable signal to save data to the intermediate ALU output “G”
+- Gout  1   Enable signal to write data from the ALU intermediate output “G” to the shared data bus
+- ALUcont 4 Signal to control which arithmetic or logic operation the ALU should perform
+- Ext   1    Enable signal to drive the shared data bus from the external “data” signal
+- IRin  1     Enable signal to save data to the instruction register
+- Clr   1     Clear signal for the timestep counter
+*/

@@ -10,3 +10,7 @@ module upcount2 (
 // else CNT <= CNT + 1;
 
 endmodule
+
+/*
+A negative-edge triggered 2-bit up-counter with active-high synchronous clear is used to keep track of the timestep of the current instruction.
+*/
