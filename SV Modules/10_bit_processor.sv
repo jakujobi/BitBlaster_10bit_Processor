@@ -3,12 +3,13 @@
 module 10_bit_processor (
     input logic [9:0] raw_data,
     input logic CLOCK_50,
+    input logic PKb,
 
-    output logic [9:0] LED_B,
-    output logic [6:0] DHEX0,
-    output logic [6:0] DHEX1
-    output logic [6:0] DHEX2,
-    output logic [6:0] THEX,
+    output logic [9:0] LED_B,  //LEDR[9:0] data bus 
+    output logic [6:0] DHEX0,   //HEX0[6:0] data bus
+    output logic [6:0] DHEX1    //HEX1[6:0] data bus
+    output logic [6:0] DHEX2,   //HEX2[6:0] data bus
+    output logic [6:0] THEX,    //HEX5 [6:0] Current Timestep
     output logic LED_D
 );
 
@@ -34,7 +35,7 @@ The 10-bit processor is similar to that discussed in the supplementary PDF writt
 The PDF contains many hints and SystemVerilog samples beyond those discussed in class.
 
 3.2 Instruction Set
-You will implement, and your processor will support, the following functions using the exact instruction formats in Table 1.
+You will implement, and your processor will support, the following functions using the exact instruction formats in Table 1.
 Some instructions use the ALU, some need just one operand, some are just for data movement, and some use immediate values as operands.
 ARM-TI is leaving you the design decision to determine how best to decode each instruction, but they expect the minimum number of timesteps required per instruction type
     (hint: if you only need one operand, you might (read: must) be able to skip an ALU step [wink, wink]).
