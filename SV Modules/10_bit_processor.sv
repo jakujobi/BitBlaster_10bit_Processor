@@ -13,6 +13,14 @@ module 10_bit_processor (
     output logic LED_D
 );
 
+logic extrn_enable;
+wire DataBUs
+
+extrn external_data_receiver (
+    .raw_data(raw_data),
+    .extrn_enable (extrn_enable),
+    .PKb(PKb)
+);
 
 
 
