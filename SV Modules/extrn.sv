@@ -3,7 +3,7 @@ module extrn (
     input logic extrn_enable,
 
     output logic [1:0] data2,
-    output logic [9:0] outdata
+    output logic [9:0] extrn_data
 );
 
 
