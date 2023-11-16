@@ -20,9 +20,15 @@ module outputlogic(
     assign LED_B = BUS;
 
     // Decoding TIME to a 7-segment display (THEX)
-    // Assuming a function decimal7decoder is defined to convert binary to 7-segment code
-    decimal7decoder timeDecoder(
-        .binary(TIME),
+    // Assuming a function binary4todecimal7decoder is defined to convert binary to 7-segment code
+    logic [3:0] TIME4;      // TIME4 is a 4 bit variable that represents the time
+    assign TIME4[0] = TIME[0];
+    assign TIME4[1] = TIME[1];
+    assign TIME4[2] = 0
+    assign TIME4[3] = 0
+
+    binary4todecimal7decoder timeDecoder(
+        .binary(TIME4),
         .sevenSeg(THEX)
     );
 
@@ -44,17 +50,17 @@ module outputlogic(
     end
 
     // Decoding digits to 7-segment displays
-    decimal7decoder digit0Decoder(
+    binary4todecimal7decoder digit0Decoder(
         .binary(digit0),
         .sevenSeg(DHEX0)
     );
 
-    decimal7decoder digit1Decoder(
+    binary4todecimal7decoder digit1Decoder(
         .binary(digit1),
         .sevenSeg(DHEX1)
     );
 
-    decimal7decoder digit2Decoder(
+    binary4todecimal7decoder digit2Decoder(
         .binary(digit2),
         .sevenSeg(DHEX2)
     );
