@@ -7,15 +7,57 @@ module outputlogic(
 
     output logic [9:0] LED_B,
     output logic [6:0] DHEX0,
-    output logic [6:0] DHEX1
+    output logic [6:0] DHEX1,
     output logic [6:0] DHEX2,
     output logic [6:0] THEX,
     output logic LED_D
 );
 
+    // LED_D indicates when the current instruction is done
+    assign LED_D = DONE;
 
+    // LED_B shows the current values on the data bus
+    assign LED_B = BUS;
 
+    // Decoding TIME to a 7-segment display (THEX)
+    // Assuming a function decimal7decoder is defined to convert binary to 7-segment code
+    decimal7decoder timeDecoder(
+        .binary(TIME),
+        .sevenSeg(THEX)
+    );
 
+    // Decoding BUS or REG to 7-segment displays based on Pkb
+    logic [3:0] digit0, digit1, digit2;
+
+    always_comb begin
+        if (Pkb) {
+            // If Pkb is logic-1, show BUS on DHEX2:0
+            digit0 = BUS[3:0];
+            digit1 = BUS[7:4];
+            digit2 = {6'b0, BUS[9:8]};
+        } else {
+            // If Pkb is logic-0, show REG on DHEX2:0
+            digit0 = REG[3:0];
+            digit1 = REG[7:4];
+            digit2 = {6'b0, REG[9:8]};
+        }
+    end
+
+    // Decoding digits to 7-segment displays
+    decimal7decoder digit0Decoder(
+        .binary(digit0),
+        .sevenSeg(DHEX0)
+    );
+
+    decimal7decoder digit1Decoder(
+        .binary(digit1),
+        .sevenSeg(DHEX1)
+    );
+
+    decimal7decoder digit2Decoder(
+        .binary(digit2),
+        .sevenSeg(DHEX2)
+    );
 
 endmodule
 
