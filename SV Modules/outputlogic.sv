@@ -13,57 +13,58 @@ module outputlogic(
     output logic LED_D
 );
 
-    // LED_D indicates when the current instruction is done
-    assign LED_D = DONE;
+// LED_D indicates when the current instruction is done
+assign LED_D = DONE;
 
-    // LED_B shows the current values on the data bus
-    assign LED_B = BUS;
+// LED_B shows the current values on the data bus
+assign LED_B = BUS;
 
-    // Decoding TIME to a 7-segment display (THEX)
-    // Assuming a function binary4todecimal7decoder is defined to convert binary to 7-segment code
-    logic [3:0] TIME4;      // TIME4 is a 4 bit variable that represents the time
-    assign TIME4[0] = TIME[0];
-    assign TIME4[1] = TIME[1];
-    assign TIME4[2] = 0
-    assign TIME4[3] = 0
+// Decoding TIME to a 7-segment display (THEX)
+// Assuming a function binary4todecimal7decoder is defined to convert binary to 7-segment code
+logic [3:0] TIME4;      // TIME4 is a 4 bit variable that represents the time
+assign TIME4[0] = TIME[0];
+assign TIME4[1] = TIME[1];
+assign TIME4[2] = 0
+assign TIME4[3] = 0
 
-    binary4todecimal7decoder timeDecoder(
-        .binary(TIME4),
-        .sevenSeg(THEX)
-    );
+// Decoding TIME to 7-segment display
+binary4todecimal7decoder timeDecoder(
+    .binary(TIME4),
+    .sevenSeg(THEX)
+);
 
-    // Decoding BUS or REG to 7-segment displays based on Pkb
-    logic [3:0] digit0, digit1, digit2;
+//! Decoding BUS or REG to 7-segment displays based on Pkb
+logic [3:0] digit0, digit1, digit2;
 
-    always_comb begin
-        if (Pkb) {
-            // If Pkb is logic-1, show BUS on DHEX2:0
-            digit0 = BUS[3:0];
-            digit1 = BUS[7:4];
-            digit2 = {6'b0, BUS[9:8]};
-        } else {
-            // If Pkb is logic-0, show REG on DHEX2:0
-            digit0 = REG[3:0];
-            digit1 = REG[7:4];
-            digit2 = {6'b0, REG[9:8]};
-        }
-    end
+always_comb begin
+    if (Pkb) {
+        // If Pkb is logic-1, show BUS on DHEX2:0
+        digit0 = BUS[3:0];
+        digit1 = BUS[7:4];
+        digit2 = {6'b0, BUS[9:8]};
+    } else {
+        // If Pkb is logic-0, show REG on DHEX2:0
+        digit0 = REG[3:0];
+        digit1 = REG[7:4];
+        digit2 = {6'b0, REG[9:8]};
+    }
+end
 
-    // Decoding digits to 7-segment displays
-    binary4todecimal7decoder digit0Decoder(
-        .binary(digit0),
-        .sevenSeg(DHEX0)
-    );
+//! Decoding digits to 7-segment displays
+binary4todecimal7decoder digit0Decoder(
+    .binary(digit0),
+    .sevenSeg(DHEX0)
+);
 
-    binary4todecimal7decoder digit1Decoder(
-        .binary(digit1),
-        .sevenSeg(DHEX1)
-    );
+binary4todecimal7decoder digit1Decoder(
+    .binary(digit1),
+    .sevenSeg(DHEX1)
+);
 
-    binary4todecimal7decoder digit2Decoder(
-        .binary(digit2),
-        .sevenSeg(DHEX2)
-    );
+binary4todecimal7decoder digit2Decoder(
+    .binary(digit2),
+    .sevenSeg(DHEX2)
+);
 
 endmodule
 
