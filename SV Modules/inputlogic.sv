@@ -1,3 +1,10 @@
+//input logic
+/*
+Author: John Akujobi
+Date: 11/5/2023
+
+*/
+
 module inputlogic (
     input logic [9:0] RawData,
     input logic Peek_key,
