@@ -1,22 +1,21 @@
 //Instruction Register
 
-
 module reg10 (
-    input logic [9:0] D ,
-    input logic EN,
-    input logic CLKb ,
+    input logic [9:0] D,    // 10-bit input data
+    input logic EN,         // Active-high enable signal
+    input logic CLKb,       // Clock signal (negative edge triggered)
 
-    output logic [9:0] Q
+    output logic [9:0] Q    // 10-bit output data (register value)
 );
 
-
-
-// always_ff @(posedge CLKb) begin
-//     if (EN) begin
-//         Q <= D;
-//     end
-// end
-
+    // The register logic
+    // Captures input D on the negative edge of CLKb when EN is high
+    always_ff @(negedge CLKb) begin
+        if (EN) begin
+            Q <= D; // Load the input D into the register Q
+        end
+        // Note: If EN is low, the register retains its previous value
+    end
 
 endmodule
 
