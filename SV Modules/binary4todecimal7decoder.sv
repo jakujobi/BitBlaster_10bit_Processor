@@ -17,6 +17,13 @@ module binary4todecimal7decoder(
             4'b0111: sevenSeg = 7'b1111000; // 7
             4'b1000: sevenSeg = 7'b0000000; // 8
             4'b1001: sevenSeg = 7'b0010000; // 9
+            4'b1010: sevenSeg = 7'b0001000; // Display A
+            4'b1011: sevenSeg = 7'b0000011; // Display B
+            4'b1100: sevenSeg = 7'b1000110; // Display C
+            4'b1101: sevenSeg = 7'b0100001; // Display D
+            4'b1110: sevenSeg = 7'b0000110; // Display E
+            4'b1111: sevenSeg = 7'b0001110; // Display F
+
             default: sevenSeg = 7'b1111111; // Default to blank display for non-decimal input
         endcase
     end
