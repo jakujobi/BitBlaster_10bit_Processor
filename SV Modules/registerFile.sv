@@ -1,19 +1,44 @@
+
 module registerFile (
-    input logic [9:0] D ,
-    input logic ENW ,
-    input logic ENR0,
-    input logic ENR1 ,
-    input logic CLKb ,
-    input logic [1:0] WRA,
-    input logic [1:0] RDA0,
-    input logic [1:0] RDA1,
+    input logic [9:0] D,     // Common 10-bit input data
+    input logic ENW,         // Write enable
+    input logic ENR0,        // Read enable for Q0
+    input logic ENR1,        // Read enable for Q1
+    input logic CLKb,        // Clock signal (negative edge triggered)
+    input logic [1:0] WRA,   // Write address (2-bit)
+    input logic [1:0] RDA0,  // Read address for Q0 (2-bit)
+    input logic [1:0] RDA1,  // Read address for Q1 (2-bit)
     
-    output logic [9:0] Q0,
-    output logic [9:0] Q1
+    output logic [9:0] Q0,   // Output data for Q0
+    output logic [9:0] Q1    // Output data for Q1
 );
 
+ENR1 = 1'b1;
 
+// Define eight 10-bit registers
+logic [9:0] registers[7:0];
 
+// Write operation (Clocked)
+always_ff @(posedge CLKb) begin
+    if (ENW) begin
+        registers[WRA] <= D; // Write data into the register specified by WRA
+    end
+end
+
+// Read operation (Combinational)
+always_comb begin
+    if (ENR0) begin
+        Q0 = registers[RDA0]; // Output data from the register specified by RDA0
+    end else begin
+        Q0 = 10'bz; // High-impedance state if not enabled
+    end
+
+    if (ENR1) begin
+        Q1 = registers[RDA1]; // Output data from the register specified by RDA1
+    end else begin
+        Q1 = 10'bz; // High-impedance state if not enabled
+    end
+end
 
 endmodule
 
