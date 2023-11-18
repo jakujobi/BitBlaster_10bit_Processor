@@ -21,13 +21,13 @@ module inputlogic (
 //Debounce the keys__________________________________________
 debouncer peek_debouncer (
     .A_noisy(Peek_key),
-    .CLK50M(50MHz),
+    .CLK50M(CLK_50MHz),
     .A(PeeKb)
 );
 
 debouncer clk_debouncer (
     .A_noisy(RawCLK),
-    .CLK50M(50MHz),
+    .CLK50M(CLK_50MHz),
     .A(CLKb)
 );
 
