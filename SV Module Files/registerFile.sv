@@ -13,8 +13,6 @@ module registerFile (
     output logic [9:0] Q1    // Output data for Q1
 );
 
-ENR1 = 1'b1;
-
 // Define eight 10-bit registers
 logic [9:0] registers[7:0];
 
