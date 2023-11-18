@@ -8,7 +8,7 @@ Date: 11/5/2023
 module inputlogic (
     input logic [9:0] RawData,
     input logic Peek_key,
-    input logic 50MHz,
+    input logic CLK_50MHz,
     input logic RawCLK,
     input Extrn_Enable,
 
@@ -36,6 +36,13 @@ assign data2bit = RawData[1:0];
 
 //if extrn is enabled, assign raw data to databus
 assign databus = Extrn_Enable ? RawData : 0;
+
+
+// extrn external_data_receiver (
+//     .raw_data(raw_data),
+//     .extrn_enable (extrn_enable),
+//     .PKb(PKb)
+// );
 
 
 endmodule
