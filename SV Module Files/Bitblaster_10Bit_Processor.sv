@@ -8,7 +8,7 @@ module Bitblaster_10Bit_Processor (
 
     output logic [9:0] LED_B_Data_Bus,              //LEDR[9:0] data bus for current values on the Data bus
     output logic [6:0] DHEX0,                       //HEX0[6:0] data bus current 10-bit value on the data bus decoded to three 7-segment displays or output of 2nd read port of register file
-    output logic [6:0] DHEX1                        //HEX1[6:0] data bus
+    output logic [6:0] DHEX1,                       //HEX1[6:0] data bus
     output logic [6:0] DHEX2,                       //HEX2[6:0] data bus
     output logic [6:0] THEX_Current_Timestep,       //HEX5 [6:0] Current Timestep
     output logic LED_D_Done
