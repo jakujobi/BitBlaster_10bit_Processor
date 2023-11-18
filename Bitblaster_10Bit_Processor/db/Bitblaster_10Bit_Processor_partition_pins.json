@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "THEX_Current_Timestep[0]",
+					"strict" : false
+				},
+				{
+					"name" : "THEX_Current_Timestep[2]",
+					"strict" : false
+				},
+				{
+					"name" : "THEX_Current_Timestep[3]",
+					"strict" : false
+				},
+				{
+					"name" : "THEX_Current_Timestep[4]",
+					"strict" : false
+				},
+				{
+					"name" : "THEX_Current_Timestep[5]",
+					"strict" : false
+				},
+				{
+					"name" : "THEX_Current_Timestep[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Clock_Button",
+					"strict" : false
+				},
+				{
+					"name" : "Clock_50MHz",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
