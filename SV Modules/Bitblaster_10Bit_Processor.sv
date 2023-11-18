@@ -15,7 +15,7 @@ module Bitblaster_10Bit_Processor (
 );
 
 logic Extrn_Enable_Signal;               //External Data Receiver Enable
-logic Instruction_From_IR;              //Goes from the output of the instruction register to the INSTR instruction input of the ALU
+logic [9:0] Instruction_From_IR;              //Goes from the output of the instruction register to the INSTR instruction input of the ALU
 logic [1:0] Timestep_2_bits;            //Timestep counter: Goes from output of Counter to
 wire [9:0] Shared_Data_Bus;             //Shared Data Bus 
 logic [9:0] Q1_REG_Read_From_Register_File;
@@ -94,16 +94,19 @@ controller controllerModule(
     .Clr(Clear_Signal)
 );
 
+//! Register File
 logic ENR1_1bit = 1'b1;
 registerFile registerFileModule (
-    .D (Shared_Data_Bus),     // Common 10-bit input data
-    .ENW (ENW_ENW),         // Write enable
+    .D (Shared_Data_Bus),   // Common 10-bit input data
     .ENR0(ENR_ENR0),        // Read enable for Q0
-    .ENR1(ENR1_1bit),        // Read enable for Q1
-    .CLKb(Debounced_Clock),        // Clock signal (negative edge triggered)
-    .WRA(Rin_WRA), // Write address (2-bit)
-    .RDA0(ENR_ENR0),  // Read address for Q0 (2-bit)
-    .RDA1(Data_2_bits),  // Read address for Q1 (2-bit)
+    .ENR1(ENR1_1bit),       // Read enable for Q1
+
+    .CLKb(Debounced_Clock), // Clock signal (negative edge triggered)
+
+    .ENW (ENW_ENW),         // Write enable
+    .WRA(Rin_WRA),          // Write address (2-bit)
+    .RDA0(Rout_RDA0),       // Read address for Q0 (2-bit)
+    .RDA1(Data_2_bits),     // Read address for Q1 (2-bit)
     
     .Q0(Shared_Data_Bus),   // Output data for Q0
     .Q1(Q1_REG_Read_From_Register_File)    // Output data for Q1
