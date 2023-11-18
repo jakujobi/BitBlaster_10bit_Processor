@@ -1,6 +1,6 @@
 // 10-bit processor
 // This is the top level file
-module bit10_processor (
+module Bitblaster_10Bit_Processor (
     input logic [9:0] Raw_Data_From_Switches,
     input logic Clock_50MHz,
     input logic Peek_Button,
