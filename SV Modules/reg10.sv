@@ -12,7 +12,7 @@ module reg10 (
     // Captures input D on the negative edge of CLKb when EN is high
     always_ff @(negedge CLKb) begin
         if (EN) begin
-            Q <= D; // Load the input D into the register Q
+            Q  <= D; // Load the input D into the register Q
         end
         // Note: If EN is low, the register retains its previous value
     end
@@ -23,4 +23,4 @@ endmodule
 - The 10-bit instruction register is negative-edge triggered with synchronous active-high enable.
 - This register is used to save the instruction at timestep 0, and maintain the instruction throughout the multiple clock cycles required to complete a given instruction.
 */
-
+ 
