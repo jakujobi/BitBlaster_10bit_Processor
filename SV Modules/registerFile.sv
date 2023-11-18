@@ -53,7 +53,7 @@ output signals, there are three 3-bit address inputs and three enable inputs.
     Write-operation: On the active-edge of the debounced clock signal CLKb, if ENW is active,
     then the register associated with the write address WRA saves the value on the D input.
 
-    Read-operation: The read operation of the register file is combinational and does not depend on the active-edge of the clock.
+    Read-operation: The read operation of the register file is combinational and does not depend on the active-edge of the clock.
     For each read signal (Q0 or Q1), if ENR is active, the output Q is equal to the value stored in the register associated with read address RDA. If not
     enabled, the register file should disconnect its outputs to avoid contention (i.e., high-impedance ‘Z’).
 
