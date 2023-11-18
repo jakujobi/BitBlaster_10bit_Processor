@@ -15,7 +15,7 @@ module inputlogic (
     output logic [9:0] databus,
     output logic [1:0] data2bit,
     output logic CLKb,
-    output logic PeeKb,
+    output logic PeeKb
 );
 
 //Debounce the keys__________________________________________
