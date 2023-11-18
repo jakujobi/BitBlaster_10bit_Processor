@@ -1,28 +1,144 @@
 // 10-bit processor
 // This is the top level file
-module 10_bit_processor (
-    input logic [9:0] raw_data,
-    input logic CLOCK_50,
-    input logic PKb,
+module bit10_processor (
+    input logic [9:0] Raw_Data_From_Switches,
+    input logic Clock_50MHz,
+    input logic Peek_Button,
+    input logic Clock_Button,
 
-    output logic [9:0] LED_B,  //LEDR[9:0] data bus 
-    output logic [6:0] DHEX0,   //HEX0[6:0] data bus
-    output logic [6:0] DHEX1    //HEX1[6:0] data bus
-    output logic [6:0] DHEX2,   //HEX2[6:0] data bus
-    output logic [6:0] THEX,    //HEX5 [6:0] Current Timestep
-    output logic LED_D
+    output logic [9:0] LED_B_Data_Bus,              //LEDR[9:0] data bus for current values on the Data bus
+    output logic [6:0] DHEX0,                       //HEX0[6:0] data bus current 10-bit value on the data bus decoded to three 7-segment displays or output of 2nd read port of register file
+    output logic [6:0] DHEX1                        //HEX1[6:0] data bus
+    output logic [6:0] DHEX2,                       //HEX2[6:0] data bus
+    output logic [6:0] THEX_Current_Timestep,       //HEX5 [6:0] Current Timestep
+    output logic LED_D_Done
 );
 
-logic extrn_enable;
-wire DataBUs
+logic Extrn_Enable_Signal;               //External Data Receiver Enable
+logic Instruction_From_IR;              //Goes from the output of the instruction register to the INSTR instruction input of the ALU
+logic [1:0] Timestep_2_bits;            //Timestep counter: Goes from output of Counter to
+wire [9:0] Shared_Data_Bus;             //Shared Data Bus 
+logic [9:0] Q1_REG_Read_From_Register_File;
+logic Debounced_Clock;           //Debounced
+logic IR_Enable;                        //Enable signal for the instruction register
+logic [1:0] Data_2_bits;                //Data last 2 bits of data bus
+logic Debounced_Peek;
+logic Clear_Signal;                     //Clear signal for the instruction register and outputLogicModule
 
-extrn external_data_receiver (
-    .raw_data(raw_data),
-    .extrn_enable (extrn_enable),
-    .PKb(PKb)
+
+
+//! Input Logic
+inputlogic inputLogicModule(
+    .RawData(Raw_Data_From_Switches),
+    .Peek_key(Peek_Button),
+    .CLK_50MHz(Clock_50MHz),
+    .RawCLK(Clock_Button),
+    .Extrn_Enable(Extrn_Enable_Signal),
+    
+    //Outputs from input logic
+    .databus(Shared_Data_Bus),
+    .data2bit(Data_2_bits),
+    .CLKb(Debounced_Clock),
+    .PeeKb(Debounced_Peek)
+);
+
+//! Counter module
+upcount2 countermodule (
+    .CLR (Clear_Signal),
+    .CLKb (Debounced_Clock),
+    .CNT (Timestep_2_bits)
+);
+
+//! Instruction Register
+reg10 instructionRegister (
+    .D(Shared_Data_Bus),
+    .EN (IR_Enable), //Instruction Register Enable
+    .CLKb (Debounced_Clock),
+    .Q(Instruction_From_IR)
+);
+
+//!____________________________________________________________________________________________________________________________________
+logic ENW_ENW;
+logic [1:0] Rin_WRA;
+logic [1:0] Rout_RDA0;
+logic ENR_ENR0;
+
+
+logic Ain_Ain;              //Enable signal to save data to the intermediate ALU input “A”
+logic Gin_Gin;              //Enable signal to save data to the intermediate ALU input “G”
+logic Gout_Gout;             //Enable signal to save data from the intermediate ALU output “G”
+logic [3:0] ALUcont_FN;      //Signal to control which arithmetic or logic operation the ALU should perform
+
+//! Controller
+controller controllerModule(
+    .INST(Instruction_From_IR),
+    .T(Timestep_2_bits),
+
+    .IMM(Shared_Data_Bus),
+
+    //Goes to Register File
+    .ENW(ENW_ENW),
+    .Rin(Rin_WRA),
+    .Rout(Rout_RDA0),
+    .ENR(ENR_ENR0),
+
+    //Goes to ALU
+    .Ain(Ain_Ain),
+    .Gin(Gin_Gin),
+    .Gout(Gout_Gout),
+    .ALUcont(ALUcont_FN),
+
+    //To other Components
+    .Ext(Extrn_Enable_Signal),
+    .IRin(IR_Enable),
+    .Clr(Clear_Signal)
+);
+
+logic ENR1_1bit = 1'b1;
+registerFile registerFileModule (
+    .D (Shared_Data_Bus),     // Common 10-bit input data
+    .ENW (ENW_ENW),         // Write enable
+    .ENR0(ENR_ENR0),        // Read enable for Q0
+    .ENR1(ENR1_1bit),        // Read enable for Q1
+    .CLKb(Debounced_Clock),        // Clock signal (negative edge triggered)
+    .WRA(Rin_WRA), // Write address (2-bit)
+    .RDA0(ENR_ENR0),  // Read address for Q0 (2-bit)
+    .RDA1(Data_2_bits),  // Read address for Q1 (2-bit)
+    
+    .Q0(Shared_Data_Bus),   // Output data for Q0
+    .Q1(Q1_REG_Read_From_Register_File)    // Output data for Q1
 );
 
 
+//! Multi-stage ALU
+ALU multistageALU (
+    .OP (Shared_Data_Bus),
+    .Ain (Ain_Ain),
+    .Gin (Gin_Gin),
+    .Gout (Gout_Gout),
+    .FN (ALUcont_FN),
+    .CLKb (Debounced_Clock),
+
+    //Output
+    .RES (Shared_Data_Bus)
+);
+
+//! Output Logic
+outputlogic outputLogicModule(
+    .BUS(Shared_Data_Bus),
+    .REG(Q1_REG_Read_From_Register_File),
+    .TIME(Timestep_2_bits),
+    .DONE(Clear_Signal),
+    .Pkb(Debounced_Peek),
+
+    // outputs from output logic
+    .LED_B(LED_B_Data_Bus),
+    .DHEX0(DHEX0),
+    .DHEX1(DHEX1),
+    .DHEX2(DHEX2),
+    .THEX(THEX_Current_Timestep ),
+    .LED_D(LED_D_Done)
+);
 
 endmodule
 
