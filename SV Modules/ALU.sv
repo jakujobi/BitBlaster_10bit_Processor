@@ -16,7 +16,7 @@ module ALU (
     input logic Gout,
     input logic CLKb,
 
-    output logic [9:0] Q
+    output logic [9:0] RES
 );
 
 
