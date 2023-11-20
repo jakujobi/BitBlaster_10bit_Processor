@@ -23,6 +23,10 @@ always_ff @(posedge CLKb) begin
     end
 end
 
+//assign Q0 = Extrn_Enable ? registers[RDA0] : 0;
+//assign Q1 = Extrn_Enable ? registers[RDA1] : 0;
+
+
 // Read operation (Combinational)
 always_comb begin
     if (ENR0) begin
