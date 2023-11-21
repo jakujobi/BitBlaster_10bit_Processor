@@ -16,6 +16,33 @@ module controller(
     output logic Clr
 );
 
+//if the first two bits of the instruction are 00, then we go to next step
+logic [1:0] first_two_bits;
+assign first_two_bits = INST[9:8];
+
+always_comb begin
+    if (first_two_bits == 10) begin
+
+    end
+    else if (first_two_bits == 11) begin
+
+    end
+    else if (first_two_bits == 01) begin
+
+    end
+    else if (first_two_bits == 00) begin
+
+
+
+    end 
+    else begin
+
+    end
+end
+
+always_comb begin
+    case (first_two_bits)
+        2'b01 : 
 
 
 endmodule
