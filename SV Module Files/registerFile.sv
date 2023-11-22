@@ -13,18 +13,18 @@ module registerFile (
     output logic [9:0] Q1    // Output data for Q1
 );
 
-// Define eight 10-bit registers
-logic [9:0] registers[7:0];
+// Define four 10-bit registers
+logic [9:0] registers[3:0];
 
 // Write operation (Clocked)
-always_ff @(posedge CLKb) begin
+always_ff @(negedge CLKb) begin
     if (ENW) begin
         registers[WRA] <= D; // Write data into the register specified by WRA
     end
 end
 
-//assign Q0 = Extrn_Enable ? registers[RDA0] : 0;
-//assign Q1 = Extrn_Enable ? registers[RDA1] : 0;
+//assign Q0 = ENR0 ? registers[RDA0] : 0;
+//assign Q1 = ENR1 ? registers[RDA1] : 0;
 
 
 // Read operation (Combinational)
