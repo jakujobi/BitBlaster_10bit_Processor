@@ -35,6 +35,48 @@ parameter
     ADDI = 4'b1100, //addi Rx, 6’bIIIIII; Add the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] + [6’bIIIIII]
     SUBI = 4'b1101; //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
 
+logic [9:0] A; //Register A
+logic [9:0] G; //Register G (result)
+
+// Prepping the input to register A
+always_ff @(negedge CLKb) begin
+    if (Ain) begin
+        A <= OP; // Load A with OP on negative clock edge when Ain is enabled
+    end
+end
+
+
+// Logic for ALU operations
+always_comb begin
+    case (FN)
+        LOAD:  G = OP;
+        COPY:  G = A;  // Assuming COPY means taking value from A
+        ADD:   G = A + OP;
+        SUB:   G = A - OP;
+        INV:   G = ~A; // Twos complement
+        FLIP:  G = ~A; // Bitwise NOT
+        AND:   G = A & OP;
+        OR:    G = A | OP;
+        XOR:   G = A ^ OP;
+        LSL:   G = A << OP;
+        LSR:   G = A >> OP;
+        ASR:   G = A >>> OP;
+        ADDI:  G = A + OP;  // Immediate value is part of OP
+        SUBI:  G = A - OP;  // Immediate value is part of OP
+        default: G = 10'b0; // Default case to handle undefined operations
+    endcase
+end
+
+
+// Storing the result to RES based on Gout
+always_ff @(negedge CLKb) begin
+    if (Gin) begin
+        RES <= G; // Store result in RES when Gin is enabled
+    end
+end
+
+
+
 endmodule
 
 
