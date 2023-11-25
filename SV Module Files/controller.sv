@@ -16,12 +16,160 @@ module controller(
     output logic Clr        //Clear signal for the timestep counter
 );
 
+
+parameter 
+    LOAD = 4'b0000, //Load 
+    COPY = 4'b0001, //Copy the value from Ry and store to Rx: Rx←[Ry]
+    ADD = 4'b0010,  //add Rx and RY; Add the values in Rx and Ry and store the result inRx:  Rx←[Rx] + [Ry]
+    SUB = 4'b0011,  //sub Rx and RY; Subtract the value in Ry from Rx and store the result inRx:  Rx←[Rx] − [Ry]
+    INV = 4'b0100,  //inv Rx and RY; Take the twos-complement of the value in Ry and store to Rx:  Rx←−[Ry]
+    FLIP = 4'b0101, //flp Rx and RY; Flip the bits of the value in Ry and store to Rx:  Rx←∼[Ry]
+    AND = 4'b0110,  //and Rx and RY; Bit-wise AND the values in Rx and Ry and store the result inRx:  Rx←[Rx] & [Ry]
+    OR = 4'b0111,   //or Rx and RY; Bit-wise OR the values in Rx and Ry and store the result inRx:  Rx←[Rx] | [Ry]
+    XOR = 4'b1000,  //xor Rx and RY; Bit-wise XOR the values in Rx and Ry and store the result inRx:  Rx←[Rx] ⊕ [Ry]
+    LSL = 4'b1001,  //lsl Rx and RY; Logical shift left the value in Rx by Ry and store the result inRx:  Rx←[Rx] << [Ry]
+    LSR = 4'b1010,  //lsr Rx and RY; Logical shift right the value in Rx by Ry and store the result inRx:  Rx←[Rx] >> [Ry]
+    ASR = 4'b1011,  //asr Rx and RY; Arithmetic shift right the value of Rx by Ry and store the result inRx:  Rx←[Rx] >>> [Ry]
+    ADDI = 4'b1100, //addi Rx, 6’bIIIIII; Add the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] + [6’bIIIIII]
+    SUBI = 4'b1101; //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
+
+
 //if the first two bits of the instruction are 00, then we go to next step
 logic [1:0] last_two_bits;
-assign last_two_bits = INST[9:8];
+//assign last_two_bits = INST[9:8];
 
-logic Rx = INST(6:7);
+logic ALU_instruction;
+
+logic Rx;
 logic Ry;
+
+
+// //Initialize all control signals to 0
+// assign IMM = 0;
+// assign Rin = 0;
+// assign Rout = 0;
+// assign ENW = 0;
+// assign ENR = 0;
+// assign Ain = 0;
+// assign Gin = 0;
+// assign Gout = 0;
+// assign ALUcont = 0;
+// assign Ext = 0;
+// assign IRin = 0;
+// assign Clr = 0;
+
+// assign IMM = 0, Rin = 0, Rout = 0, ENW = 0, ENR = 0, Ain = 0, Gin = 0, Gout = 0, ALUcont = 0, Ext = 0, IRin = 0, Clr = 0;
+
+//Determine control signals based on opcode and timestep
+
+
+
+always_comb begin
+    case (T)
+    00: 
+        //Set everything else to 0
+        ENW = 0, WRA = 0, Gout = 0;
+        ENR = 0, Ain = 0, Gin = 0;
+        Clr = 0;  
+        IMM = 10'bz; //Don't let IMM write to the bus from the controller
+
+        Ext = 1;    //Allow external data input
+        IRin = 1;   //Let the instruction register read
+
+    01: 
+        IMM = 10'bz; //Don't let IMM write to the bus from the controller
+
+        Ext = 0;    //Don't allow external data input to the bus
+        IRin = 0;  //Stop the instruction register from reading
+        //By this time, we have the instruction
+
+        last_two_bits = INST[9:8];  //Get the last two bits of the instruction
+        Rx = INST(6:7);            //Get the Rx register
+
+        if (last_two_bits == 00) begin
+            Ry = INST(4:5);     //Get the Ry register
+            ALU_instruction = INST(3:0);    //Get the ALU instruction
+
+            // Logic for ALU operations
+            case (ALU_instruction)
+                LOAD:
+                    Rin = Rx;   //Load the data into the Rx register
+                    enRin = 1;  //Let the register file read
+                    Clr = 1;    //Done with the operation, reset the counter
+                COPY:  
+                ADD:   
+                SUB:   
+                INV:   
+                FLIP:  
+                AND:   
+                OR:    
+                XOR:   
+                LSL:   
+                LSR:   
+                ASR:   
+                ADDI:  
+                SUBI:  
+                default: G = 10'b0; // Default case to handle undefined operations
+            endcase
+
+        end else if (last_two_bits == 01) begin
+            //
+        end else if (last_two_bits == 10) begin
+            //
+        end else if (last_two_bits == 11) begin
+            //
+        end
+
+    10:
+        if (last_two_bits == 00) begin
+            //
+
+            case (ALU_instruction)
+                LOAD:
+                COPY:  
+                ADD:   
+                SUB:   
+                INV:   
+                FLIP:  
+                AND:   
+                OR:    
+                XOR:   
+                LSL:   
+                LSR:   
+                ASR:   
+                ADDI:  
+                SUBI:  
+                default: G = 10'b0; // Default case to handle undefined operations
+            endcase
+
+        end else if (last_two_bits == 01) begin
+            //
+        end else if (last_two_bits == 10) begin
+            //
+        end else if (last_two_bits == 11) begin
+            //
+        end
+
+
+
+    11:
+        if (last_two_bits == 00) begin
+            //
+            Gout = 1;
+            Rin = Rx;
+            enRin = 1;
+            CLR = 1;
+
+        end else if (last_two_bits == 01) begin
+            //
+        end else if (last_two_bits == 10) begin
+            //
+        end else if (last_two_bits == 11) begin
+            //
+        end
+
+endcase
+
 
 
 always_comb begin

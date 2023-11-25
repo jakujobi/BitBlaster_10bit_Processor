@@ -50,17 +50,17 @@ end
 always_comb begin
     case (FN)
         LOAD:  G = OP;
-        COPY:  G = A;  // Assuming COPY means taking value from A
-        ADD:   G = A + OP;
+        COPY:  G = A;  //Copy
+        ADD:   G = A + OP;  // Add
         SUB:   G = A - OP;
         INV:   G = ~A; // Twos complement
         FLIP:  G = ~A; // Bitwise NOT
         AND:   G = A & OP;
         OR:    G = A | OP;
         XOR:   G = A ^ OP;
-        LSL:   G = A << OP;
-        LSR:   G = A >> OP;
-        ASR:   G = A >>> OP;
+        LSL:   G = A << OP; // Logical shift left
+        LSR:   G = A >> OP; // Logical shift right
+        ASR:   G = A >>> OP;    // Arithmetic shift right
         ADDI:  G = A + OP;  // Immediate value is part of OP
         SUBI:  G = A - OP;  // Immediate value is part of OP
         default: G = 10'b0; // Default case to handle undefined operations
