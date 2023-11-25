@@ -2,7 +2,8 @@ module controller(
     input logic [9:0] INST, //Immediatevalue to be used for the two immediate instructions
     input logic [1:0] T,    //Current timestep
 
-    output logic [9:0] IMM,
+    output logic [9:0] IMM, //This put the immediate value we are working with into the bus
+                            // So, like the value we want the register to read
     output logic [1:0] Rin, //Address for the register to be written to, from the shared data bus
     output logic [1:0] Rout,//Address for the register to be read from, to the shared data bus
     output logic ENW,       //Enable signal to write data to the register file
@@ -44,104 +45,56 @@ logic Rx;
 logic Ry;
 
 
-// //Initialize all control signals to 0
-// assign IMM = 0;
-// assign Rin = 0;
-// assign Rout = 0;
-// assign ENW = 0;
-// assign ENR = 0;
-// assign Ain = 0;
-// assign Gin = 0;
-// assign Gout = 0;
-// assign ALUcont = 0;
-// assign Ext = 0;
-// assign IRin = 0;
-// assign Clr = 0;
-
-// assign IMM = 0, Rin = 0, Rout = 0, ENW = 0, ENR = 0, Ain = 0, Gin = 0, Gout = 0, ALUcont = 0, Ext = 0, IRin = 0, Clr = 0;
-
-//Determine control signals based on opcode and timestep
-
-
-
 always_comb begin
     case (T)
-    00: 
+    00: //!____________________________________________________________________
         //Set everything else to 0
-        ENW = 0, WRA = 0, Gout = 0;
-        ENR = 0, Ain = 0, Gin = 0;
+        ENW = 0;
+        WRA = 0;
+        Gout = 0;
+
+        ENR = 0;
+        Ain = 0;
+        Gin = 0;
         Clr = 0;  
         IMM = 10'bz; //Don't let IMM write to the bus from the controller
 
         Ext = 1;    //Allow external data input
         IRin = 1;   //Let the instruction register read
 
-    01: 
-        IMM = 10'bz; //Don't let IMM write to the bus from the controller
-
-        Ext = 0;    //Don't allow external data input to the bus
-        IRin = 0;  //Stop the instruction register from reading
-        //By this time, we have the instruction
+    01: //!_____________________________________________________________________
+        Ext = 0;            //Don't allow external data input to the bus
+        IRin = 0;           //Stop the instruction register from reading
 
         last_two_bits = INST[9:8];  //Get the last two bits of the instruction
-        Rx = INST(6:7);            //Get the Rx register
+        Rx = INST[6:7];            //Get the Rx register
 
-        if (last_two_bits == 00) begin
-            Ry = INST(4:5);     //Get the Ry register
-            ALU_instruction = INST(3:0);    //Get the ALU instruction
+        if (last_two_bits == 00 & INST[3:0] == 0000) begin
+            Rin = Rx;       //Load the data into the Rx register
+            enRin = 1;      //Let the register file read
+            Clr = 1;        //Done with the operation, reset the counter
+        end
+        
+        else if (last_two_bits == 00 & INST[3:0] == 0001) begin 
+            Rout = Rx;      //Prep the Rx register to write
+            ENW = 1;        //Let the register file write to the bus
 
-            // Logic for ALU operations
-            case (ALU_instruction)
-                LOAD:
-                    Rin = Rx;   //Load the data into the Rx register
-                    enRin = 1;  //Let the register file read
-                    Clr = 1;    //Done with the operation, reset the counter
-                COPY:  
-                ADD:   
-                SUB:   
-                INV:   
-                FLIP:  
-                AND:   
-                OR:    
-                XOR:   
-                LSL:   
-                LSR:   
-                ASR:   
-                ADDI:  
-                SUBI:  
-                default: G = 10'b0; // Default case to handle undefined operations
-            endcase
+            Rin = Rx;       //Load the data into the Rx register
+            enRin = 1;      //Let the register file read
+            Clr = 1;        //Done with the operation, reset the counter
+        end
 
-        end else if (last_two_bits == 01) begin
-            //
-        end else if (last_two_bits == 10) begin
-            //
-        end else if (last_two_bits == 11) begin
-            //
+        else begin
+            Rout = Rx;  //Prep the Rx register to write
+            ENW = 1;    //Let the register file write to the bus
+
+            Ain = 1; //Let the A register save the value from the bus
         end
 
     10:
         if (last_two_bits == 00) begin
             //
 
-            case (ALU_instruction)
-                LOAD:
-                COPY:  
-                ADD:   
-                SUB:   
-                INV:   
-                FLIP:  
-                AND:   
-                OR:    
-                XOR:   
-                LSL:   
-                LSR:   
-                ASR:   
-                ADDI:  
-                SUBI:  
-                default: G = 10'b0; // Default case to handle undefined operations
-            endcase
-
         end else if (last_two_bits == 01) begin
             //
         end else if (last_two_bits == 10) begin
@@ -149,8 +102,6 @@ always_comb begin
         end else if (last_two_bits == 11) begin
             //
         end
-
-
 
     11:
         if (last_two_bits == 00) begin
@@ -167,124 +118,8 @@ always_comb begin
         end else if (last_two_bits == 11) begin
             //
         end
-
-endcase
-
-
-
-always_comb begin
-    //!Normal operations
-    if (last_two_bits == 00) begin
-        ALUcont = INST[3:0];
-        Rx = INST(6:7);
-        Ry = INST(4:5);
-
-        if (T == 0) begin
-            //Load data into Rx from the slide switches (external data input): Rx ← Data
-            if (INST[7:4] == 0000) begin
-                Ext = 1;
-            end
-
-            //Copy the value from Ry and store to Rx: Rx ← [Ry]
-            else if (INST[7:4] == 0001) begin
-                Rin = Ry;
-                Rout = Rx;
-                ENR = 1;
-                ENW = 1;
-            end
-
-            //Add the values in Rx and Ry and store the result in Rx: Rx ← [Rx] + [Ry]
-            else if (INST[7:4] == 0010) begin
-                Rin = Rx;
-                Rout = Ry;
-                ENR = 1;
-                ENW = 1;
-                Ain = 1;
-                Gout = 1;
-            end
-
-            //Subtract the value in Ry from Rx and store the result in Rx: Rx ← [Rx] − [Ry]
-            else if (INST[7:4] == 0011) begin
-                Rin = Rx;
-                Rout = Ry;
-                ENR = 1;
-                ENW = 1;
-                Ain = 1;
-                Gout = 1;
-            end
-
-            //Take the twos-complement of the value in Ry and store to Rx: Rx ← −[Ry]
-            else if (INST[7:4] == 0100) begin
-                Rin = Ry;
-                Rout = Rx;
-                ENR = 1;
-                ENW = 1;
-                Ain = 1;
-                Gout = 1;
-            end
-
-            //Flip the bits of the value in Ry and store to Rx: Rx ← ∼[Ry]
-            else if (INST[7:4] == 0101) begin
-                Rin = Ry;
-                Rout = Rx;
-                ENR = 1;
-                ENW = 1;
-                Ain = 1;
-                Gout = 1;
-            end
-
-            //Bit-wise AND the values in Rx and Ry and store the result in Rx: Rx ← [Rx] & [Ry]
-            else if (INST[7:4] == 0110) begin
-                Rin = Rx;
-                Rout = Ry
-                ENR = 1;
-                ENW = 1;
-                Ain = 1;
-                Gout = 1;
-            end
-
-            
-    end
-
-    //! addi Rx
-    else if (last_two_bits == 10) begin
-        //addi Rx, 6'bIIIIII
-        //Add  the  6-bitimmediatevalue  10’b0000IIIIII  (left-padded  with  zeros) 
-            //to  the  value  in  Rx  and  store  inRx:  Rx←[Rx] +10’b0000IIIIII
-        /*
-        if T == 0:
-                Ext = 1
-            if T == 1:
-                ALUcont = <ALU operation for addi>
-                Ain = 1
-                Gout = 1
-        */
-    end
-
-    //! subi Rx
-    else if (last_two_bits == 11) begin
-        //subi Rx, 6'bIIIIII
-        //Subtract  the  6-bitimmediatevalue  10’b0000IIIIII  (left-padded  with  zeros) 
-            //from  the  value  in  Rx  and  store  inRx:  Rx←[Rx] -10’b0000IIIIII
-        /*
-        if T == 0:
-                Ext = 1
-            if T == 1:
-                ALUcont = <ALU operation for subi>
-                Ain = 1
-                Gout = 1
-        */
-    end
-
-    else if (last_two_bits == 01) begin
-        //DO nothing
-    end 
-
-    else begin
-
-    end
+    endcase
 end
-
 
 
 endmodule
@@ -345,3 +180,9 @@ subi Rx, 6’bIIIIII (11_XX_IIIIII)
     - Subtract the 6-bit immediate value 10’b0000IIIIII (left-padded with zeros) from the value in Rx
     - then store in Rx: Rx ← [Rx] - 10’b0000IIIIII
 */
+//        
+//addi    
+//t0 :-  extrn =1  enlr =1 
+//t1 :-  ENW =1 , Rout = RX , AIN = 1 
+//T2 :-  Ain = 0 , Gin = 1 , ALU_Cntr = Instruction , 
+// T3:- Gout =1 , Gin =0 ,  Rin = Rx 
