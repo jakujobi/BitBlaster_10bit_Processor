@@ -36,6 +36,7 @@ parameter
     SUBI = 4'b1101; //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
 
 logic [9:0] A; //Register A
+logic [9:0] Result_from_ALU; //Result from the ALU
 logic [9:0] G; //Register G (result)
 
 // Prepping the input to register A
@@ -49,21 +50,21 @@ end
 // Logic for ALU operations
 always_comb begin
     case (FN)
-        LOAD:  G = OP;
-        COPY:  G = A;  //Copy
-        ADD:   G = A + OP;  // Add
-        SUB:   G = A - OP;
-        INV:   G = ~A; // Twos complement
-        FLIP:  G = ~A; // Bitwise NOT
-        AND:   G = A & OP;
-        OR:    G = A | OP;
-        XOR:   G = A ^ OP;
-        LSL:   G = A << OP; // Logical shift left
-        LSR:   G = A >> OP; // Logical shift right
-        ASR:   G = A >>> OP;    // Arithmetic shift right
-        ADDI:  G = A + OP;  // Immediate value is part of OP
-        SUBI:  G = A - OP;  // Immediate value is part of OP
-        default: G = 10'b0; // Default case to handle undefined operations
+        LOAD:  Result_from_ALU = OP;
+        COPY:  Result_from_ALU = A;  //Copy
+        ADD:   Result_from_ALU = A + OP;  // Add
+        SUB:   Result_from_ALU = A - OP;
+        INV:   Result_from_ALU = ~A; // Twos complement
+        FLIP:  Result_from_ALU = ~A; // Bitwise NOT
+        AND:   Result_from_ALU = A & OP;
+        OR:    Result_from_ALU = A | OP;
+        XOR:   Result_from_ALU = A ^ OP;
+        LSL:   Result_from_ALU = A << OP; // Logical shift left
+        LSR:   Result_from_ALU = A >> OP; // Logical shift right
+        ASR:   Result_from_ALU = A >>> OP;    // Arithmetic shift right
+        ADDI:  Result_from_ALU = A + OP;  // Immediate value is part of OP
+        SUBI:  Result_from_ALU = A - OP;  // Immediate value is part of OP
+        default: Result_from_ALU = 10'b0; // Default case to handle undefined operations
     endcase
 end
 
@@ -71,10 +72,16 @@ end
 // Storing the result to RES based on Gout
 always_ff @(negedge CLKb) begin
     if (Gin) begin
-        RES <= G; // Store result in RES when Gin is enabled
+        G <= Result_from_ALU; // Store result in RES when Gin is enabled
     end
 end
 
+// Storing the result to RES based on Gout
+always_ff @(negedge CLKb) begin
+    if (Gout) begin
+        RES <= G; // Store result in RES when Gout is enabled ,,, put the result on the bus 
+    end
+end
 
 
 endmodule
