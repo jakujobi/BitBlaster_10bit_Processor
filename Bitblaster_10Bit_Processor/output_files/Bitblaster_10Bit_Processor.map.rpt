@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Bitblaster_10Bit_Processor
-Sat Nov 18 15:20:45 2023
+Sat Nov 25 14:45:42 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -10,23 +10,8 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
- 10. General Register Statistics
- 11. Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:peek_debouncer
- 12. Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:clk_debouncer
- 13. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod0
- 14. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div0
- 15. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod1
- 16. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div1
- 17. Port Connectivity Checks: "registerFile:registerFileModule"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -53,22 +38,22 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 18 15:20:44 2023          ;
+; Analysis & Synthesis Status        ; Failed - Sat Nov 25 14:45:42 2023              ;
 ; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                      ; Bitblaster_10Bit_Processor                     ;
 ; Top-level Entity Name              ; Bitblaster_10Bit_Processor                     ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 28                                             ;
-;     Total combinational functions  ; 28                                             ;
-;     Dedicated logic registers      ; 19                                             ;
-; Total registers                    ; 19                                             ;
-; Total pins                         ; 52                                             ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
-; Total PLLs                         ; 0                                              ;
-; UFM blocks                         ; 0                                              ;
-; ADC blocks                         ; 0                                              ;
+; Total logic elements               ; N/A until Partition Merge                      ;
+;     Total combinational functions  ; N/A until Partition Merge                      ;
+;     Dedicated logic registers      ; N/A until Partition Merge                      ;
+; Total registers                    ; N/A until Partition Merge                      ;
+; Total pins                         ; N/A until Partition Merge                      ;
+; Total virtual pins                 ; N/A until Partition Merge                      ;
+; Total memory bits                  ; N/A until Partition Merge                      ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
+; Total PLLs                         ; N/A until Partition Merge                      ;
+; UFM blocks                         ; N/A until Partition Merge                      ;
+; ADC blocks                         ; N/A until Partition Merge                      ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -167,372 +152,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 10          ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-10        ;   0.0%      ;
 +----------------------------+-------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                  ;
-+--------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                 ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                                                              ; Library ;
-+--------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; ../SV Module Files/Bitblaster_10Bit_Processor.sv ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv         ;         ;
-; ../SV Module Files/ALU.sv                        ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/ALU.sv                                ;         ;
-; ../SV Module Files/upcount2.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/upcount2.sv                           ;         ;
-; ../SV Module Files/registerFile.sv               ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv                       ;         ;
-; ../SV Module Files/reg10.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/reg10.sv                              ;         ;
-; ../SV Module Files/outputlogic.sv                ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv                        ;         ;
-; ../SV Module Files/inputlogic.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/inputlogic.sv                         ;         ;
-; ../SV Module Files/debouncer.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/debouncer.sv                          ;         ;
-; ../SV Module Files/controller.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv                         ;         ;
-; lpm_divide.tdf                                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                                                                                  ;         ;
-; abs_divider.inc                                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/abs_divider.inc                                                                                                 ;         ;
-; sign_div_unsign.inc                              ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                                                                                             ;         ;
-; aglobal221.inc                                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                                                                                                  ;         ;
-; db/lpm_divide_lll.tdf                            ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_lll.tdf      ;         ;
-; db/sign_div_unsign_klh.tdf                       ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/sign_div_unsign_klh.tdf ;         ;
-; db/alt_u_div_ihe.tdf                             ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/alt_u_div_ihe.tdf       ;         ;
-; db/add_sub_t3c.tdf                               ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/add_sub_t3c.tdf         ;         ;
-; db/add_sub_u3c.tdf                               ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/add_sub_u3c.tdf         ;         ;
-; db/lpm_divide_itl.tdf                            ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_itl.tdf      ;         ;
-; db/lpm_divide_ltl.tdf                            ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_ltl.tdf      ;         ;
-; db/sign_div_unsign_nlh.tdf                       ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/sign_div_unsign_nlh.tdf ;         ;
-; db/alt_u_div_ohe.tdf                             ; yes             ; Auto-Generated Megafunction  ; D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/alt_u_div_ohe.tdf       ;         ;
-+--------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                     ;
-+---------------------------------------------+-------------------+
-; Resource                                    ; Usage             ;
-+---------------------------------------------+-------------------+
-; Estimated Total logic elements              ; 28                ;
-;                                             ;                   ;
-; Total combinational functions               ; 28                ;
-; Logic element usage by number of LUT inputs ;                   ;
-;     -- 4 input functions                    ; 5                 ;
-;     -- 3 input functions                    ; 2                 ;
-;     -- <=2 input functions                  ; 21                ;
-;                                             ;                   ;
-; Logic elements by mode                      ;                   ;
-;     -- normal mode                          ; 13                ;
-;     -- arithmetic mode                      ; 15                ;
-;                                             ;                   ;
-; Total registers                             ; 19                ;
-;     -- Dedicated logic registers            ; 19                ;
-;     -- I/O registers                        ; 0                 ;
-;                                             ;                   ;
-; I/O pins                                    ; 52                ;
-;                                             ;                   ;
-; Embedded Multiplier 9-bit elements          ; 0                 ;
-;                                             ;                   ;
-; Maximum fan-out node                        ; Clock_50MHz~input ;
-; Maximum fan-out                             ; 17                ;
-; Total fan-out                               ; 178               ;
-; Average fan-out                             ; 1.18              ;
-+---------------------------------------------+-------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                   ;
-+------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+----------------------------+--------------+
-; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                             ; Entity Name                ; Library Name ;
-+------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+----------------------------+--------------+
-; |Bitblaster_10Bit_Processor        ; 28 (0)              ; 19 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 52   ; 0            ; 0          ; |Bitblaster_10Bit_Processor                                                     ; Bitblaster_10Bit_Processor ; work         ;
-;    |inputlogic:inputLogicModule|   ; 23 (0)              ; 17 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Bitblaster_10Bit_Processor|inputlogic:inputLogicModule                         ; inputlogic                 ; work         ;
-;       |debouncer:clk_debouncer|    ; 23 (23)             ; 17 (17)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Bitblaster_10Bit_Processor|inputlogic:inputLogicModule|debouncer:clk_debouncer ; debouncer                  ; work         ;
-;    |outputlogic:outputLogicModule| ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Bitblaster_10Bit_Processor|outputlogic:outputLogicModule                       ; outputlogic                ; work         ;
-;    |upcount2:countermodule|        ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Bitblaster_10Bit_Processor|upcount2:countermodule                              ; upcount2                   ; work         ;
-+------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------+----------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                         ;
-+-------------------------------------------------------------------+----------------------------------------+
-; Register name                                                     ; Reason for Removal                     ;
-+-------------------------------------------------------------------+----------------------------------------+
-; registerFile:registerFileModule|registers~40                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~41                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~42                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~43                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~44                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~45                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~46                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~47                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~48                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~49                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~50                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~51                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~52                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~53                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~54                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~55                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~56                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~57                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~58                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~59                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~60                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~61                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~62                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~63                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~64                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~65                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~66                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~67                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~68                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~69                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~70                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~71                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~72                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~73                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~74                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~75                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~76                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~77                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~78                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~79                      ; Lost fanout                            ;
-; registerFile:registerFileModule|registers~9                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~19                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~29                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~39                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~8                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~18                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~28                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~38                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~7                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~17                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~27                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~37                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~6                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~16                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~26                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~36                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~5                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~15                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~25                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~35                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~4                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~14                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~24                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~34                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~3                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~13                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~23                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~33                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~2                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~12                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~22                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~32                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~1                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~11                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~21                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~31                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~0                       ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~10                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~20                      ; Stuck at GND due to stuck port data_in ;
-; registerFile:registerFileModule|registers~30                      ; Stuck at GND due to stuck port data_in ;
-; inputlogic:inputLogicModule|debouncer:peek_debouncer|A            ; Lost fanout                            ;
-; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[0..15] ; Lost fanout                            ;
-; Total Number of Removed Registers = 97                            ;                                        ;
-+-------------------------------------------------------------------+----------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                               ;
-+---------------------------------------------+---------------------------+-----------------------------------------------------------------+
-; Register name                               ; Reason for Removal        ; Registers Removed due to This Register                          ;
-+---------------------------------------------+---------------------------+-----------------------------------------------------------------+
-; registerFile:registerFileModule|registers~9 ; Stuck at GND              ; inputlogic:inputLogicModule|debouncer:peek_debouncer|A,         ;
-;                                             ; due to stuck port data_in ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[4],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[6],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[7],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[8],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[9],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[10], ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[11], ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[12], ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[13], ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[14], ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[15], ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[3],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[2],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[1],  ;
-;                                             ;                           ; inputlogic:inputLogicModule|debouncer:peek_debouncer|COUNT[0]   ;
-+---------------------------------------------+---------------------------+-----------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 19    ;
-; Number of registers using Synchronous Clear  ; 16    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:peek_debouncer ;
-+----------------+------------------+---------------------------------------------------------------+
-; Parameter Name ; Value            ; Type                                                          ;
-+----------------+------------------+---------------------------------------------------------------+
-; COMPARE        ; 1100001101010000 ; Unsigned Binary                                               ;
-+----------------+------------------+---------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:clk_debouncer ;
-+----------------+------------------+--------------------------------------------------------------+
-; Parameter Name ; Value            ; Type                                                         ;
-+----------------+------------------+--------------------------------------------------------------+
-; COMPARE        ; 1100001101010000 ; Unsigned Binary                                              ;
-+----------------+------------------+--------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                              ;
-; LPM_WIDTHD             ; 4              ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div0 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                              ;
-; LPM_WIDTHD             ; 4              ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_itl ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod1 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                              ;
-; LPM_WIDTHD             ; 4              ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div1 ;
-+------------------------+----------------+------------------------------------------------------+
-; Parameter Name         ; Value          ; Type                                                 ;
-+------------------------+----------------+------------------------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                                              ;
-; LPM_WIDTHD             ; 7              ; Untyped                                              ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
-; LPM_PIPELINE           ; 0              ; Untyped                                              ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
-; CBXI_PARAMETER         ; lpm_divide_ltl ; Untyped                                              ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
-+------------------------+----------------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------+
-; Port Connectivity Checks: "registerFile:registerFileModule" ;
-+------+-------+----------+-----------------------------------+
-; Port ; Type  ; Severity ; Details                           ;
-+------+-------+----------+-----------------------------------+
-; ENR1 ; Input ; Info     ; Stuck at VCC                      ;
-+------+-------+----------+-----------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 52                          ;
-; cycloneiii_ff         ; 19                          ;
-;     SCLR              ; 16                          ;
-;     plain             ; 3                           ;
-; cycloneiii_lcell_comb ; 31                          ;
-;     arith             ; 15                          ;
-;         2 data inputs ; 15                          ;
-;     normal            ; 16                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 5                           ;
-;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.24                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:02     ;
-+----------------+--------------+
 
 
 +-------------------------------+
@@ -541,7 +165,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sat Nov 18 15:20:33 2023
+    Info: Processing started: Sat Nov 25 14:45:32 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Bitblaster_10Bit_Processor -c Bitblaster_10Bit_Processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -571,214 +195,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file /onedri
     Info (12023): Found entity 1: debouncer File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/debouncer.sv Line: 15
 Info (12021): Found 1 design units, including 1 entities, in source file /onedrive - south dakota state university - sdsu/#sdsu courses/csc 244 - digital logic/bitblaster_10bit_processor/sv module files/d_ff_neg.sv
     Info (12023): Found entity 1: D_FF_neg File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/D_FF_neg.sv Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file /onedrive - south dakota state university - sdsu/#sdsu courses/csc 244 - digital logic/bitblaster_10bit_processor/sv module files/controller.sv
-    Info (12023): Found entity 1: controller File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 1
-Info (12127): Elaborating entity "Bitblaster_10Bit_Processor" for the top level hierarchy
-Info (12128): Elaborating entity "inputlogic" for hierarchy "inputlogic:inputLogicModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 43
-Warning (10230): Verilog HDL assignment warning at inputlogic.sv(38): truncated value with size 32 to match size of target (10) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/inputlogic.sv Line: 38
-Info (12128): Elaborating entity "debouncer" for hierarchy "inputlogic:inputLogicModule|debouncer:peek_debouncer" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/inputlogic.sv Line: 26
-Info (12128): Elaborating entity "upcount2" for hierarchy "upcount2:countermodule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 50
-Info (12128): Elaborating entity "reg10" for hierarchy "reg10:instructionRegister" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 58
-Info (12128): Elaborating entity "controller" for hierarchy "controller:controllerModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 95
-Warning (10034): Output port "IMM" at controller.sv(5) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 5
-Warning (10034): Output port "Rin" at controller.sv(6) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 6
-Warning (10034): Output port "Rout" at controller.sv(7) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 7
-Warning (10034): Output port "ALUcont" at controller.sv(13) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 13
-Warning (10034): Output port "ENW" at controller.sv(8) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 8
-Warning (10034): Output port "ENR" at controller.sv(9) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 9
-Warning (10034): Output port "Ain" at controller.sv(10) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 10
-Warning (10034): Output port "Gin" at controller.sv(11) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 11
-Warning (10034): Output port "Gout" at controller.sv(12) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 12
-Warning (10034): Output port "Ext" at controller.sv(14) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 14
-Warning (10034): Output port "IRin" at controller.sv(15) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 15
-Warning (10034): Output port "Clr" at controller.sv(17) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 17
-Warning (12158): Entity "controller" contains only dangling pins File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 95
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:registerFileModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 113
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:multistageALU" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 127
-Warning (10034): Output port "RES" at ALU.sv(20) has no driver File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/ALU.sv Line: 20
-Warning (12158): Entity "ALU" contains only dangling pins File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 127
-Info (12128): Elaborating entity "outputlogic" for hierarchy "outputlogic:outputLogicModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 144
-Warning (10230): Verilog HDL assignment warning at outputlogic.sv(53): truncated value with size 32 to match size of target (4) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
-Warning (10230): Verilog HDL assignment warning at outputlogic.sv(54): truncated value with size 32 to match size of target (4) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
-Warning (10230): Verilog HDL assignment warning at outputlogic.sv(55): truncated value with size 32 to match size of target (4) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
-Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[0]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[1]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[2]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[3]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[4]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[5]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[6]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[7]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[8]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[9]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 14
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276004): RAM logic "registerFile:registerFileModule|registers" is uninferred due to inappropriate RAM size File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 17
-Info (278001): Inferred 4 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Mod0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Div0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Mod1" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Div1" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
-Info (12130): Elaborated megafunction instantiation "outputlogic:outputLogicModule|lpm_divide:Mod0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
-Info (12133): Instantiated megafunction "outputlogic:outputLogicModule|lpm_divide:Mod0" with the following parameter: File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
-    Info (12134): Parameter "LPM_WIDTHN" = "10"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lll.tdf
-    Info (12023): Found entity 1: lpm_divide_lll File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_lll.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_klh File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/sign_div_unsign_klh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ihe.tdf
-    Info (12023): Found entity 1: alt_u_div_ihe File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/alt_u_div_ihe.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
-    Info (12023): Found entity 1: add_sub_t3c File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/add_sub_t3c.tdf Line: 23
-Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
-    Info (12023): Found entity 1: add_sub_u3c File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/add_sub_u3c.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "outputlogic:outputLogicModule|lpm_divide:Div0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
-Info (12133): Instantiated megafunction "outputlogic:outputLogicModule|lpm_divide:Div0" with the following parameter: File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
-    Info (12134): Parameter "LPM_WIDTHN" = "10"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_itl.tdf
-    Info (12023): Found entity 1: lpm_divide_itl File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_itl.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "outputlogic:outputLogicModule|lpm_divide:Div1" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
-Info (12133): Instantiated megafunction "outputlogic:outputLogicModule|lpm_divide:Div1" with the following parameter: File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
-    Info (12134): Parameter "LPM_WIDTHN" = "10"
-    Info (12134): Parameter "LPM_WIDTHD" = "7"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ltl.tdf
-    Info (12023): Found entity 1: lpm_divide_ltl File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_ltl.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_nlh File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/sign_div_unsign_nlh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ohe.tdf
-    Info (12023): Found entity 1: alt_u_div_ohe File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/alt_u_div_ohe.tdf Line: 27
-Warning (13032): The following tri-state nodes are fed by constants
-    Warning (13033): The pin "LED_B_Data_Bus[0]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[0]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[0]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[1]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[1]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[1]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[2]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[2]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[2]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[3]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[3]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[3]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[4]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[4]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[4]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[5]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[5]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[5]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[6]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[6]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[6]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[7]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[7]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[7]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[8]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[8]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[8]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[9]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[9]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13033): The pin "LED_B_Data_Bus[9]" is fed by GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-Warning (13027): Removed fan-outs from the following always-disabled I/O buffers
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[0]" to the node "LED_B_Data_Bus[0]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[1]" to the node "LED_B_Data_Bus[1]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[2]" to the node "LED_B_Data_Bus[2]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[3]" to the node "LED_B_Data_Bus[3]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[4]" to the node "LED_B_Data_Bus[4]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[5]" to the node "LED_B_Data_Bus[5]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[6]" to the node "LED_B_Data_Bus[6]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[7]" to the node "LED_B_Data_Bus[7]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[8]" to the node "LED_B_Data_Bus[8]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-    Warning (13028): Removed fan-out from the always-disabled I/O buffer "registerFile:registerFileModule|Q0[9]" to the node "LED_B_Data_Bus[9]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 12
-Warning (13050): Open-drain buffer(s) that do not directly drive top-level pin(s) are removed
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[0]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[1]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[2]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[3]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[4]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[5]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[6]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[7]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[8]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13051): Converted the fanout from the open-drain buffer "Shared_Data_Bus[9]" to the node "outputlogic:outputLogicModule|hex_value" into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-Warning (13030): Reduced the following open-drain buffers that are fed by GND
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[0]" to the output pin "LED_B_Data_Bus[0]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[1]" to the output pin "LED_B_Data_Bus[1]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[2]" to the output pin "LED_B_Data_Bus[2]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[3]" to the output pin "LED_B_Data_Bus[3]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[4]" to the output pin "LED_B_Data_Bus[4]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[5]" to the output pin "LED_B_Data_Bus[5]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[6]" to the output pin "LED_B_Data_Bus[6]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[7]" to the output pin "LED_B_Data_Bus[7]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[8]" to the output pin "LED_B_Data_Bus[8]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-    Warning (13031): Reduced fanout from the always-enabled open-drain buffer "Shared_Data_Bus[9]" to the output pin "LED_B_Data_Bus[9]" to GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 20
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LED_B_Data_Bus[0]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[1]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[2]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[3]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[4]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[5]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[6]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[7]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[8]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "LED_B_Data_Bus[9]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
-    Warning (13410): Pin "DHEX0[0]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX0[1]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX0[2]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX0[3]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX0[4]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX0[5]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX0[6]" is stuck at VCC File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 10
-    Warning (13410): Pin "DHEX1[0]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX1[1]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX1[2]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX1[3]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX1[4]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX1[5]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX1[6]" is stuck at VCC File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 11
-    Warning (13410): Pin "DHEX2[0]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "DHEX2[1]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "DHEX2[2]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "DHEX2[3]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "DHEX2[4]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "DHEX2[5]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "DHEX2[6]" is stuck at VCC File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 12
-    Warning (13410): Pin "THEX_Current_Timestep[1]" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 13
-    Warning (13410): Pin "LED_D_Done" is stuck at GND File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 15
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 57 registers lost all their fanouts during netlist optimizations.
+Error (10170): Verilog HDL syntax error at controller.sv(71) near text: ",";  expecting ";". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 71
+Error (10170): Verilog HDL syntax error at controller.sv(82) near text: "=";  expecting "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 82
+Error (10170): Verilog HDL syntax error at controller.sv(97) near text: "=";  expecting "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 97
+Error (10170): Verilog HDL syntax error at controller.sv(101) near text: ":";  expecting "<=", or "=", or "+=", or "-=", or "*=", or "/=", or "%=", or "&=", or "|=", or "^=", or "<<=", or ">>=", or "<<<=", or ">>>=", or "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 101
+Error (10170): Verilog HDL syntax error at controller.sv(104) near text: ":";  expecting "<=", or "=", or "+=", or "-=", or "*=", or "/=", or "%=", or "&=", or "|=", or "^=", or "<<=", or ">>=", or "<<<=", or ">>>=", or "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 104
+Error (10170): Verilog HDL syntax error at controller.sv(107) near text: ":";  expecting "<=", or "=", or "+=", or "-=", or "*=", or "/=", or "%=", or "&=", or "|=", or "^=", or "<<=", or ">>=", or "<<<=", or ">>>=", or "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 107
+Error (10170): Verilog HDL syntax error at controller.sv(110) near text: ":";  expecting "<=", or "=", or "+=", or "-=", or "*=", or "/=", or "%=", or "&=", or "|=", or "^=", or "<<=", or ">>=", or "<<<=", or ">>>=", or "++", or "--". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 110
+Error (10170): Verilog HDL syntax error at controller.sv(115) near text: "else";  expecting "endmodule". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 115
+Error (10170): Verilog HDL syntax error at controller.sv(189) near text: "==";  expecting ".", or an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 189
+Error (10170): Verilog HDL syntax error at controller.sv(197) near text: "==";  expecting ".", or an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 197
+Error (10170): Verilog HDL syntax error at controller.sv(207) near text: "==";  expecting ".", or an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 207
+Error (10170): Verilog HDL syntax error at controller.sv(217) near text: "==";  expecting ".", or an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 217
+Error (10170): Verilog HDL syntax error at controller.sv(227) near text: "==";  expecting ".", or an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 227
+Error (10170): Verilog HDL syntax error at controller.sv(237) near text: "==";  expecting ".", or an identifier. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 237
+Info (12021): Found 0 design units, including 0 entities, in source file /onedrive - south dakota state university - sdsu/#sdsu courses/csc 244 - digital logic/bitblaster_10bit_processor/sv module files/controller.sv
 Info (144001): Generated suppressed messages file D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/output_files/Bitblaster_10Bit_Processor.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[2]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[3]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[4]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[5]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[6]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[7]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[8]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[9]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[0]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Raw_Data_From_Switches[1]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 4
-    Warning (15610): No output dependent on input pin "Peek_Button" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 6
-Info (21057): Implemented 80 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 13 input pins
-    Info (21059): Implemented 39 output pins
-    Info (21061): Implemented 28 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 141 warnings
-    Info: Peak virtual memory: 4845 megabytes
-    Info: Processing ended: Sat Nov 18 15:20:45 2023
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:03
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 14 errors, 1 warning
+    Error: Peak virtual memory: 4720 megabytes
+    Error: Processing ended: Sat Nov 25 14:45:42 2023
+    Error: Elapsed time: 00:00:10
+    Error: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+
