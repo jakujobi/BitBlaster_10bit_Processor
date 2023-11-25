@@ -1,14 +1,15 @@
 
 module registerFile (
     input logic [9:0] D,     // Common 10-bit input data
-    input logic ENW,         // Write enable
-    input logic ENR0,        // Read enable for Q0
-    input logic ENR1,        // Read enable for Q1
+    input logic ENW,         // Write enable to QO
+    input logic ENR0,        // Read enable for Register
+    input logic ENR1,        // Read enable for register peek
     input logic CLKb,        // Clock signal (negative edge triggered)
+
     input logic [1:0] WRA,   // Write address (2-bit)
     input logic [1:0] RDA0,  // Read address for Q0 (2-bit)
     input logic [1:0] RDA1,  // Read address for Q1 (2-bit)
-    
+
     output logic [9:0] Q0,   // Output data for Q0
     output logic [9:0] Q1    // Output data for Q1
 );
@@ -16,7 +17,7 @@ module registerFile (
 // Define four 10-bit registers
 logic [9:0] registers[3:0];
 
-// Write operation (Clocked)
+// Write operation (Clocked) to the registers
 always_ff @(negedge CLKb) begin
     if (ENW) begin
         registers[WRA] <= D; // Write data into the register specified by WRA
