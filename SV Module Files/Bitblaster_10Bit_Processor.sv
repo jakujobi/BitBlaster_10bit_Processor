@@ -59,7 +59,7 @@ reg10 instructionRegister (
 
 //!____________________________________________________________________________________________________________________________________
 logic ENW_ENW;
-logic [1:0] Rin_WRA;
+logic [1:0] Rin_WRA;    //The address of the register to write to
 logic [1:0] Rout_RDA0;
 logic ENR_ENR0;
 
@@ -95,16 +95,15 @@ controller controllerModule(
 );
 
 //! Register File
-logic ENR1_1bit = 1'b1;
 registerFile registerFileModule (
     .D (Shared_Data_Bus),   // Common 10-bit input data
-    .ENR0(ENR_ENR0),        // Read enable for Q0
+    .ENR0(ENR_ENR0),        // Read enable for Normal
     .ENR1(ENR1_1bit),       // Read enable for Q1
 
     .CLKb(Debounced_Clock), // Clock signal (negative edge triggered)
 
     .ENW (ENW_ENW),         // Write enable
-    .WRA(Rin_WRA),          // Write address (2-bit)
+    .WRA(Rin_WRA),          // Read address (2-bit) This means read from the databus and write on the rx register inside it
     .RDA0(Rout_RDA0),       // Read address for Q0 (2-bit)
     .RDA1(Data_2_bits),     // Read address for Q1 (2-bit)
     

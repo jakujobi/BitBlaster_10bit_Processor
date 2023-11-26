@@ -144,8 +144,8 @@ A <= A~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Bitblaster_10Bit_Processor|upcount2:countermodule
-CLR => CNT[0]~reg0.ACLR
-CLR => CNT[1]~reg0.ACLR
+CLR => CNT.OUTPUTSELECT
+CLR => CNT.OUTPUTSELECT
 CLKb => CNT[0]~reg0.CLK
 CLKb => CNT[1]~reg0.CLK
 CNT[0] <= CNT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -197,29 +197,27 @@ Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |Bitblaster_10Bit_Processor|controller:controllerModule
 INST[0] => ALUcont[0].DATAB
-INST[0] => IMM[0].DATAA
+INST[0] => IMM[0].DATAIN
 INST[0] => Equal2.IN3
 INST[0] => Equal3.IN0
 INST[1] => ALUcont[1].DATAB
-INST[1] => IMM[1].DATAA
+INST[1] => IMM[1].DATAIN
 INST[1] => Equal2.IN2
 INST[1] => Equal3.IN3
 INST[2] => ALUcont[2].DATAB
-INST[2] => IMM[2].DATAA
+INST[2] => IMM[2].DATAIN
 INST[2] => Equal2.IN1
 INST[2] => Equal3.IN2
 INST[3] => ALUcont[3].DATAB
-INST[3] => IMM[3].DATAA
+INST[3] => IMM[3].DATAIN
 INST[3] => Equal2.IN0
 INST[3] => Equal3.IN1
 INST[4] => Rin.DATAB
 INST[4] => Rout.DATAB
-INST[4] => IMM[0].DATAB
-INST[4] => IMM[4].DATAA
+INST[4] => IMM[4].DATAIN
 INST[5] => Rin.DATAB
 INST[5] => Rout.DATAB
-INST[5] => IMM[1].DATAB
-INST[5] => IMM[5].DATAA
+INST[5] => IMM[5].DATAIN
 INST[6] => Rin.DATAB
 INST[6] => Rout.DATAA
 INST[6] => Rin.DATAB
@@ -261,7 +259,7 @@ ALUcont[0] <= ALUcont[0].DB_MAX_OUTPUT_PORT_TYPE
 ALUcont[1] <= ALUcont[1].DB_MAX_OUTPUT_PORT_TYPE
 ALUcont[2] <= ALUcont[2].DB_MAX_OUTPUT_PORT_TYPE
 ALUcont[3] <= ALUcont[3].DB_MAX_OUTPUT_PORT_TYPE
-Ext <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+Ext <= Ext.DB_MAX_OUTPUT_PORT_TYPE
 IRin <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 Clr <= Clr.DB_MAX_OUTPUT_PORT_TYPE
 

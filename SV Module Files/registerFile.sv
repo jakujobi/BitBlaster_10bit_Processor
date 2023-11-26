@@ -17,13 +17,13 @@ module registerFile (
 // Define four 10-bit registers
 logic [9:0] registers[3:0];
 
-// Initial block to set all registers to zero
-initial begin
-    registers[0] = 10'b0;
-    registers[1] = 10'b0;
-    registers[2] = 10'b0;
-    registers[3] = 10'b0;
-end
+// // Initial block to set all registers to zero
+// initial begin
+//     registers[0] = 10'b0000000001;   //Todo
+//     registers[1] = 10'b0000000001;   //todo
+//     registers[2] = 10'b0;
+//     registers[3] = 10'b0;
+// end
 
 // assign Q0 = 10'bzzzzzzzzzz;
 // assign Q1 = 10'bzzzzzzzzzz;

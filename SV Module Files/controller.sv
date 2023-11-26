@@ -34,14 +34,8 @@ parameter
     ADDI = 4'b1100,             //addi Rx, 6’bIIIIII; Add the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] + [6’bIIIIII]
     SUBI = 4'b1101;             //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
 
-
-//assign INST[9:8] = INST[9:8];
-
-//logic ALU_instruction;
-
 logic [1:0] Rx; //Rx register
 logic [1:0] Ry; //Ry register
-
 
 always_comb begin
     // Initialize all outputs to default values
@@ -58,6 +52,7 @@ always_comb begin
     IRin = 1'b0;            // Default value for IRin
     Clr = 1'b0;             // Default value for Clr
 
+    //! T0: T = 00 Get the instruction from extern into the instruction register
     if (T == 2'b00) begin
             //Set everything else to 0
 
@@ -75,93 +70,94 @@ always_comb begin
         IRin = 1'b0;            // Default value for IRin
         Clr = 1'b0;             // Default value for Clr
 
-            Ext = 1;                    //Allow external data input
-            IRin = 1;                   //Let the instruction register read
+        Ext = 1;                    //Allow external data input
+        IRin = 1;                   //Let the instruction register read
 
+    //! T1: T = 01
     end else if (T == 2'b01) begin
-            // Initialize all outputs to default values
-            IMM = 10'bzzzzzzzzzz;   // Default value for IMM
-            Rin = 2'b0;             // Default value for Rin
-            Rout = 2'b0;            // Default value for Rout
-            ENW = 1'b0;             // Default value for ENW
-            ENR = 1'b0;             // Default value for ENR
-            Ain = 1'b0;             // Default value for Ain
-            Gin = 1'b0;             // Default value for Gin
-            Gout = 1'b0;            // Default value for Gout
-            ALUcont = 4'bzzzz;      // Default value for ALUcont
-            Ext = 1'b0;             // Default value for Ext
-            IRin = 1'b0;            // Default value for IRin
-            Clr = 1'b0;             // Default value for Clr
+        // Initialize all outputs to default values
+        IMM = 10'bzzzzzzzzzz;   // Default value for IMM
+        Rin = 2'b0;             // Default value for Rin
+        Rout = 2'b0;            // Default value for Rout
+        ENW = 1'b0;             // Default value for ENW
+        ENR = 1'b0;             // Default value for ENR
+        Ain = 1'b0;             // Default value for Ain
+        Gin = 1'b0;             // Default value for Gin
+        Gout = 1'b0;            // Default value for Gout
+        ALUcont = 4'bzzzz;      // Default value for ALUcont
+        Ext = 1'b0;             // Default value for Ext
+        IRin = 1'b0;            // Default value for IRin
+        Clr = 1'b0;             // Default value for Clr
 
-            //Rx = INST[7:6];             //Get the Rx register
-            
-            if (INST[9:8] == 2'b00 && INST[3:0] == LOAD) begin //4'b0000 equals to LOAD
-                 IMM[1:0] = INST[5:4];   //Get the immediate value from the instruction
-                 IMM[9:2] = 7'b00000000;  //Set the sign bit to 0
+        //Rx = INST[7:6];               //Get the Rx register
+        //Ry = INST[5:4];               //Get the Ry register
+        if (INST[9:8] == 2'b00 && INST[3:0] == LOAD) begin //4'b0000 equals to LOAD
+            // IMM[1:0] = INST[5:4];      //Get the immediate value from the instruction
+            // IMM[9:2] = 7'b00000000;    //Set the bits to 0
+            Ext = 1;                    //Allow external data input
+            Rin = INST[7:6];            //Load the data into the Rx register
+            ENR = 1;                    //Let the register file read
+            Clr = 1;                    //Done with the operation, reset the counter
+        end
+        
+        else if (INST[9:8] == 2'b00 && INST[3:0] == COPY) begin //4'b0001 equals to COPY
+            Rout = INST[7:6];           //Prep the Rx register to write
+            ENW = 1;                    //Let the register file write to the bus
 
-                Rin = INST[7:6];               //Load the data into the Rx register
-                ENR = 1;              //Let the register file read
-                Clr = 1;                //Done with the operation, reset the counter
-            end
-            
-            else if (INST[9:8] == 2'b00 && INST[3:0] == COPY) begin //4'b0001 equals to COPY
-                Rout = INST[7:6];              //Prep the Rx register to write
-                ENW = 1;                //Let the register file write to the bus
+            Rin = INST[5:4];            //Load the data into the Rx register
+            ENR = 1;                    //Let the register file read
+            Clr = 1;                    //Done with the operation, reset the counter
+        end
 
-                Rin = INST[5:4];               //Load the data into the Rx register
-                ENR = 1;              //Let the register file read
-                Clr = 1;                //Done with the operation, reset the counter
-            end
-
-            else begin
-                Rout = INST[7:6];              //Prep the Rx register to write
-                ENW = 1;                //Let the register file write to the bus
-
-                Ain = 1;                //Let the A register save the value from the bus
-            end
+        else begin
+            Rout = INST[7:6];           //Prep the Rx register to write
+            ENW = 1;                    //Let the register file write to the bus
+            Ain = 1;                    //Let the A register save the value from the bus
+        end
     end
+
+    //! T2: T = 10
     else if (T == 2'b10) begin
-            // Initialize all outputs to default values
-            IMM = 10'bzzzzzzzzzz;   // Default value for IMM
-            Rin = 2'b0;             // Default value for Rin
-            Rout = 2'b0;            // Default value for Rout
-            ENW = 1'b0;             // Default value for ENW
-            ENR = 1'b0;             // Default value for ENR
-            Ain = 1'b0;             // Default value for Ain
-            //Gin = 1'b0;             // Default value for Gin
-            Gout = 1'b0;            // Default value for Gout
-            ALUcont = 4'bzzzz;      // Default value for ALUcont
-            Ext = 1'b0;             // Default value for Ext
-            IRin = 1'b0;            // Default value for IRin
-            Clr = 1'b0;             // Default value for Clr
+        // Initialize all outputs to default values
+        IMM = 10'bzzzzzzzzzz;   // Default value for IMM
+        Rin = 2'b0;             // Default value for Rin
+        Rout = 2'b0;            // Default value for Rout
+        ENW = 1'b0;             // Default value for ENW
+        ENR = 1'b0;             // Default value for ENR
+        Ain = 1'b0;             // Default value for Ain
+        //Gin = 1'b0;             // Default value for Gin
+        Gout = 1'b0;            // Default value for Gout
+        ALUcont = 4'bzzzz;      // Default value for ALUcont
+        Ext = 1'b0;             // Default value for Ext
+        IRin = 1'b0;            // Default value for IRin
+        Clr = 1'b0;             // Default value for Clr
 
-            Gin = 1;                //Let the G register save the value from the bus
-            if (INST[9:8] == 2'b00) begin
+        Gin = 1;                        //Let the G register save the value from the bus
+        if (INST[9:8] == 2'b00) begin
+            IMM = 10'bz;                //Don't let IMM write to the bus from the controller
 
-                IMM = 10'bz;            //Don't let IMM write to the bus from the controller
+            Rout = INST [5:4];          //Prep the Ry register to write
+            ENW = 1;                    //Let the register file write to the bus
+            ALUcont = INST[3:0];        //Get the ALU operation from the instruction
 
-            //     Ry = INST [5:4];             //Get the Ry register from the Rx register
-                Rout = INST [5:4];              //Prep the Ry register to write
-                ENW = 1;                //Let the register file write to the bus
-
-                ALUcont = INST[3:0];    //Get the ALU operation from the instruction
-
-            end else if (INST[9:8] == 2'b10) begin
-                ENW = 0;                //Don't let the register file write to the bus
-                
-                 IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
-                 IMM[9:6] = 4'b0000;       //Set the other bit to 0
-                ALUcont = 4'b0010;            //Get the ALU operation from the instruction
-
-            end else if (INST[9:8] == 11) begin
-                ENW = 0;                //Don't let the register file write to the bus
-                 IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
-                 IMM[10:6] = 4'b0000;       //Set the other bit to 0
-                ALUcont = 4'b0011;            //Get the ALU operation from the instruction
+        end else if (INST[9:8] == 2'b10) begin
+            ENW = 0;                    //Don't let the register file write to the bus
             
-            end else begin
-                //Blah blahhhh...do nothing
-            end
+            IMM[5:0] = INST[5:0];       //Get the immediate value from the instruction
+            IMM[9:6] = 4'b0000;         //Set the other bit to 0
+            ALUcont = 4'b0010;          //Get the ALU operation from the instruction
+
+        end else if (INST[9:8] == 11) begin
+            ENW = 0;                    //Don't let the register file write to the bus
+            IMM[5:0] = INST[5:0];       //Get the immediate value from the instruction
+            IMM[10:6] = 4'b0000;        //Set the other bit to 0
+            ALUcont = 4'b0011;          //Get the ALU operation from the instruction
+        
+        end else begin
+            //Blah blahhhh...do nothing
+        end
+
+    //! T3: 3rd Timestep
     end else if ( T == 2'b11 ) begin
             // Initialize all outputs to default values
             IMM = 10'bzzzzzzzzzz;   // Default value for IMM
@@ -181,12 +177,10 @@ always_comb begin
             // ENW = 0;                //Don't let the register file write to the bus
             // IMM = 10'bz;            //Don't let IMM write to the bus from the controller
 
-            Gout = 1;               //Let the G register save the value from the bus
-
-            Rin = INST[7:6];               //Prep Rx register to save the value from the bus
-            ENR = 1;                  //Let the register file to read the value from the bus
-
-            Clr = 1;                //Done with the operation, reset the counter
+            Gout = 1;                       //Let the G register save the value from the bus
+            Rin = INST[7:6];                //Prep Rx register to save the value from the bus
+            ENR = 1;                        //Let the register file to read the value from the bus
+            Clr = 1;                        //Done with the operation, reset the counter
     end else begin
         //Do nothing
     end

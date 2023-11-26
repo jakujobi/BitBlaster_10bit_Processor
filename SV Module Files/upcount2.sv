@@ -5,9 +5,11 @@ module upcount2 (
     output logic [1:0] CNT // 2-bit counter output
 );
 
+
 // The counter logic
 // It increments on the negative edge of CLKb and resets to 0 when CLR is high
-always_ff @(negedge CLKb or posedge CLR) begin
+//always_ff @(negedge CLKb or posedge CLR) begin
+always_ff @(negedge CLKb) begin
     if (CLR) begin
         // Reset counter to 0 when CLR is high
         CNT <= 2'b00;
@@ -18,10 +20,6 @@ always_ff @(negedge CLKb or posedge CLR) begin
 end
 
 endmodule
-
-// always_ff @(posedge CLKb or posedge CLR)
-// if (CLR) CNT <= 0;
-// else CNT <= CNT + 1;
 
 
 /*
