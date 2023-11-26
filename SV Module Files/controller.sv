@@ -45,7 +45,7 @@ logic [1:0] Ry; //Ry register
 
 always_comb begin
     // Initialize all outputs to default values
-    //todo IMM = 10'bzzzzzzzzzz;   // Default value for IMM
+    IMM = 10'bzzzzzzzzzz;   // Default value for IMM
     Rin = 2'b0;             // Default value for Rin
     Rout = 2'b0;            // Default value for Rout
     ENW = 1'b0;             // Default value for ENW
@@ -62,14 +62,14 @@ if (T == 2'b00) begin
     // case (T)
     // 2'b00: //!____________________________________________________________________
         // //Set everything else to 0
-        // ENW = 0;
-        // Gout = 0;
+        //ENW = 0;
+        //Gout = 0;
 
         // ENR = 0;
         // Ain = 0;
         // Gin = 0;
         // Clr = 0;  
-        // IMM = 10'bz;                //Don't let IMM write to the bus from the controller
+        IMM = 10'bz;                //Don't let IMM write to the bus from the controller
 
         // Ext = 1;                    //Allow external data input
         // IRin = 1;                   //Let the instruction register read
@@ -82,8 +82,8 @@ end else if (T == 2'b01) begin
         //Rx = INST[7:6];             //Get the Rx register
         
         if (INST[9:8] == 2'b00 && INST[3:0] == LOAD) begin //4'b0000 equals to LOAD
-            //todo IMM[2:0] = INST[6:4];   //Get the immediate value from the instruction
-            //todo IMM[9:3] = 7'b0000000;  //Set the sign bit to 0
+            IMM[2:0] = INST[6:4];   //Get the immediate value from the instruction
+            IMM[9:3] = 7'b0000000;  //Set the sign bit to 0
 
             // Rin = INST[7:6];               //Load the data into the Rx register
             // ENR = 1;              //Let the register file read
@@ -112,7 +112,7 @@ else if (T == 2'b10) begin
         // Gin = 1;                //Let the G register save the value from the bus
         if (INST[9:8] == 2'b00) begin
 
-        //     //todo IMM = 10'bz;            //Don't let IMM write to the bus from the controller
+             IMM = 10'bz;            //Don't let IMM write to the bus from the controller
 
         //     Ry = INST [5:4];             //Get the Ry register from the Rx register
         //     Rout = Ry;              //Prep the Ry register to write
@@ -123,15 +123,14 @@ else if (T == 2'b10) begin
         end else if (INST[9:8] == 2'b10) begin
             // ENW = 0;                //Don't let the register file write to the bus
             
-            // //todo IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
-            // //todo IMM[9:6] = 4'b0000;       //Set the other bit to 0
+            IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
+            IMM[9:6] = 4'b0000;       //Set the other bit to 0
             // ALUcont = 4'b0010;            //Get the ALU operation from the instruction
 
         end else if (INST[9:8] == 11) begin
         //     ENW = 0;                //Don't let the register file write to the bus
-            
-        // //todo    IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
-        // //todo    IMM[10:6] = 4'b0000;       //Set the other bit to 0
+           IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
+           IMM[10:6] = 4'b0000;       //Set the other bit to 0
         //     ALUcont = 4'b0011;            //Get the ALU operation from the instruction
         
         end else begin
