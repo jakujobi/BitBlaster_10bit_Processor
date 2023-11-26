@@ -13,8 +13,6 @@ module outputlogic(
     output logic LED_D
 );
 
-    // LED_B shows the current values on the data bus
-    assign LED_B = BUS;
 
     // THEX shows the current timestep decoded to a 7-segment display
     assign THEX = time_to_7seg(TIME);
@@ -29,6 +27,9 @@ module outputlogic(
 
     // LED_D is active if DONE is logic-1
     assign LED_D = DONE;
+
+    // LED_B shows the current values on the data bus
+    assign LED_B = BUS;
 
 endmodule
 

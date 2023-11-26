@@ -1,5 +1,5 @@
 Timing Analyzer report for Bitblaster_10Bit_Processor
-Sun Nov 26 12:59:51 2023
+Sun Nov 26 14:54:23 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -38,15 +38,17 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  30. Signal Integrity Metrics (Fast 1200mv 0c Model)
  31. Setup Transfers
  32. Hold Transfers
- 33. Report TCCS
- 34. Report RSKM
- 35. Unconstrained Paths Summary
- 36. Clock Status Summary
- 37. Unconstrained Input Ports
- 38. Unconstrained Output Ports
+ 33. Recovery Transfers
+ 34. Removal Transfers
+ 35. Report TCCS
+ 36. Report RSKM
+ 37. Unconstrained Paths Summary
+ 38. Clock Status Summary
  39. Unconstrained Input Ports
  40. Unconstrained Output Ports
- 41. Timing Analyzer Messages
+ 41. Unconstrained Input Ports
+ 42. Unconstrained Output Ports
+ 43. Timing Analyzer Messages
 
 
 
@@ -92,12 +94,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 1.04        ;
+; Average used               ; 1.33        ;
 ; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-10        ;   0.5%      ;
+;     Processors 2-10        ;   3.7%      ;
 +----------------------------+-------------+
 
 
@@ -111,14 +113,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                                                                                                     ;
-+-------------+-----------------+-------------------------------------------------------+------------------------------------------------+
-; Fmax        ; Restricted Fmax ; Clock Name                                            ; Note                                           ;
-+-------------+-----------------+-------------------------------------------------------+------------------------------------------------+
-; 216.68 MHz  ; 216.68 MHz      ; Clock_50MHz                                           ;                                                ;
-; 1154.73 MHz ; 416.15 MHz      ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; limit due to minimum period restriction (tmin) ;
-+-------------+-----------------+-------------------------------------------------------+------------------------------------------------+
++---------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                          ;
++------------+-----------------+-------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                            ; Note ;
++------------+-----------------+-------------------------------------------------------+------+
+; 111.64 MHz ; 111.64 MHz      ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ;      ;
+; 191.28 MHz ; 191.28 MHz      ; Clock_50MHz                                           ;      ;
++------------+-----------------+-------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -127,8 +129,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -3.615 ; -61.061       ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.134  ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.957 ; -396.446      ;
+; Clock_50MHz                                           ; -4.228 ; -111.856      ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -137,21 +139,27 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+-------+---------------+
 ; Clock                                                 ; Slack ; End Point TNS ;
 +-------------------------------------------------------+-------+---------------+
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.347 ; 0.000         ;
-; Clock_50MHz                                           ; 0.629 ; 0.000         ;
+; Clock_50MHz                                           ; 0.349 ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.862 ; 0.000         ;
 +-------------------------------------------------------+-------+---------------+
 
 
-------------------------------------------
-; Slow 1200mV 85C Model Recovery Summary ;
-------------------------------------------
-No paths to report.
++--------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Recovery Summary                                         ;
++-------------------------------------------------------+--------+---------------+
+; Clock                                                 ; Slack  ; End Point TNS ;
++-------------------------------------------------------+--------+---------------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.613 ; -3.226        ;
++-------------------------------------------------------+--------+---------------+
 
 
------------------------------------------
-; Slow 1200mV 85C Model Removal Summary ;
------------------------------------------
-No paths to report.
++-------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Removal Summary                                         ;
++-------------------------------------------------------+-------+---------------+
+; Clock                                                 ; Slack ; End Point TNS ;
++-------------------------------------------------------+-------+---------------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 1.546 ; 0.000         ;
++-------------------------------------------------------+-------+---------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -159,8 +167,8 @@ No paths to report.
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -3.000 ; -26.851       ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.403 ; -2.806        ;
+; Clock_50MHz                                           ; -3.000 ; -50.702       ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.403 ; -101.016      ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -170,14 +178,14 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                                                                                                      ;
-+-------------+-----------------+-------------------------------------------------------+------------------------------------------------+
-; Fmax        ; Restricted Fmax ; Clock Name                                            ; Note                                           ;
-+-------------+-----------------+-------------------------------------------------------+------------------------------------------------+
-; 233.26 MHz  ; 233.26 MHz      ; Clock_50MHz                                           ;                                                ;
-; 1257.86 MHz ; 416.15 MHz      ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; limit due to minimum period restriction (tmin) ;
-+-------------+-----------------+-------------------------------------------------------+------------------------------------------------+
++---------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                           ;
++------------+-----------------+-------------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                            ; Note ;
++------------+-----------------+-------------------------------------------------------+------+
+; 122.0 MHz  ; 122.0 MHz       ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ;      ;
+; 205.51 MHz ; 205.51 MHz      ; Clock_50MHz                                           ;      ;
++------------+-----------------+-------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -186,8 +194,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -3.287 ; -55.870       ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.205  ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.197 ; -360.859      ;
+; Clock_50MHz                                           ; -3.866 ; -101.186      ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -196,21 +204,27 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+-------+---------------+
 ; Clock                                                 ; Slack ; End Point TNS ;
 +-------------------------------------------------------+-------+---------------+
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.311 ; 0.000         ;
-; Clock_50MHz                                           ; 0.581 ; 0.000         ;
+; Clock_50MHz                                           ; 0.312 ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.775 ; 0.000         ;
 +-------------------------------------------------------+-------+---------------+
 
 
------------------------------------------
-; Slow 1200mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++--------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Recovery Summary                                          ;
++-------------------------------------------------------+--------+---------------+
+; Clock                                                 ; Slack  ; End Point TNS ;
++-------------------------------------------------------+--------+---------------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.431 ; -2.862        ;
++-------------------------------------------------------+--------+---------------+
 
 
-----------------------------------------
-; Slow 1200mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++-------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Removal Summary                                          ;
++-------------------------------------------------------+-------+---------------+
+; Clock                                                 ; Slack ; End Point TNS ;
++-------------------------------------------------------+-------+---------------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 1.419 ; 0.000         ;
++-------------------------------------------------------+-------+---------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -218,8 +232,8 @@ No paths to report.
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -3.000 ; -26.851       ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.403 ; -2.806        ;
+; Clock_50MHz                                           ; -3.000 ; -50.702       ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.403 ; -101.016      ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -234,8 +248,8 @@ No synchronizer chains to report.
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -0.998 ; -16.956       ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.629  ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -2.765 ; -131.562      ;
+; Clock_50MHz                                           ; -1.276 ; -27.977       ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -244,21 +258,27 @@ No synchronizer chains to report.
 +-------------------------------------------------------+-------+---------------+
 ; Clock                                                 ; Slack ; End Point TNS ;
 +-------------------------------------------------------+-------+---------------+
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.151 ; 0.000         ;
-; Clock_50MHz                                           ; 0.243 ; 0.000         ;
+; Clock_50MHz                                           ; 0.152 ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.350 ; 0.000         ;
 +-------------------------------------------------------+-------+---------------+
 
 
------------------------------------------
-; Fast 1200mV 0C Model Recovery Summary ;
------------------------------------------
-No paths to report.
++--------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Recovery Summary                                          ;
++-------------------------------------------------------+--------+---------------+
+; Clock                                                 ; Slack  ; End Point TNS ;
++-------------------------------------------------------+--------+---------------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -0.106 ; -0.212        ;
++-------------------------------------------------------+--------+---------------+
 
 
-----------------------------------------
-; Fast 1200mV 0C Model Removal Summary ;
-----------------------------------------
-No paths to report.
++-------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Removal Summary                                          ;
++-------------------------------------------------------+-------+---------------+
+; Clock                                                 ; Slack ; End Point TNS ;
++-------------------------------------------------------+-------+---------------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.659 ; 0.000         ;
++-------------------------------------------------------+-------+---------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -266,8 +286,8 @@ No paths to report.
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -3.000 ; -20.578       ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.000 ; -2.000        ;
+; Clock_50MHz                                           ; -3.000 ; -38.132       ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.000 ; -72.000       ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -277,18 +297,18 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                                                 ;
-+--------------------------------------------------------+---------+-------+----------+---------+---------------------+
-; Clock                                                  ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+--------------------------------------------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack                                       ; -3.615  ; 0.151 ; N/A      ; N/A     ; -3.000              ;
-;  Clock_50MHz                                           ; -3.615  ; 0.243 ; N/A      ; N/A     ; -3.000              ;
-;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.134   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS                                        ; -61.061 ; 0.0   ; 0.0      ; 0.0     ; -29.657             ;
-;  Clock_50MHz                                           ; -61.061 ; 0.000 ; N/A      ; N/A     ; -26.851             ;
-;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.000   ; 0.000 ; N/A      ; N/A     ; -2.806              ;
-+--------------------------------------------------------+---------+-------+----------+---------+---------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                                  ;
++--------------------------------------------------------+----------+-------+----------+---------+---------------------+
+; Clock                                                  ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++--------------------------------------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack                                       ; -7.957   ; 0.152 ; -1.613   ; 0.659   ; -3.000              ;
+;  Clock_50MHz                                           ; -4.228   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
+;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.957   ; 0.350 ; -1.613   ; 0.659   ; -1.403              ;
+; Design-wide TNS                                        ; -508.302 ; 0.0   ; -3.226   ; 0.0     ; -151.718            ;
+;  Clock_50MHz                                           ; -111.856 ; 0.000 ; N/A      ; N/A     ; -50.702             ;
+;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -396.446 ; 0.000 ; -3.226   ; 0.000   ; -101.016            ;
++--------------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -344,19 +364,19 @@ No synchronizer chains to report.
 +---------------------------+-----------------------+-----------------+-----------------+
 ; Pin                       ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------------+-----------------------+-----------------+-----------------+
-; Raw_Data_From_Switches[2] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[3] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[4] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[5] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[6] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[7] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[8] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Raw_Data_From_Switches[9] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Raw_Data_From_Switches[0] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Raw_Data_From_Switches[1] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[9] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[8] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[7] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[6] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[5] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[4] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[3] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Raw_Data_From_Switches[2] ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Peek_Button               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Clock_Button              ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Clock_50MHz               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Clock_Button              ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TMS~              ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~              ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~              ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -516,9 +536,9 @@ No synchronizer chains to report.
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                            ; To Clock                                              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
-; Clock_50MHz                                           ; Clock_50MHz                                           ; 357      ; 0        ; 0        ; 0        ;
+; Clock_50MHz                                           ; Clock_50MHz                                           ; 697      ; 0        ; 0        ; 0        ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; Clock_50MHz                                           ; 17       ; 17       ; 0        ; 0        ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 3        ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 53686    ;
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -528,9 +548,29 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                            ; To Clock                                              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
-; Clock_50MHz                                           ; Clock_50MHz                                           ; 357      ; 0        ; 0        ; 0        ;
+; Clock_50MHz                                           ; Clock_50MHz                                           ; 697      ; 0        ; 0        ; 0        ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; Clock_50MHz                                           ; 17       ; 17       ; 0        ; 0        ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 3        ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 53686    ;
++-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                                                                                        ;
++-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                            ; To Clock                                              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 14       ;
++-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal Transfers                                                                                                                                         ;
++-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                            ; To Clock                                              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 14       ;
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -554,10 +594,10 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 1     ; 1    ;
-; Unconstrained Input Port Paths  ; 17    ; 17   ;
-; Unconstrained Output Ports      ; 6     ; 6    ;
-; Unconstrained Output Port Paths ; 10    ; 10   ;
+; Unconstrained Input Ports       ; 12    ; 12   ;
+; Unconstrained Input Port Paths  ; 414   ; 414  ;
+; Unconstrained Output Ports      ; 38    ; 38   ;
+; Unconstrained Output Port Paths ; 1625  ; 1625 ;
 +---------------------------------+-------+------+
 
 
@@ -571,13 +611,24 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-------------------------------------------------------+-------------------------------------------------------+------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                           ;
-+--------------+--------------------------------------------------------------------------------------+
-; Input Port   ; Comment                                                                              ;
-+--------------+--------------------------------------------------------------------------------------+
-; Clock_Button ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+--------------+--------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                        ;
++---------------------------+--------------------------------------------------------------------------------------+
+; Input Port                ; Comment                                                                              ;
++---------------------------+--------------------------------------------------------------------------------------+
+; Clock_Button              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Peek_Button               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[8] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[9] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -585,6 +636,38 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+---------------------------------------------------------------------------------------+
 ; Output Port              ; Comment                                                                               ;
 +--------------------------+---------------------------------------------------------------------------------------+
+; DHEX0[0]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[1]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[2]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[0]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[1]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[2]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[0]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[1]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[2]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[8]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[9]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_D_Done               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; THEX_Current_Timestep[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; THEX_Current_Timestep[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; THEX_Current_Timestep[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -594,13 +677,24 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+---------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                           ;
-+--------------+--------------------------------------------------------------------------------------+
-; Input Port   ; Comment                                                                              ;
-+--------------+--------------------------------------------------------------------------------------+
-; Clock_Button ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+--------------+--------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                        ;
++---------------------------+--------------------------------------------------------------------------------------+
+; Input Port                ; Comment                                                                              ;
++---------------------------+--------------------------------------------------------------------------------------+
+; Clock_Button              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Peek_Button               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[4] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[5] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[6] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[7] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[8] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Raw_Data_From_Switches[9] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++---------------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -608,6 +702,38 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+---------------------------------------------------------------------------------------+
 ; Output Port              ; Comment                                                                               ;
 +--------------------------+---------------------------------------------------------------------------------------+
+; DHEX0[0]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[1]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[2]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX0[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[0]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[1]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[2]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX1[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[0]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[1]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[2]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[3]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[4]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[5]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; DHEX2[6]                 ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[0]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[1]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[2]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[3]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[4]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[5]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[6]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[7]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[8]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_B_Data_Bus[9]        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; LED_D_Done               ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; THEX_Current_Timestep[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; THEX_Current_Timestep[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; THEX_Current_Timestep[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -623,7 +749,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Nov 26 12:59:48 2023
+    Info: Processing started: Sun Nov 26 14:54:20 2023
 Info: Command: quartus_sta Bitblaster_10Bit_Processor -c Bitblaster_10Bit_Processor
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -641,71 +767,89 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.615
+Info (332146): Worst-case setup slack is -7.957
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.615             -61.061 Clock_50MHz 
-    Info (332119):     0.134               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-Info (332146): Worst-case hold slack is 0.347
+    Info (332119):    -7.957            -396.446 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -4.228            -111.856 Clock_50MHz 
+Info (332146): Worst-case hold slack is 0.349
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.347               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-    Info (332119):     0.629               0.000 Clock_50MHz 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
+    Info (332119):     0.349               0.000 Clock_50MHz 
+    Info (332119):     0.862               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+Info (332146): Worst-case recovery slack is -1.613
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.613              -3.226 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+Info (332146): Worst-case removal slack is 1.546
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.546               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -26.851 Clock_50MHz 
-    Info (332119):    -1.403              -2.806 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -3.000             -50.702 Clock_50MHz 
+    Info (332119):    -1.403            -101.016 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.287
+Info (332146): Worst-case setup slack is -7.197
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.287             -55.870 Clock_50MHz 
-    Info (332119):     0.205               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-Info (332146): Worst-case hold slack is 0.311
+    Info (332119):    -7.197            -360.859 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -3.866            -101.186 Clock_50MHz 
+Info (332146): Worst-case hold slack is 0.312
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.311               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-    Info (332119):     0.581               0.000 Clock_50MHz 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
+    Info (332119):     0.312               0.000 Clock_50MHz 
+    Info (332119):     0.775               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+Info (332146): Worst-case recovery slack is -1.431
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.431              -2.862 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+Info (332146): Worst-case removal slack is 1.419
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.419               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -26.851 Clock_50MHz 
-    Info (332119):    -1.403              -2.806 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -3.000             -50.702 Clock_50MHz 
+    Info (332119):    -1.403            -101.016 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.998
+Info (332146): Worst-case setup slack is -2.765
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.998             -16.956 Clock_50MHz 
-    Info (332119):     0.629               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-Info (332146): Worst-case hold slack is 0.151
+    Info (332119):    -2.765            -131.562 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -1.276             -27.977 Clock_50MHz 
+Info (332146): Worst-case hold slack is 0.152
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.151               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-    Info (332119):     0.243               0.000 Clock_50MHz 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
+    Info (332119):     0.152               0.000 Clock_50MHz 
+    Info (332119):     0.350               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+Info (332146): Worst-case recovery slack is -0.106
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.106              -0.212 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+Info (332146): Worst-case removal slack is 0.659
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.659               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -20.578 Clock_50MHz 
-    Info (332119):    -1.000              -2.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -3.000             -38.132 Clock_50MHz 
+    Info (332119):    -1.000             -72.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4888 megabytes
-    Info: Processing ended: Sun Nov 26 12:59:51 2023
+    Info: Peak virtual memory: 4902 megabytes
+    Info: Processing ended: Sun Nov 26 14:54:23 2023
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
 
 

@@ -39,6 +39,9 @@ logic [9:0] A; //Register A
 logic [9:0] Result_from_ALU; //Result from the ALU
 logic [9:0] G; //Register G (result)
 
+
+//assign RES = 10'bzzzzzzzzzz;
+
 // Prepping the input to register A
 always_ff @(negedge CLKb) begin
     if (Ain) begin
@@ -68,7 +71,6 @@ always_comb begin
     endcase
 end
 
-
 // Storing the result to RES based on Gout
 always_ff @(negedge CLKb) begin
     if (Gin) begin
@@ -76,10 +78,14 @@ always_ff @(negedge CLKb) begin
     end
 end
 
-// Storing the result to RES based on Gout
-always_ff @(negedge CLKb) begin
-    if (Gout) begin
-        RES <= G; // Store result in RES when Gout is enabled ,,, put the result on the bus 
+
+// Make RES
+always_comb begin
+    if (Gout == 1'b1) begin
+        RES = G;
+    end
+    else begin
+        RES = 10'bz;
     end
 end
 

@@ -10,12 +10,23 @@ module registerFile (
     input logic [1:0] RDA0,  // Read address for Q0 (2-bit)
     input logic [1:0] RDA1,  // Read address for Q1 (2-bit)
 
-    output logic [9:0] Q0,   // Output data for Q0
+    output logic [9:0] Q0,   // Output data for Q0 to the shared bus
     output logic [9:0] Q1    // Output data for Q1
 );
 
 // Define four 10-bit registers
 logic [9:0] registers[3:0];
+
+// Initial block to set all registers to zero
+initial begin
+    registers[0] = 10'b0;
+    registers[1] = 10'b0;
+    registers[2] = 10'b0;
+    registers[3] = 10'b0;
+end
+
+// assign Q0 = 10'bzzzzzzzzzz;
+// assign Q1 = 10'bzzzzzzzzzz;
 
 // Write operation (Clocked) to the registers
 always_ff @(negedge CLKb) begin
@@ -23,9 +34,6 @@ always_ff @(negedge CLKb) begin
         registers[WRA] <= D; // Write data into the register specified by WRA
     end
 end
-
-//assign Q0 = ENR0 ? registers[RDA0] : 0;
-//assign Q1 = ENR1 ? registers[RDA1] : 0;
 
 
 // Read operation (Combinational)

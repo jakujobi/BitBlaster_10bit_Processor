@@ -18,6 +18,8 @@ module inputlogic (
     output logic PeeKb
 );
 
+//assign databus = 10'bz;
+
 //Debounce the keys__________________________________________
 debouncer peek_debouncer (
     .A_noisy(Peek_key),
@@ -34,9 +36,18 @@ debouncer clk_debouncer (
 //splice the lowest 2 bits
 assign data2bit = RawData[1:0];
 
-//if extrn is enabled, assign raw data to databus
-assign databus = Extrn_Enable ? RawData : 0;
+// //if extrn is enabled, assign raw data to databus
+// assign databus = Extrn_Enable ? RawData : z;
 
+//always comp block that assigns the data to the databus
+always_comb begin
+    if (Extrn_Enable) begin
+        databus = RawData;
+    end
+    else begin
+        databus = 10'bz;
+    end
+end
 
 // extrn external_data_receiver (
 //     .raw_data(raw_data),
