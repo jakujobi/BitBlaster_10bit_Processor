@@ -25,8 +25,8 @@ module outputlogic(
     assign DHEX1 = hex_value[13:7];
     assign DHEX2 = hex_value[20:14];
 
-    // LED_D is active if DONE is logic-1
-    assign LED_D = DONE;
+    // LED_D is active if DONE is logic
+    assign LED_D = ~DONE; //~DONE because the leds are low enable
 
     // LED_B shows the current values on the data bus
     assign LED_B = BUS;
