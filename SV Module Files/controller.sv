@@ -1,45 +1,45 @@
 module controller(
-    input logic [9:0] INST, //Immediatevalue to be used for the two immediate instructions
-    input logic [1:0] T,    //Current timestep
+    input logic [9:0] INST,     //Immediatevalue to be used for the two immediate instructions
+    input logic [1:0] T,        //Current timestep
 
-    output logic [9:0] IMM, //This put the immediate value we are working with into the bus
-                            // So, like the value we want the register to read
-    output logic [1:0] Rin, //Address for the register to be written to, from the shared data bus
-    output logic [1:0] Rout,//Address for the register to be read from, to the shared data bus
-    output logic ENW,       //Enable signal to write data to the register file
-    output logic ENR,       //Enable signal to read data from the register file
-    output logic Ain,       //Enable signal to save data to the intermediate ALU input “A”
-    output logic Gin,       //Enable signal to save data to the intermediate ALU output “G”
-    output logic Gout,      //Enable signal to write data from the ALU intermediate output “G” to the shared data bus
+    output logic [9:0] IMM,     //This put the immediate value we are working with into the bus
+                                // So, like the value we want the register to read
+    output logic [1:0] Rin,     //Address for the register to be written to, from the shared data bus
+    output logic [1:0] Rout,    //Address for the register to be read from, to the shared data bus
+    output logic ENW,           //Enable signal to write data to the register file
+    output logic ENR,           //Enable signal to read data from the register file
+    output logic Ain,           //Enable signal to save data to the intermediate ALU input “A”
+    output logic Gin,           //Enable signal to save data to the intermediate ALU output “G”
+    output logic Gout,          //Enable signal to write data from the ALU intermediate output “G” to the shared data bus
     output logic [3:0] ALUcont, //Signal to control which arithmetic or logic operation the ALU should perform
-    output logic Ext,       //Enable signal to drive the shared data bus from the external “data” signal
-    output logic IRin,      //Enable signal to save data to the instruction register
-    output logic Clr        //Clear signal for the timestep counter
+    output logic Ext,           //Enable signal to drive the shared data bus from the external “data” signal
+    output logic IRin,          //Enable signal to save data to the instruction register
+    output logic Clr            //Clear signal for the timestep counter
 );
 
 
 parameter 
-    LOAD = 4'b0000, //Load 
-    COPY = 4'b0001, //Copy the value from Ry and store to Rx: Rx←[Ry]
-    ADD = 4'b0010,  //add Rx and RY; Add the values in Rx and Ry and store the result inRx:  Rx←[Rx] + [Ry]
-    SUB = 4'b0011,  //sub Rx and RY; Subtract the value in Ry from Rx and store the result inRx:  Rx←[Rx] − [Ry]
-    INV = 4'b0100,  //inv Rx and RY; Take the twos-complement of the value in Ry and store to Rx:  Rx←−[Ry]
-    FLIP = 4'b0101, //flp Rx and RY; Flip the bits of the value in Ry and store to Rx:  Rx←∼[Ry]
-    AND = 4'b0110,  //and Rx and RY; Bit-wise AND the values in Rx and Ry and store the result inRx:  Rx←[Rx] & [Ry]
-    OR = 4'b0111,   //or Rx and RY; Bit-wise OR the values in Rx and Ry and store the result inRx:  Rx←[Rx] | [Ry]
-    XOR = 4'b1000,  //xor Rx and RY; Bit-wise XOR the values in Rx and Ry and store the result inRx:  Rx←[Rx] ⊕ [Ry]
-    LSL = 4'b1001,  //lsl Rx and RY; Logical shift left the value in Rx by Ry and store the result inRx:  Rx←[Rx] << [Ry]
-    LSR = 4'b1010,  //lsr Rx and RY; Logical shift right the value in Rx by Ry and store the result inRx:  Rx←[Rx] >> [Ry]
-    ASR = 4'b1011,  //asr Rx and RY; Arithmetic shift right the value of Rx by Ry and store the result inRx:  Rx←[Rx] >>> [Ry]
-    ADDI = 4'b1100, //addi Rx, 6’bIIIIII; Add the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] + [6’bIIIIII]
-    SUBI = 4'b1101; //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
+    LOAD = 4'b0000,             //Load data from the instruction register to Rx: Rx←[Rx]
+    COPY = 4'b0001,             //Copy the value from Ry and store to Rx: Rx←[Ry]
+    ADD = 4'b0010,              //add Rx and RY; Add the values in Rx and Ry and store the result inRx:  Rx←[Rx] + [Ry]
+    SUB = 4'b0011,              //sub Rx and RY; Subtract the value in Ry from Rx and store the result inRx:  Rx←[Rx] − [Ry]
+    INV = 4'b0100,              //inv Rx and RY; Take the twos-complement of the value in Ry and store to Rx:  Rx←−[Ry]
+    FLIP = 4'b0101,             //flp Rx and RY; Flip the bits of the value in Ry and store to Rx:  Rx←∼[Ry]
+    AND = 4'b0110,              //and Rx and RY; Bit-wise AND the values in Rx and Ry and store the result inRx:  Rx←[Rx] & [Ry]
+    OR = 4'b0111,               //or Rx and RY; Bit-wise OR the values in Rx and Ry and store the result inRx:  Rx←[Rx] | [Ry]
+    XOR = 4'b1000,              //xor Rx and RY; Bit-wise XOR the values in Rx and Ry and store the result inRx:  Rx←[Rx] ⊕ [Ry]
+    LSL = 4'b1001,              //lsl Rx and RY; Logical shift left the value in Rx by Ry and store the result inRx:  Rx←[Rx] << [Ry]
+    LSR = 4'b1010,              //lsr Rx and RY; Logical shift right the value in Rx by Ry and store the result inRx:  Rx←[Rx] >> [Ry]
+    ASR = 4'b1011,              //asr Rx and RY; Arithmetic shift right the value of Rx by Ry and store the result inRx:  Rx←[Rx] >>> [Ry]
+    ADDI = 4'b1100,             //addi Rx, 6’bIIIIII; Add the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] + [6’bIIIIII]
+    SUBI = 4'b1101;             //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
 
 
 //if the first two bits of the instruction are 00, then we go to next step
 logic [1:0] last_two_bits;
 //assign last_two_bits = INST[9:8];
 
-logic ALU_instruction;
+//logic ALU_instruction;
 
 logic Rx;
 logic Ry;
@@ -57,70 +57,78 @@ always_comb begin
         Ain = 0;
         Gin = 0;
         Clr = 0;  
-        IMM = 10'bz; //Don't let IMM write to the bus from the controller
+        IMM = 10'bz;                //Don't let IMM write to the bus from the controller
 
-        Ext = 1;    //Allow external data input
-        IRin = 1;   //Let the instruction register read
+        Ext = 1;                    //Allow external data input
+        IRin = 1;                   //Let the instruction register read
 
     01: //!_____________________________________________________________________
-        Ext = 0;            //Don't allow external data input to the bus
-        IRin = 0;           //Stop the instruction register from reading
+        Ext = 0;                    //Don't allow external data input to the bus
+        IRin = 0;                   //Stop the instruction register from reading
 
         last_two_bits = INST[9:8];  //Get the last two bits of the instruction
-        Rx = INST[6:7];            //Get the Rx register
+        Rx = INST[6:7];             //Get the Rx register
 
         if (last_two_bits == 00 & INST[3:0] == 0000) begin
-            Rin = Rx;       //Load the data into the Rx register
-            enRin = 1;      //Let the register file read
-            Clr = 1;        //Done with the operation, reset the counter
+            IMM[2:0] = INST[6:4];   //Get the immediate value from the instruction
+            IMM[9:3] = 7'b0000000;  //Set the sign bit to 0
+
+            Rin = Rx;               //Load the data into the Rx register
+            enRin = 1;              //Let the register file read
+            Clr = 1;                //Done with the operation, reset the counter
         end
         
         else if (last_two_bits == 00 & INST[3:0] == 0001) begin 
-            Rout = Rx;      //Prep the Rx register to write
-            ENW = 1;        //Let the register file write to the bus
+            Rout = Rx;              //Prep the Rx register to write
+            ENW = 1;                //Let the register file write to the bus
 
-            Rin = Rx;       //Load the data into the Rx register
-            enRin = 1;      //Let the register file read
-            Clr = 1;        //Done with the operation, reset the counter
+            Rin = Rx;               //Load the data into the Rx register
+            enRin = 1;              //Let the register file read
+            Clr = 1;                //Done with the operation, reset the counter
         end
 
         else begin
-            Rout = Rx;  //Prep the Rx register to write
-            ENW = 1;    //Let the register file write to the bus
+            Rout = Rx;              //Prep the Rx register to write
+            ENW = 1;                //Let the register file write to the bus
 
-            Ain = 1; //Let the A register save the value from the bus
+            Ain = 1;                //Let the A register save the value from the bus
         end
 
-    10:
+    10: //!_____________________________________________________________________
+        Ain = 0;                //Stop the A register from saving the value from the bus
+        Gin = 1;                //Let the G register save the value from the bus
         if (last_two_bits == 00) begin
-            //
 
-        end else if (last_two_bits == 01) begin
-            //
-        end else if (last_two_bits == 10) begin
-            //
-        end else if (last_two_bits == 11) begin
-            //
+            IMM = 10'bz;            //Don't let IMM write to the bus from the controller
+
+            Ry = [4:5];             //Get the Ry register from the Rx register
+            Rout = Ry;              //Prep the Ry register to write
+            ENW = 1;                //Let the register file write to the bus
+
+            ALUcont = INST[3:0];    //Get the ALU operation from the instruction
+
+        end else if (last_two_bits == 10 || last_two_bits == 11) begin
+            // 
+            ENW = 0;                //Don't let the register file write to the bus
+            
+            IMM = INST[5:0];        //Get the immediate value from the instruction
+
+        end else begin
+            //Blah blahhhh...do nothing
         end
 
     11:
-        if (last_two_bits == 00) begin
-            //
-            Gout = 1;
-            Rin = Rx;
-            enRin = 1;
-            CLR = 1;
+        Gin = 0                 //Stop the G register from saving values
+        ENW = 0;                //Don't let the register file write to the bus
 
-        end else if (last_two_bits == 01) begin
-            //
-        end else if (last_two_bits == 10) begin
-            //
-        end else if (last_two_bits == 11) begin
-            //
-        end
-    endcase
+        Gout = 1;               //Let the G register save the value from the bus
+
+        Rin = Rx;               //Prep Rx register to save the value from the bus
+        enRin = 1;              //Let the register file to read the value from the bus
+
+        CLR = 1;                //Done with the operation, reset the counter
+endcase;
 end
-
 
 endmodule
 
