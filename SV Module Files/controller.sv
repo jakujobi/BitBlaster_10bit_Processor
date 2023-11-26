@@ -41,49 +41,62 @@ logic [1:0] last_two_bits;
 
 //logic ALU_instruction;
 
-logic Rx;
-logic Ry;
+logic [1:0] Rx; //Rx register
+logic [1:0] Ry; //Ry register
 
 
 always_comb begin
+    // Initialize all outputs to default values
+    IMM = 10'bzzzzzzzzzz;   // Default value for IMM
+    Rin = 2'b0;             // Default value for Rin
+    Rout = 2'b0;            // Default value for Rout
+    ENW = 1'b0;             // Default value for ENW
+    ENR = 1'b0;             // Default value for ENR
+    Ain = 1'b0;             // Default value for Ain
+    Gin = 1'b0;             // Default value for Gin
+    Gout = 1'b0;            // Default value for Gout
+    ALUcont = 4'b0;         // Default value for ALUcont
+    Ext = 1'b0;             // Default value for Ext
+    IRin = 1'b0;            // Default value for IRin
+    Clr = 1'b0;             // Default value for Clr
+
     case (T)
     00: //!____________________________________________________________________
-        //Set everything else to 0
-        ENW = 0;
-        WRA = 0;
-        Gout = 0;
+        // //Set everything else to 0
+        // ENW = 0;
+        // Gout = 0;
 
-        ENR = 0;
-        Ain = 0;
-        Gin = 0;
-        Clr = 0;  
-        IMM = 10'bz;                //Don't let IMM write to the bus from the controller
+        // ENR = 0;
+        // Ain = 0;
+        // Gin = 0;
+        // Clr = 0;  
+        // IMM = 10'bz;                //Don't let IMM write to the bus from the controller
 
-        Ext = 1;                    //Allow external data input
-        IRin = 1;                   //Let the instruction register read
+        // Ext = 1;                    //Allow external data input
+        // IRin = 1;                   //Let the instruction register read
 
     01: //!_____________________________________________________________________
         Ext = 0;                    //Don't allow external data input to the bus
         IRin = 0;                   //Stop the instruction register from reading
 
         last_two_bits = INST[9:8];  //Get the last two bits of the instruction
-        Rx = INST[6:7];             //Get the Rx register
+        Rx = INST[7:6];             //Get the Rx register
 
-        if (last_two_bits == 00 & INST[3:0] == 0000) begin
+        if (last_two_bits == 00 && INST[3:0] == 4'b0000) begin
             IMM[2:0] = INST[6:4];   //Get the immediate value from the instruction
             IMM[9:3] = 7'b0000000;  //Set the sign bit to 0
 
             Rin = Rx;               //Load the data into the Rx register
-            enRin = 1;              //Let the register file read
+            ENR = 1;              //Let the register file read
             Clr = 1;                //Done with the operation, reset the counter
         end
         
-        else if (last_two_bits == 00 & INST[3:0] == 0001) begin 
+        else if (last_two_bits == 00 && INST[3:0] == 4'b0001) begin 
             Rout = Rx;              //Prep the Rx register to write
             ENW = 1;                //Let the register file write to the bus
 
             Rin = Rx;               //Load the data into the Rx register
-            enRin = 1;              //Let the register file read
+            ENR = 1;              //Let the register file read
             Clr = 1;                //Done with the operation, reset the counter
         end
 
@@ -101,30 +114,38 @@ always_comb begin
 
             IMM = 10'bz;            //Don't let IMM write to the bus from the controller
 
-            Ry = [4:5];             //Get the Ry register from the Rx register
+            Ry = [5:4];             //Get the Ry register from the Rx register
             Rout = Ry;              //Prep the Ry register to write
             ENW = 1;                //Let the register file write to the bus
 
             ALUcont = INST[3:0];    //Get the ALU operation from the instruction
 
-        end else if (last_two_bits == 10 || last_two_bits == 11) begin
-            // 
+        end else if (last_two_bits == 10) begin
             ENW = 0;                //Don't let the register file write to the bus
             
-            IMM = INST[5:0];        //Get the immediate value from the instruction
+            IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
+            IMM[10:6] = 4'b0000;       //Set the other bit to 0
+            ALUcont = 0010;            //Get the ALU operation from the instruction
 
+        end else if (last_two_bits == 11) begin
+            ENW = 0;                //Don't let the register file write to the bus
+            
+            IMM[5:0] = INST[5:0];        //Get the immediate value from the instruction
+            IMM[10:6] = 4'b0000;       //Set the other bit to 0
+            ALUcont = 0011;            //Get the ALU operation from the instruction
+        
         end else begin
             //Blah blahhhh...do nothing
         end
 
     11:
-        Gin = 0                 //Stop the G register from saving values
+        Gin = 0;                //Stop the G register from saving values
         ENW = 0;                //Don't let the register file write to the bus
 
         Gout = 1;               //Let the G register save the value from the bus
 
         Rin = Rx;               //Prep Rx register to save the value from the bus
-        enRin = 1;              //Let the register file to read the value from the bus
+        ENR = 1;                  //Let the register file to read the value from the bus
 
         CLR = 1;                //Done with the operation, reset the counter
 endcase;
