@@ -1,5 +1,5 @@
 Flow report for Bitblaster_10Bit_Processor
-Sat Nov 25 14:45:42 2023
+Sat Nov 25 19:24:23 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Flow Summary                                                                        ;
 +------------------------------------+------------------------------------------------+
-; Flow Status                        ; Flow Failed - Sat Nov 25 14:45:42 2023         ;
+; Flow Status                        ; Flow Failed - Sat Nov 25 19:24:23 2023         ;
 ; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                      ; Bitblaster_10Bit_Processor                     ;
 ; Top-level Entity Name              ; Bitblaster_10Bit_Processor                     ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+----------------------------+
 ; Option            ; Setting                    ;
 +-------------------+----------------------------+
-; Start date & time ; 11/25/2023 14:45:33        ;
+; Start date & time ; 11/25/2023 19:24:16        ;
 ; Main task         ; Compilation                ;
 ; Revision Name     ; Bitblaster_10Bit_Processor ;
 +-------------------+----------------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 10995770589203.170094513234308         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 10995770589203.170096185533256         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -100,8 +100,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4720 MB             ; 00:00:07                           ;
-; Total                ; 00:00:10     ; --                      ; --                  ; 00:00:07                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4718 MB             ; 00:00:04                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:04                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
