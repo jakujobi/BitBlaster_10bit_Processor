@@ -3,15 +3,15 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'Clock_50MHz'
-Slack : -3.767
-TNS   : -63.651
+Slack : -3.615
+TNS   : -61.061
 
 Type  : Slow 1200mV 85C Model Setup 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
-Slack : 0.108
+Slack : 0.134
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
-Slack : 0.340
+Slack : 0.347
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'Clock_50MHz'
@@ -27,19 +27,19 @@ Slack : -1.403
 TNS   : -2.806
 
 Type  : Slow 1200mV 0C Model Setup 'Clock_50MHz'
-Slack : -3.449
-TNS   : -58.173
+Slack : -3.287
+TNS   : -55.870
 
 Type  : Slow 1200mV 0C Model Setup 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
-Slack : 0.180
+Slack : 0.205
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
-Slack : 0.304
+Slack : 0.311
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'Clock_50MHz'
-Slack : 0.580
+Slack : 0.581
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Clock_50MHz'
@@ -51,24 +51,24 @@ Slack : -1.403
 TNS   : -2.806
 
 Type  : Fast 1200mV 0C Model Setup 'Clock_50MHz'
-Slack : -1.087
-TNS   : -18.122
+Slack : -0.998
+TNS   : -16.956
 
 Type  : Fast 1200mV 0C Model Setup 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
-Slack : 0.616
+Slack : 0.629
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
-Slack : 0.147
+Slack : 0.151
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'Clock_50MHz'
-Slack : 0.244
+Slack : 0.243
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Clock_50MHz'
 Slack : -3.000
-TNS   : -20.470
+TNS   : -20.578
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'inputlogic:inputLogicModule|debouncer:clk_debouncer|A'
 Slack : -1.000

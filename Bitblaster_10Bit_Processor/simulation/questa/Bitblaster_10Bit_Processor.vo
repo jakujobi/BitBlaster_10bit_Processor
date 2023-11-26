@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition"
 
-// DATE "11/18/2023 15:21:14"
+// DATE "11/26/2023 12:59:53"
 
 // 
 // Device: Altera 10M50DAF484C7G Package FBGA484
@@ -52,58 +52,58 @@ output 	[6:0] THEX_Current_Timestep;
 output 	LED_D_Done;
 
 // Design Ports Information
-// Raw_Data_From_Switches[2]	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[3]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[4]	=>  Location: PIN_B17,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[5]	=>  Location: PIN_N15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[6]	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[7]	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[8]	=>  Location: PIN_AA11,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[9]	=>  Location: PIN_A19,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[0]	=>  Location: PIN_E10,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[1]	=>  Location: PIN_V3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[2]	=>  Location: PIN_AB15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[3]	=>  Location: PIN_T21,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[4]	=>  Location: PIN_N20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[5]	=>  Location: PIN_D17,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[6]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[7]	=>  Location: PIN_J22,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[8]	=>  Location: PIN_AA5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_B_Data_Bus[9]	=>  Location: PIN_G4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[0]	=>  Location: PIN_C3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[1]	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[2]	=>  Location: PIN_W16,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[3]	=>  Location: PIN_D21,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[4]	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[5]	=>  Location: PIN_G19,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX0[6]	=>  Location: PIN_D5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[0]	=>  Location: PIN_AA12,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[1]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[2]	=>  Location: PIN_AB2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[3]	=>  Location: PIN_AB8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[4]	=>  Location: PIN_W4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[5]	=>  Location: PIN_P9,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX1[6]	=>  Location: PIN_N21,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[0]	=>  Location: PIN_Y8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[1]	=>  Location: PIN_U5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[2]	=>  Location: PIN_L2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[3]	=>  Location: PIN_F20,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[4]	=>  Location: PIN_Y11,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[5]	=>  Location: PIN_B8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DHEX2[6]	=>  Location: PIN_A3,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[0]	=>  Location: PIN_AA2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[1]	=>  Location: PIN_M22,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[2]	=>  Location: PIN_Y2,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[3]	=>  Location: PIN_AA1,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[4]	=>  Location: PIN_U6,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[5]	=>  Location: PIN_U7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// THEX_Current_Timestep[6]	=>  Location: PIN_Y5,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// LED_D_Done	=>  Location: PIN_E4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[0]	=>  Location: PIN_A14,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Raw_Data_From_Switches[1]	=>  Location: PIN_D15,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Peek_Button	=>  Location: PIN_Y4,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Clock_Button	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// Clock_50MHz	=>  Location: PIN_M8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[2]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[3]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[4]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[5]	=>  Location: PIN_B12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[6]	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[7]	=>  Location: PIN_A14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[8]	=>  Location: PIN_B14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[9]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[0]	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[1]	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[2]	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[3]	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[4]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[5]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[6]	=>  Location: PIN_E14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[7]	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[8]	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_B_Data_Bus[9]	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[0]	=>  Location: PIN_C14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[1]	=>  Location: PIN_E15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[2]	=>  Location: PIN_C15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[3]	=>  Location: PIN_C16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[4]	=>  Location: PIN_E16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[5]	=>  Location: PIN_D17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX0[6]	=>  Location: PIN_C17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[0]	=>  Location: PIN_C18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[1]	=>  Location: PIN_D18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[2]	=>  Location: PIN_E18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[3]	=>  Location: PIN_B16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[4]	=>  Location: PIN_A17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[5]	=>  Location: PIN_A18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX1[6]	=>  Location: PIN_B17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[0]	=>  Location: PIN_B20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[1]	=>  Location: PIN_A20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[2]	=>  Location: PIN_B19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[3]	=>  Location: PIN_A21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[4]	=>  Location: PIN_B21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[5]	=>  Location: PIN_C22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DHEX2[6]	=>  Location: PIN_B22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[0]	=>  Location: PIN_F21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[1]	=>  Location: PIN_E22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[2]	=>  Location: PIN_E21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[3]	=>  Location: PIN_C19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[4]	=>  Location: PIN_C20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[5]	=>  Location: PIN_D19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// THEX_Current_Timestep[6]	=>  Location: PIN_E17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LED_D_Done	=>  Location: PIN_D22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[0]	=>  Location: PIN_C10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Raw_Data_From_Switches[1]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Peek_Button	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Clock_Button	=>  Location: PIN_B8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// Clock_50MHz	=>  Location: PIN_P11,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -229,7 +229,7 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: LCCOMB_X44_Y43_N16
+// Location: LCCOMB_X44_Y41_N24
 fiftyfivenm_lcell_comb \~QUARTUS_CREATED_GND~I (
 // Equation(s):
 // \~QUARTUS_CREATED_GND~I_combout  = GND
@@ -246,7 +246,7 @@ defparam \~QUARTUS_CREATED_GND~I .lut_mask = 16'h0000;
 defparam \~QUARTUS_CREATED_GND~I .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: IOOBUF_X36_Y39_N23
+// Location: IOOBUF_X46_Y54_N2
 fiftyfivenm_io_obuf \LED_B_Data_Bus[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -259,7 +259,7 @@ defparam \LED_B_Data_Bus[0]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y10_N9
+// Location: IOOBUF_X46_Y54_N23
 fiftyfivenm_io_obuf \LED_B_Data_Bus[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -272,7 +272,7 @@ defparam \LED_B_Data_Bus[1]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X51_Y0_N16
+// Location: IOOBUF_X51_Y54_N16
 fiftyfivenm_io_obuf \LED_B_Data_Bus[2]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -285,7 +285,7 @@ defparam \LED_B_Data_Bus[2]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y18_N9
+// Location: IOOBUF_X46_Y54_N9
 fiftyfivenm_io_obuf \LED_B_Data_Bus[3]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -298,7 +298,7 @@ defparam \LED_B_Data_Bus[3]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y34_N2
+// Location: IOOBUF_X56_Y54_N30
 fiftyfivenm_io_obuf \LED_B_Data_Bus[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -311,7 +311,7 @@ defparam \LED_B_Data_Bus[4]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X74_Y54_N16
+// Location: IOOBUF_X58_Y54_N23
 fiftyfivenm_io_obuf \LED_B_Data_Bus[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -324,7 +324,7 @@ defparam \LED_B_Data_Bus[5]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X74_Y54_N9
+// Location: IOOBUF_X66_Y54_N23
 fiftyfivenm_io_obuf \LED_B_Data_Bus[6]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -337,7 +337,7 @@ defparam \LED_B_Data_Bus[6]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y30_N9
+// Location: IOOBUF_X56_Y54_N9
 fiftyfivenm_io_obuf \LED_B_Data_Bus[7]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -350,7 +350,7 @@ defparam \LED_B_Data_Bus[7]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[7]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X26_Y0_N2
+// Location: IOOBUF_X51_Y54_N9
 fiftyfivenm_io_obuf \LED_B_Data_Bus[8]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -363,7 +363,7 @@ defparam \LED_B_Data_Bus[8]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[8]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y36_N2
+// Location: IOOBUF_X49_Y54_N9
 fiftyfivenm_io_obuf \LED_B_Data_Bus[9]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -376,7 +376,7 @@ defparam \LED_B_Data_Bus[9]~output .bus_hold = "false";
 defparam \LED_B_Data_Bus[9]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X20_Y39_N9
+// Location: IOOBUF_X58_Y54_N16
 fiftyfivenm_io_obuf \DHEX0[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -389,7 +389,7 @@ defparam \DHEX0[0]~output .bus_hold = "false";
 defparam \DHEX0[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X24_Y39_N9
+// Location: IOOBUF_X74_Y54_N9
 fiftyfivenm_io_obuf \DHEX0[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -402,7 +402,7 @@ defparam \DHEX0[1]~output .bus_hold = "false";
 defparam \DHEX0[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X60_Y0_N30
+// Location: IOOBUF_X60_Y54_N2
 fiftyfivenm_io_obuf \DHEX0[2]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -415,7 +415,7 @@ defparam \DHEX0[2]~output .bus_hold = "false";
 defparam \DHEX0[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y36_N9
+// Location: IOOBUF_X62_Y54_N30
 fiftyfivenm_io_obuf \DHEX0[3]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -428,7 +428,7 @@ defparam \DHEX0[3]~output .bus_hold = "false";
 defparam \DHEX0[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X46_Y54_N23
+// Location: IOOBUF_X74_Y54_N2
 fiftyfivenm_io_obuf \DHEX0[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -441,7 +441,7 @@ defparam \DHEX0[4]~output .bus_hold = "false";
 defparam \DHEX0[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y31_N16
+// Location: IOOBUF_X74_Y54_N16
 fiftyfivenm_io_obuf \DHEX0[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -454,7 +454,7 @@ defparam \DHEX0[5]~output .bus_hold = "false";
 defparam \DHEX0[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X24_Y39_N30
+// Location: IOOBUF_X74_Y54_N23
 fiftyfivenm_io_obuf \DHEX0[6]~output (
 	.i(vcc),
 	.oe(vcc),
@@ -467,7 +467,7 @@ defparam \DHEX0[6]~output .bus_hold = "false";
 defparam \DHEX0[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X40_Y0_N2
+// Location: IOOBUF_X69_Y54_N23
 fiftyfivenm_io_obuf \DHEX1[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -480,7 +480,7 @@ defparam \DHEX1[0]~output .bus_hold = "false";
 defparam \DHEX1[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X58_Y54_N23
+// Location: IOOBUF_X78_Y49_N9
 fiftyfivenm_io_obuf \DHEX1[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -493,7 +493,7 @@ defparam \DHEX1[1]~output .bus_hold = "false";
 defparam \DHEX1[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X22_Y0_N16
+// Location: IOOBUF_X78_Y49_N2
 fiftyfivenm_io_obuf \DHEX1[2]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -506,7 +506,7 @@ defparam \DHEX1[2]~output .bus_hold = "false";
 defparam \DHEX1[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X31_Y0_N9
+// Location: IOOBUF_X60_Y54_N9
 fiftyfivenm_io_obuf \DHEX1[3]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -519,7 +519,7 @@ defparam \DHEX1[3]~output .bus_hold = "false";
 defparam \DHEX1[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X18_Y0_N16
+// Location: IOOBUF_X64_Y54_N2
 fiftyfivenm_io_obuf \DHEX1[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -532,7 +532,7 @@ defparam \DHEX1[4]~output .bus_hold = "false";
 defparam \DHEX1[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X22_Y0_N23
+// Location: IOOBUF_X66_Y54_N30
 fiftyfivenm_io_obuf \DHEX1[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -545,7 +545,7 @@ defparam \DHEX1[5]~output .bus_hold = "false";
 defparam \DHEX1[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y25_N9
+// Location: IOOBUF_X69_Y54_N30
 fiftyfivenm_io_obuf \DHEX1[6]~output (
 	.i(vcc),
 	.oe(vcc),
@@ -558,7 +558,7 @@ defparam \DHEX1[6]~output .bus_hold = "false";
 defparam \DHEX1[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X20_Y0_N2
+// Location: IOOBUF_X78_Y44_N9
 fiftyfivenm_io_obuf \DHEX2[0]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -571,7 +571,7 @@ defparam \DHEX2[0]~output .bus_hold = "false";
 defparam \DHEX2[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y10_N23
+// Location: IOOBUF_X66_Y54_N2
 fiftyfivenm_io_obuf \DHEX2[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -584,7 +584,7 @@ defparam \DHEX2[1]~output .bus_hold = "false";
 defparam \DHEX2[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y28_N9
+// Location: IOOBUF_X69_Y54_N16
 fiftyfivenm_io_obuf \DHEX2[2]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -597,7 +597,7 @@ defparam \DHEX2[2]~output .bus_hold = "false";
 defparam \DHEX2[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y35_N16
+// Location: IOOBUF_X78_Y44_N2
 fiftyfivenm_io_obuf \DHEX2[3]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -610,7 +610,7 @@ defparam \DHEX2[3]~output .bus_hold = "false";
 defparam \DHEX2[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X36_Y0_N2
+// Location: IOOBUF_X78_Y43_N2
 fiftyfivenm_io_obuf \DHEX2[4]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -623,7 +623,7 @@ defparam \DHEX2[4]~output .bus_hold = "false";
 defparam \DHEX2[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X46_Y54_N30
+// Location: IOOBUF_X78_Y35_N2
 fiftyfivenm_io_obuf \DHEX2[5]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -636,7 +636,7 @@ defparam \DHEX2[5]~output .bus_hold = "false";
 defparam \DHEX2[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X26_Y39_N9
+// Location: IOOBUF_X78_Y43_N9
 fiftyfivenm_io_obuf \DHEX2[6]~output (
 	.i(vcc),
 	.oe(vcc),
@@ -649,7 +649,7 @@ defparam \DHEX2[6]~output .bus_hold = "false";
 defparam \DHEX2[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X18_Y0_N23
+// Location: IOOBUF_X78_Y35_N23
 fiftyfivenm_io_obuf \THEX_Current_Timestep[0]~output (
 	.i(\outputLogicModule|Decoder0~0_combout ),
 	.oe(vcc),
@@ -662,7 +662,7 @@ defparam \THEX_Current_Timestep[0]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[0]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X78_Y25_N2
+// Location: IOOBUF_X78_Y33_N9
 fiftyfivenm_io_obuf \THEX_Current_Timestep[1]~output (
 	.i(gnd),
 	.oe(vcc),
@@ -675,7 +675,7 @@ defparam \THEX_Current_Timestep[1]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[1]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X16_Y0_N16
+// Location: IOOBUF_X78_Y33_N2
 fiftyfivenm_io_obuf \THEX_Current_Timestep[2]~output (
 	.i(\outputLogicModule|Decoder0~1_combout ),
 	.oe(vcc),
@@ -688,7 +688,7 @@ defparam \THEX_Current_Timestep[2]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[2]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X18_Y0_N30
+// Location: IOOBUF_X69_Y54_N9
 fiftyfivenm_io_obuf \THEX_Current_Timestep[3]~output (
 	.i(\outputLogicModule|Decoder0~0_combout ),
 	.oe(vcc),
@@ -701,7 +701,7 @@ defparam \THEX_Current_Timestep[3]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[3]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X16_Y0_N9
+// Location: IOOBUF_X78_Y41_N9
 fiftyfivenm_io_obuf \THEX_Current_Timestep[4]~output (
 	.i(\countermodule|CNT [0]),
 	.oe(vcc),
@@ -714,7 +714,7 @@ defparam \THEX_Current_Timestep[4]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[4]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X16_Y0_N2
+// Location: IOOBUF_X78_Y41_N2
 fiftyfivenm_io_obuf \THEX_Current_Timestep[5]~output (
 	.i(\outputLogicModule|Decoder0~2_combout ),
 	.oe(vcc),
@@ -727,7 +727,7 @@ defparam \THEX_Current_Timestep[5]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[5]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X18_Y0_N2
+// Location: IOOBUF_X78_Y43_N16
 fiftyfivenm_io_obuf \THEX_Current_Timestep[6]~output (
 	.i(!\countermodule|CNT [1]),
 	.oe(vcc),
@@ -740,7 +740,7 @@ defparam \THEX_Current_Timestep[6]~output .bus_hold = "false";
 defparam \THEX_Current_Timestep[6]~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOOBUF_X0_Y37_N2
+// Location: IOOBUF_X78_Y35_N9
 fiftyfivenm_io_obuf \LED_D_Done~output (
 	.i(gnd),
 	.oe(vcc),
@@ -753,7 +753,7 @@ defparam \LED_D_Done~output .bus_hold = "false";
 defparam \LED_D_Done~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y18_N15
+// Location: IOIBUF_X34_Y0_N29
 fiftyfivenm_io_ibuf \Clock_50MHz~input (
 	.i(Clock_50MHz),
 	.ibar(gnd),
@@ -765,7 +765,7 @@ defparam \Clock_50MHz~input .listen_to_nsleep_signal = "false";
 defparam \Clock_50MHz~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: CLKCTRL_G3
+// Location: CLKCTRL_G19
 fiftyfivenm_clkctrl \Clock_50MHz~inputclkctrl (
 	.ena(vcc),
 	.inclk({vcc,vcc,vcc,\Clock_50MHz~input_o }),
@@ -778,7 +778,7 @@ defparam \Clock_50MHz~inputclkctrl .clock_type = "global clock";
 defparam \Clock_50MHz~inputclkctrl .ena_register_mode = "none";
 // synopsys translate_on
 
-// Location: IOIBUF_X46_Y54_N1
+// Location: IOIBUF_X46_Y54_N29
 fiftyfivenm_io_ibuf \Clock_Button~input (
 	.i(Clock_Button),
 	.ibar(gnd),
@@ -790,7 +790,7 @@ defparam \Clock_Button~input .listen_to_nsleep_signal = "false";
 defparam \Clock_Button~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N0
+// Location: LCCOMB_X50_Y47_N0
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[0]~16 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[0]~16_combout  = \inputLogicModule|clk_debouncer|COUNT [0] $ (VCC)
@@ -808,15 +808,15 @@ defparam \inputLogicModule|clk_debouncer|COUNT[0]~16 .lut_mask = 16'h33CC;
 defparam \inputLogicModule|clk_debouncer|COUNT[0]~16 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N4
+// Location: LCCOMB_X49_Y47_N22
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|LessThan0~2 (
 // Equation(s):
-// \inputLogicModule|clk_debouncer|LessThan0~2_combout  = (!\inputLogicModule|clk_debouncer|COUNT [10] & (!\inputLogicModule|clk_debouncer|COUNT [11] & (!\inputLogicModule|clk_debouncer|COUNT [12] & !\inputLogicModule|clk_debouncer|COUNT [13])))
+// \inputLogicModule|clk_debouncer|LessThan0~2_combout  = (!\inputLogicModule|clk_debouncer|COUNT [10] & (!\inputLogicModule|clk_debouncer|COUNT [13] & (!\inputLogicModule|clk_debouncer|COUNT [12] & !\inputLogicModule|clk_debouncer|COUNT [11])))
 
 	.dataa(\inputLogicModule|clk_debouncer|COUNT [10]),
-	.datab(\inputLogicModule|clk_debouncer|COUNT [11]),
+	.datab(\inputLogicModule|clk_debouncer|COUNT [13]),
 	.datac(\inputLogicModule|clk_debouncer|COUNT [12]),
-	.datad(\inputLogicModule|clk_debouncer|COUNT [13]),
+	.datad(\inputLogicModule|clk_debouncer|COUNT [11]),
 	.cin(gnd),
 	.combout(\inputLogicModule|clk_debouncer|LessThan0~2_combout ),
 	.cout());
@@ -825,15 +825,15 @@ defparam \inputLogicModule|clk_debouncer|LessThan0~2 .lut_mask = 16'h0001;
 defparam \inputLogicModule|clk_debouncer|LessThan0~2 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N12
+// Location: LCCOMB_X49_Y47_N0
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|LessThan0~0 (
 // Equation(s):
-// \inputLogicModule|clk_debouncer|LessThan0~0_combout  = ((!\inputLogicModule|clk_debouncer|COUNT [5] & (!\inputLogicModule|clk_debouncer|COUNT [4] & !\inputLogicModule|clk_debouncer|COUNT [7]))) # (!\inputLogicModule|clk_debouncer|COUNT [8])
+// \inputLogicModule|clk_debouncer|LessThan0~0_combout  = ((!\inputLogicModule|clk_debouncer|COUNT [7] & (!\inputLogicModule|clk_debouncer|COUNT [4] & !\inputLogicModule|clk_debouncer|COUNT [5]))) # (!\inputLogicModule|clk_debouncer|COUNT [8])
 
-	.dataa(\inputLogicModule|clk_debouncer|COUNT [5]),
+	.dataa(\inputLogicModule|clk_debouncer|COUNT [7]),
 	.datab(\inputLogicModule|clk_debouncer|COUNT [8]),
 	.datac(\inputLogicModule|clk_debouncer|COUNT [4]),
-	.datad(\inputLogicModule|clk_debouncer|COUNT [7]),
+	.datad(\inputLogicModule|clk_debouncer|COUNT [5]),
 	.cin(gnd),
 	.combout(\inputLogicModule|clk_debouncer|LessThan0~0_combout ),
 	.cout());
@@ -842,7 +842,7 @@ defparam \inputLogicModule|clk_debouncer|LessThan0~0 .lut_mask = 16'h3337;
 defparam \inputLogicModule|clk_debouncer|LessThan0~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N20
+// Location: LCCOMB_X49_Y47_N20
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|LessThan0~1 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|LessThan0~1_combout  = ((\inputLogicModule|clk_debouncer|LessThan0~0_combout ) # ((!\inputLogicModule|clk_debouncer|COUNT [7] & !\inputLogicModule|clk_debouncer|COUNT [6]))) # (!\inputLogicModule|clk_debouncer|COUNT [9])
@@ -859,24 +859,24 @@ defparam \inputLogicModule|clk_debouncer|LessThan0~1 .lut_mask = 16'hFF1F;
 defparam \inputLogicModule|clk_debouncer|LessThan0~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N28
+// Location: LCCOMB_X49_Y47_N12
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|t_r~0 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|t_r~0_combout  = (\inputLogicModule|clk_debouncer|COUNT [15] & ((!\inputLogicModule|clk_debouncer|LessThan0~1_combout ) # (!\inputLogicModule|clk_debouncer|LessThan0~2_combout )))
 
-	.dataa(\inputLogicModule|clk_debouncer|COUNT [15]),
-	.datab(gnd),
+	.dataa(gnd),
+	.datab(\inputLogicModule|clk_debouncer|COUNT [15]),
 	.datac(\inputLogicModule|clk_debouncer|LessThan0~2_combout ),
 	.datad(\inputLogicModule|clk_debouncer|LessThan0~1_combout ),
 	.cin(gnd),
 	.combout(\inputLogicModule|clk_debouncer|t_r~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \inputLogicModule|clk_debouncer|t_r~0 .lut_mask = 16'h0AAA;
+defparam \inputLogicModule|clk_debouncer|t_r~0 .lut_mask = 16'h0CCC;
 defparam \inputLogicModule|clk_debouncer|t_r~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N14
+// Location: LCCOMB_X49_Y47_N18
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|t_r (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|t_r~combout  = (\inputLogicModule|clk_debouncer|COUNT [14] & ((\inputLogicModule|clk_debouncer|t_r~0_combout ) # (\Clock_Button~input_o  $ (!\inputLogicModule|clk_debouncer|A~q )))) # (!\inputLogicModule|clk_debouncer|COUNT 
@@ -894,7 +894,7 @@ defparam \inputLogicModule|clk_debouncer|t_r .lut_mask = 16'hEDA5;
 defparam \inputLogicModule|clk_debouncer|t_r .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N1
+// Location: FF_X50_Y47_N1
 dffeas \inputLogicModule|clk_debouncer|COUNT[0] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[0]~16_combout ),
@@ -913,7 +913,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[0] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[0] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N2
+// Location: LCCOMB_X50_Y47_N2
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[1]~18 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[1]~18_combout  = (\inputLogicModule|clk_debouncer|COUNT [1] & (!\inputLogicModule|clk_debouncer|COUNT[0]~17 )) # (!\inputLogicModule|clk_debouncer|COUNT [1] & ((\inputLogicModule|clk_debouncer|COUNT[0]~17 ) # (GND)))
@@ -931,7 +931,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[1]~18 .lut_mask = 16'h3C3F;
 defparam \inputLogicModule|clk_debouncer|COUNT[1]~18 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N3
+// Location: FF_X50_Y47_N3
 dffeas \inputLogicModule|clk_debouncer|COUNT[1] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[1]~18_combout ),
@@ -950,7 +950,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[1] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[1] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N4
+// Location: LCCOMB_X50_Y47_N4
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[2]~20 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[2]~20_combout  = (\inputLogicModule|clk_debouncer|COUNT [2] & (\inputLogicModule|clk_debouncer|COUNT[1]~19  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [2] & (!\inputLogicModule|clk_debouncer|COUNT[1]~19  & 
@@ -969,7 +969,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[2]~20 .lut_mask = 16'hC30C;
 defparam \inputLogicModule|clk_debouncer|COUNT[2]~20 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N5
+// Location: FF_X50_Y47_N5
 dffeas \inputLogicModule|clk_debouncer|COUNT[2] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[2]~20_combout ),
@@ -988,7 +988,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[2] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[2] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N6
+// Location: LCCOMB_X50_Y47_N6
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[3]~22 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[3]~22_combout  = (\inputLogicModule|clk_debouncer|COUNT [3] & (!\inputLogicModule|clk_debouncer|COUNT[2]~21 )) # (!\inputLogicModule|clk_debouncer|COUNT [3] & ((\inputLogicModule|clk_debouncer|COUNT[2]~21 ) # (GND)))
@@ -1006,7 +1006,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[3]~22 .lut_mask = 16'h5A5F;
 defparam \inputLogicModule|clk_debouncer|COUNT[3]~22 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N7
+// Location: FF_X50_Y47_N7
 dffeas \inputLogicModule|clk_debouncer|COUNT[3] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[3]~22_combout ),
@@ -1025,7 +1025,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[3] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[3] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N8
+// Location: LCCOMB_X50_Y47_N8
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[4]~24 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[4]~24_combout  = (\inputLogicModule|clk_debouncer|COUNT [4] & (\inputLogicModule|clk_debouncer|COUNT[3]~23  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [4] & (!\inputLogicModule|clk_debouncer|COUNT[3]~23  & 
@@ -1044,7 +1044,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[4]~24 .lut_mask = 16'hC30C;
 defparam \inputLogicModule|clk_debouncer|COUNT[4]~24 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N9
+// Location: FF_X50_Y47_N9
 dffeas \inputLogicModule|clk_debouncer|COUNT[4] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[4]~24_combout ),
@@ -1063,25 +1063,25 @@ defparam \inputLogicModule|clk_debouncer|COUNT[4] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[4] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N10
+// Location: LCCOMB_X50_Y47_N10
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[5]~26 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[5]~26_combout  = (\inputLogicModule|clk_debouncer|COUNT [5] & (!\inputLogicModule|clk_debouncer|COUNT[4]~25 )) # (!\inputLogicModule|clk_debouncer|COUNT [5] & ((\inputLogicModule|clk_debouncer|COUNT[4]~25 ) # (GND)))
 // \inputLogicModule|clk_debouncer|COUNT[5]~27  = CARRY((!\inputLogicModule|clk_debouncer|COUNT[4]~25 ) # (!\inputLogicModule|clk_debouncer|COUNT [5]))
 
-	.dataa(\inputLogicModule|clk_debouncer|COUNT [5]),
-	.datab(gnd),
+	.dataa(gnd),
+	.datab(\inputLogicModule|clk_debouncer|COUNT [5]),
 	.datac(gnd),
 	.datad(vcc),
 	.cin(\inputLogicModule|clk_debouncer|COUNT[4]~25 ),
 	.combout(\inputLogicModule|clk_debouncer|COUNT[5]~26_combout ),
 	.cout(\inputLogicModule|clk_debouncer|COUNT[5]~27 ));
 // synopsys translate_off
-defparam \inputLogicModule|clk_debouncer|COUNT[5]~26 .lut_mask = 16'h5A5F;
+defparam \inputLogicModule|clk_debouncer|COUNT[5]~26 .lut_mask = 16'h3C3F;
 defparam \inputLogicModule|clk_debouncer|COUNT[5]~26 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X45_Y48_N11
+// Location: FF_X49_Y47_N7
 dffeas \inputLogicModule|clk_debouncer|COUNT[5] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(gnd),
@@ -1100,7 +1100,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[5] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[5] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N12
+// Location: LCCOMB_X50_Y47_N12
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[6]~28 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[6]~28_combout  = (\inputLogicModule|clk_debouncer|COUNT [6] & (\inputLogicModule|clk_debouncer|COUNT[5]~27  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [6] & (!\inputLogicModule|clk_debouncer|COUNT[5]~27  & 
@@ -1119,7 +1119,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[6]~28 .lut_mask = 16'hC30C;
 defparam \inputLogicModule|clk_debouncer|COUNT[6]~28 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X45_Y48_N25
+// Location: FF_X49_Y47_N25
 dffeas \inputLogicModule|clk_debouncer|COUNT[6] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(gnd),
@@ -1138,25 +1138,25 @@ defparam \inputLogicModule|clk_debouncer|COUNT[6] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[6] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N14
+// Location: LCCOMB_X50_Y47_N14
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[7]~30 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[7]~30_combout  = (\inputLogicModule|clk_debouncer|COUNT [7] & (!\inputLogicModule|clk_debouncer|COUNT[6]~29 )) # (!\inputLogicModule|clk_debouncer|COUNT [7] & ((\inputLogicModule|clk_debouncer|COUNT[6]~29 ) # (GND)))
 // \inputLogicModule|clk_debouncer|COUNT[7]~31  = CARRY((!\inputLogicModule|clk_debouncer|COUNT[6]~29 ) # (!\inputLogicModule|clk_debouncer|COUNT [7]))
 
-	.dataa(gnd),
-	.datab(\inputLogicModule|clk_debouncer|COUNT [7]),
+	.dataa(\inputLogicModule|clk_debouncer|COUNT [7]),
+	.datab(gnd),
 	.datac(gnd),
 	.datad(vcc),
 	.cin(\inputLogicModule|clk_debouncer|COUNT[6]~29 ),
 	.combout(\inputLogicModule|clk_debouncer|COUNT[7]~30_combout ),
 	.cout(\inputLogicModule|clk_debouncer|COUNT[7]~31 ));
 // synopsys translate_off
-defparam \inputLogicModule|clk_debouncer|COUNT[7]~30 .lut_mask = 16'h3C3F;
+defparam \inputLogicModule|clk_debouncer|COUNT[7]~30 .lut_mask = 16'h5A5F;
 defparam \inputLogicModule|clk_debouncer|COUNT[7]~30 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X45_Y48_N7
+// Location: FF_X49_Y47_N27
 dffeas \inputLogicModule|clk_debouncer|COUNT[7] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(gnd),
@@ -1175,7 +1175,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[7] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[7] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N16
+// Location: LCCOMB_X50_Y47_N16
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[8]~32 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[8]~32_combout  = (\inputLogicModule|clk_debouncer|COUNT [8] & (\inputLogicModule|clk_debouncer|COUNT[7]~31  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [8] & (!\inputLogicModule|clk_debouncer|COUNT[7]~31  & 
@@ -1194,7 +1194,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[8]~32 .lut_mask = 16'hA50A;
 defparam \inputLogicModule|clk_debouncer|COUNT[8]~32 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X45_Y48_N9
+// Location: FF_X49_Y47_N15
 dffeas \inputLogicModule|clk_debouncer|COUNT[8] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(gnd),
@@ -1213,7 +1213,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[8] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[8] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N18
+// Location: LCCOMB_X50_Y47_N18
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[9]~34 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[9]~34_combout  = (\inputLogicModule|clk_debouncer|COUNT [9] & (!\inputLogicModule|clk_debouncer|COUNT[8]~33 )) # (!\inputLogicModule|clk_debouncer|COUNT [9] & ((\inputLogicModule|clk_debouncer|COUNT[8]~33 ) # (GND)))
@@ -1231,7 +1231,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[9]~34 .lut_mask = 16'h3C3F;
 defparam \inputLogicModule|clk_debouncer|COUNT[9]~34 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X45_Y48_N23
+// Location: FF_X49_Y47_N5
 dffeas \inputLogicModule|clk_debouncer|COUNT[9] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(gnd),
@@ -1250,7 +1250,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[9] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[9] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N20
+// Location: LCCOMB_X50_Y47_N20
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[10]~36 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[10]~36_combout  = (\inputLogicModule|clk_debouncer|COUNT [10] & (\inputLogicModule|clk_debouncer|COUNT[9]~35  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [10] & (!\inputLogicModule|clk_debouncer|COUNT[9]~35  & 
@@ -1269,7 +1269,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[10]~36 .lut_mask = 16'hC30C;
 defparam \inputLogicModule|clk_debouncer|COUNT[10]~36 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N21
+// Location: FF_X50_Y47_N21
 dffeas \inputLogicModule|clk_debouncer|COUNT[10] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[10]~36_combout ),
@@ -1288,7 +1288,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[10] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[10] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N22
+// Location: LCCOMB_X50_Y47_N22
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[11]~38 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[11]~38_combout  = (\inputLogicModule|clk_debouncer|COUNT [11] & (!\inputLogicModule|clk_debouncer|COUNT[10]~37 )) # (!\inputLogicModule|clk_debouncer|COUNT [11] & ((\inputLogicModule|clk_debouncer|COUNT[10]~37 ) # 
@@ -1307,7 +1307,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[11]~38 .lut_mask = 16'h5A5F;
 defparam \inputLogicModule|clk_debouncer|COUNT[11]~38 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N23
+// Location: FF_X50_Y47_N23
 dffeas \inputLogicModule|clk_debouncer|COUNT[11] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[11]~38_combout ),
@@ -1326,7 +1326,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[11] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[11] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N24
+// Location: LCCOMB_X50_Y47_N24
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[12]~40 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[12]~40_combout  = (\inputLogicModule|clk_debouncer|COUNT [12] & (\inputLogicModule|clk_debouncer|COUNT[11]~39  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [12] & (!\inputLogicModule|clk_debouncer|COUNT[11]~39  
@@ -1345,7 +1345,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[12]~40 .lut_mask = 16'hC30C;
 defparam \inputLogicModule|clk_debouncer|COUNT[12]~40 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N25
+// Location: FF_X50_Y47_N25
 dffeas \inputLogicModule|clk_debouncer|COUNT[12] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[12]~40_combout ),
@@ -1364,7 +1364,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[12] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[12] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N26
+// Location: LCCOMB_X50_Y47_N26
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[13]~42 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[13]~42_combout  = (\inputLogicModule|clk_debouncer|COUNT [13] & (!\inputLogicModule|clk_debouncer|COUNT[12]~41 )) # (!\inputLogicModule|clk_debouncer|COUNT [13] & ((\inputLogicModule|clk_debouncer|COUNT[12]~41 ) # 
@@ -1383,7 +1383,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[13]~42 .lut_mask = 16'h5A5F;
 defparam \inputLogicModule|clk_debouncer|COUNT[13]~42 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N27
+// Location: FF_X50_Y47_N27
 dffeas \inputLogicModule|clk_debouncer|COUNT[13] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[13]~42_combout ),
@@ -1402,7 +1402,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[13] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[13] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N28
+// Location: LCCOMB_X50_Y47_N28
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[14]~44 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[14]~44_combout  = (\inputLogicModule|clk_debouncer|COUNT [14] & (\inputLogicModule|clk_debouncer|COUNT[13]~43  $ (GND))) # (!\inputLogicModule|clk_debouncer|COUNT [14] & (!\inputLogicModule|clk_debouncer|COUNT[13]~43  
@@ -1421,7 +1421,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[14]~44 .lut_mask = 16'hC30C;
 defparam \inputLogicModule|clk_debouncer|COUNT[14]~44 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N29
+// Location: FF_X50_Y47_N29
 dffeas \inputLogicModule|clk_debouncer|COUNT[14] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[14]~44_combout ),
@@ -1440,7 +1440,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[14] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[14] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X46_Y48_N30
+// Location: LCCOMB_X50_Y47_N30
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|COUNT[15]~46 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|COUNT[15]~46_combout  = \inputLogicModule|clk_debouncer|COUNT [15] $ (\inputLogicModule|clk_debouncer|COUNT[14]~45 )
@@ -1457,7 +1457,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[15]~46 .lut_mask = 16'h5A5A;
 defparam \inputLogicModule|clk_debouncer|COUNT[15]~46 .sum_lutc_input = "cin";
 // synopsys translate_on
 
-// Location: FF_X46_Y48_N31
+// Location: FF_X50_Y47_N31
 dffeas \inputLogicModule|clk_debouncer|COUNT[15] (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|COUNT[15]~46_combout ),
@@ -1476,7 +1476,7 @@ defparam \inputLogicModule|clk_debouncer|COUNT[15] .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|COUNT[15] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N18
+// Location: LCCOMB_X49_Y47_N10
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|LessThan0~3 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|LessThan0~3_combout  = (((\inputLogicModule|clk_debouncer|LessThan0~2_combout  & \inputLogicModule|clk_debouncer|LessThan0~1_combout )) # (!\inputLogicModule|clk_debouncer|COUNT [14])) # 
@@ -1494,24 +1494,24 @@ defparam \inputLogicModule|clk_debouncer|LessThan0~3 .lut_mask = 16'hF777;
 defparam \inputLogicModule|clk_debouncer|LessThan0~3 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N30
+// Location: LCCOMB_X49_Y47_N28
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|A~0 (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|A~0_combout  = (\inputLogicModule|clk_debouncer|LessThan0~3_combout  & ((\inputLogicModule|clk_debouncer|A~q ))) # (!\inputLogicModule|clk_debouncer|LessThan0~3_combout  & (\Clock_Button~input_o ))
 
-	.dataa(gnd),
-	.datab(\Clock_Button~input_o ),
+	.dataa(\Clock_Button~input_o ),
+	.datab(gnd),
 	.datac(\inputLogicModule|clk_debouncer|A~q ),
 	.datad(\inputLogicModule|clk_debouncer|LessThan0~3_combout ),
 	.cin(gnd),
 	.combout(\inputLogicModule|clk_debouncer|A~0_combout ),
 	.cout());
 // synopsys translate_off
-defparam \inputLogicModule|clk_debouncer|A~0 .lut_mask = 16'hF0CC;
+defparam \inputLogicModule|clk_debouncer|A~0 .lut_mask = 16'hF0AA;
 defparam \inputLogicModule|clk_debouncer|A~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X45_Y48_N16
+// Location: LCCOMB_X49_Y47_N2
 fiftyfivenm_lcell_comb \inputLogicModule|clk_debouncer|A~feeder (
 // Equation(s):
 // \inputLogicModule|clk_debouncer|A~feeder_combout  = \inputLogicModule|clk_debouncer|A~0_combout 
@@ -1528,7 +1528,7 @@ defparam \inputLogicModule|clk_debouncer|A~feeder .lut_mask = 16'hF0F0;
 defparam \inputLogicModule|clk_debouncer|A~feeder .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X45_Y48_N17
+// Location: FF_X49_Y47_N3
 dffeas \inputLogicModule|clk_debouncer|A (
 	.clk(\Clock_50MHz~inputclkctrl_outclk ),
 	.d(\inputLogicModule|clk_debouncer|A~feeder_combout ),
@@ -1547,7 +1547,7 @@ defparam \inputLogicModule|clk_debouncer|A .is_wysiwyg = "true";
 defparam \inputLogicModule|clk_debouncer|A .power_up = "low";
 // synopsys translate_on
 
-// Location: CLKCTRL_G11
+// Location: CLKCTRL_G12
 fiftyfivenm_clkctrl \inputLogicModule|clk_debouncer|A~clkctrl (
 	.ena(vcc),
 	.inclk({vcc,vcc,vcc,\inputLogicModule|clk_debouncer|A~q }),
@@ -1560,7 +1560,7 @@ defparam \inputLogicModule|clk_debouncer|A~clkctrl .clock_type = "global clock";
 defparam \inputLogicModule|clk_debouncer|A~clkctrl .ena_register_mode = "none";
 // synopsys translate_on
 
-// Location: LCCOMB_X18_Y1_N12
+// Location: LCCOMB_X77_Y41_N12
 fiftyfivenm_lcell_comb \countermodule|CNT[0]~1 (
 // Equation(s):
 // \countermodule|CNT[0]~1_combout  = !\countermodule|CNT [0]
@@ -1577,7 +1577,7 @@ defparam \countermodule|CNT[0]~1 .lut_mask = 16'h0F0F;
 defparam \countermodule|CNT[0]~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X18_Y1_N13
+// Location: FF_X77_Y41_N13
 dffeas \countermodule|CNT[0] (
 	.clk(!\inputLogicModule|clk_debouncer|A~clkctrl_outclk ),
 	.d(\countermodule|CNT[0]~1_combout ),
@@ -1596,7 +1596,7 @@ defparam \countermodule|CNT[0] .is_wysiwyg = "true";
 defparam \countermodule|CNT[0] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X18_Y1_N2
+// Location: LCCOMB_X77_Y41_N2
 fiftyfivenm_lcell_comb \countermodule|CNT[1]~0 (
 // Equation(s):
 // \countermodule|CNT[1]~0_combout  = \countermodule|CNT [1] $ (\countermodule|CNT [0])
@@ -1613,7 +1613,7 @@ defparam \countermodule|CNT[1]~0 .lut_mask = 16'h0FF0;
 defparam \countermodule|CNT[1]~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: FF_X18_Y1_N3
+// Location: FF_X77_Y41_N3
 dffeas \countermodule|CNT[1] (
 	.clk(!\inputLogicModule|clk_debouncer|A~clkctrl_outclk ),
 	.d(\countermodule|CNT[1]~0_combout ),
@@ -1632,7 +1632,7 @@ defparam \countermodule|CNT[1] .is_wysiwyg = "true";
 defparam \countermodule|CNT[1] .power_up = "low";
 // synopsys translate_on
 
-// Location: LCCOMB_X18_Y1_N24
+// Location: LCCOMB_X77_Y41_N8
 fiftyfivenm_lcell_comb \outputLogicModule|Decoder0~0 (
 // Equation(s):
 // \outputLogicModule|Decoder0~0_combout  = (\countermodule|CNT [0] & !\countermodule|CNT [1])
@@ -1649,7 +1649,7 @@ defparam \outputLogicModule|Decoder0~0 .lut_mask = 16'h00F0;
 defparam \outputLogicModule|Decoder0~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X18_Y1_N22
+// Location: LCCOMB_X77_Y41_N6
 fiftyfivenm_lcell_comb \outputLogicModule|Decoder0~1 (
 // Equation(s):
 // \outputLogicModule|Decoder0~1_combout  = (!\countermodule|CNT [0] & \countermodule|CNT [1])
@@ -1666,7 +1666,7 @@ defparam \outputLogicModule|Decoder0~1 .lut_mask = 16'h0F00;
 defparam \outputLogicModule|Decoder0~1 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: LCCOMB_X18_Y1_N0
+// Location: LCCOMB_X77_Y41_N20
 fiftyfivenm_lcell_comb \outputLogicModule|Decoder0~2 (
 // Equation(s):
 // \outputLogicModule|Decoder0~2_combout  = (\countermodule|CNT [0]) # (\countermodule|CNT [1])
@@ -1683,7 +1683,7 @@ defparam \outputLogicModule|Decoder0~2 .lut_mask = 16'hFFF0;
 defparam \outputLogicModule|Decoder0~2 .sum_lutc_input = "datac";
 // synopsys translate_on
 
-// Location: IOIBUF_X31_Y39_N1
+// Location: IOIBUF_X51_Y54_N1
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[2]~input (
 	.i(Raw_Data_From_Switches[2]),
 	.ibar(gnd),
@@ -1695,7 +1695,7 @@ defparam \Raw_Data_From_Switches[2]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[2]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X54_Y54_N22
+// Location: IOIBUF_X54_Y54_N29
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[3]~input (
 	.i(Raw_Data_From_Switches[3]),
 	.ibar(gnd),
@@ -1707,7 +1707,7 @@ defparam \Raw_Data_From_Switches[3]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[3]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X69_Y54_N29
+// Location: IOIBUF_X54_Y54_N22
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[4]~input (
 	.i(Raw_Data_From_Switches[4]),
 	.ibar(gnd),
@@ -1719,7 +1719,7 @@ defparam \Raw_Data_From_Switches[4]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[4]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X78_Y29_N15
+// Location: IOIBUF_X49_Y54_N1
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[5]~input (
 	.i(Raw_Data_From_Switches[5]),
 	.ibar(gnd),
@@ -1731,7 +1731,7 @@ defparam \Raw_Data_From_Switches[5]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[5]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X56_Y54_N8
+// Location: IOIBUF_X54_Y54_N15
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[6]~input (
 	.i(Raw_Data_From_Switches[6]),
 	.ibar(gnd),
@@ -1743,7 +1743,7 @@ defparam \Raw_Data_From_Switches[6]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[6]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X26_Y39_N22
+// Location: IOIBUF_X58_Y54_N29
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[7]~input (
 	.i(Raw_Data_From_Switches[7]),
 	.ibar(gnd),
@@ -1755,7 +1755,7 @@ defparam \Raw_Data_From_Switches[7]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[7]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X40_Y0_N8
+// Location: IOIBUF_X56_Y54_N1
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[8]~input (
 	.i(Raw_Data_From_Switches[8]),
 	.ibar(gnd),
@@ -1767,7 +1767,7 @@ defparam \Raw_Data_From_Switches[8]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[8]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X66_Y54_N8
+// Location: IOIBUF_X69_Y54_N1
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[9]~input (
 	.i(Raw_Data_From_Switches[9]),
 	.ibar(gnd),
@@ -1779,7 +1779,7 @@ defparam \Raw_Data_From_Switches[9]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[9]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X58_Y54_N29
+// Location: IOIBUF_X51_Y54_N29
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[0]~input (
 	.i(Raw_Data_From_Switches[0]),
 	.ibar(gnd),
@@ -1791,7 +1791,7 @@ defparam \Raw_Data_From_Switches[0]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[0]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X66_Y54_N15
+// Location: IOIBUF_X51_Y54_N22
 fiftyfivenm_io_ibuf \Raw_Data_From_Switches[1]~input (
 	.i(Raw_Data_From_Switches[1]),
 	.ibar(gnd),
@@ -1803,7 +1803,7 @@ defparam \Raw_Data_From_Switches[1]~input .listen_to_nsleep_signal = "false";
 defparam \Raw_Data_From_Switches[1]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X24_Y0_N15
+// Location: IOIBUF_X49_Y54_N29
 fiftyfivenm_io_ibuf \Peek_Button~input (
 	.i(Peek_Button),
 	.ibar(gnd),

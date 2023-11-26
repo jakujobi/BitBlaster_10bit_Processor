@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Bitblaster_10Bit_Processor
-Sat Nov 25 19:24:23 2023
+Sun Nov 26 13:02:31 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -10,8 +10,19 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
-  6. Analysis & Synthesis Suppressed Messages
+  5. Multiplexer Restructuring Statistics (Restructuring Performed)
+  6. Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:peek_debouncer
+  7. Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:clk_debouncer
+  8. Parameter Settings for User Entity Instance: controller:controllerModule
+  9. Parameter Settings for User Entity Instance: ALU:multistageALU
+ 10. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod0
+ 11. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div0
+ 12. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod1
+ 13. Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div1
+ 14. Port Connectivity Checks: "registerFile:registerFileModule"
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -38,7 +49,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sat Nov 25 19:24:23 2023              ;
+; Analysis & Synthesis Status        ; Failed - Sun Nov 26 13:02:31 2023              ;
 ; Quartus Prime Version              ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                      ; Bitblaster_10Bit_Processor                     ;
 ; Top-level Entity Name              ; Bitblaster_10Bit_Processor                     ;
@@ -159,13 +170,204 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+; 17:1               ; 2 bits    ; 22 LEs        ; 16 LEs               ; 6 LEs                  ; Yes        ; |Bitblaster_10Bit_Processor|ALU:multistageALU|G[4]              ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Bitblaster_10Bit_Processor|ALU:multistageALU|G[9]              ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Bitblaster_10Bit_Processor|ALU:multistageALU|G[7]              ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Bitblaster_10Bit_Processor|ALU:multistageALU|G[2]              ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Bitblaster_10Bit_Processor|ALU:multistageALU|G[1]              ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; No         ; |Bitblaster_10Bit_Processor|controller:controllerModule|Rout[0] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Bitblaster_10Bit_Processor|controller:controllerModule|Rin[0]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:peek_debouncer ;
++----------------+------------------+---------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                          ;
++----------------+------------------+---------------------------------------------------------------+
+; COMPARE        ; 1100001101010000 ; Unsigned Binary                                               ;
++----------------+------------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: inputlogic:inputLogicModule|debouncer:clk_debouncer ;
++----------------+------------------+--------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                         ;
++----------------+------------------+--------------------------------------------------------------+
+; COMPARE        ; 1100001101010000 ; Unsigned Binary                                              ;
++----------------+------------------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controller:controllerModule ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; LOAD           ; 0000  ; Unsigned Binary                                 ;
+; COPY           ; 0001  ; Unsigned Binary                                 ;
+; ADD            ; 0010  ; Unsigned Binary                                 ;
+; SUB            ; 0011  ; Unsigned Binary                                 ;
+; INV            ; 0100  ; Unsigned Binary                                 ;
+; FLIP           ; 0101  ; Unsigned Binary                                 ;
+; AND            ; 0110  ; Unsigned Binary                                 ;
+; OR             ; 0111  ; Unsigned Binary                                 ;
+; XOR            ; 1000  ; Unsigned Binary                                 ;
+; LSL            ; 1001  ; Unsigned Binary                                 ;
+; LSR            ; 1010  ; Unsigned Binary                                 ;
+; ASR            ; 1011  ; Unsigned Binary                                 ;
+; ADDI           ; 1100  ; Unsigned Binary                                 ;
+; SUBI           ; 1101  ; Unsigned Binary                                 ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:multistageALU ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; LOAD           ; 0000  ; Unsigned Binary                       ;
+; COPY           ; 0001  ; Unsigned Binary                       ;
+; ADD            ; 0010  ; Unsigned Binary                       ;
+; SUB            ; 0011  ; Unsigned Binary                       ;
+; INV            ; 0100  ; Unsigned Binary                       ;
+; FLIP           ; 0101  ; Unsigned Binary                       ;
+; AND            ; 0110  ; Unsigned Binary                       ;
+; OR             ; 0111  ; Unsigned Binary                       ;
+; XOR            ; 1000  ; Unsigned Binary                       ;
+; LSL            ; 1001  ; Unsigned Binary                       ;
+; LSR            ; 1010  ; Unsigned Binary                       ;
+; ASR            ; 1011  ; Unsigned Binary                       ;
+; ADDI           ; 1100  ; Unsigned Binary                       ;
+; SUBI           ; 1101  ; Unsigned Binary                       ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                              ;
+; LPM_WIDTHD             ; 4              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                              ;
+; LPM_WIDTHD             ; 4              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_itl ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                              ;
+; LPM_WIDTHD             ; 4              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: outputlogic:outputLogicModule|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                              ;
+; LPM_WIDTHD             ; 7              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_ltl ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "registerFile:registerFileModule" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; ENR1 ; Input ; Info     ; Stuck at VCC                      ;
++------+-------+----------+-----------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sat Nov 25 19:24:15 2023
+    Info: Processing started: Sun Nov 26 13:02:22 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Bitblaster_10Bit_Processor -c Bitblaster_10Bit_Processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -204,17 +406,107 @@ Info (12128): Elaborating entity "debouncer" for hierarchy "inputlogic:inputLogi
 Info (12128): Elaborating entity "upcount2" for hierarchy "upcount2:countermodule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 50
 Info (12128): Elaborating entity "reg10" for hierarchy "reg10:instructionRegister" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 58
 Info (12128): Elaborating entity "controller" for hierarchy "controller:controllerModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 95
-Warning (10858): Verilog HDL warning at controller.sv(42): object Rx used but never assigned File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 42
-Warning (10240): Verilog HDL Always Construct warning at controller.sv(48): inferring latch(es) for variable "Ry", which holds its previous value in one or more paths through the always construct File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 48
-Error (10166): SystemVerilog RTL Coding error at controller.sv(48): always_comb construct does not infer purely combinational logic. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 48
-Warning (10030): Net "Rx" at controller.sv(42) has no driver or initial value, using a default initial value '0' File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 42
-Error (12152): Can't elaborate user hierarchy "controller:controllerModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 95
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:registerFileModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 113
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:multistageALU" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 127
+Info (12128): Elaborating entity "outputlogic" for hierarchy "outputlogic:outputLogicModule" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 144
+Warning (10230): Verilog HDL assignment warning at outputlogic.sv(53): truncated value with size 32 to match size of target (4) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
+Warning (10230): Verilog HDL assignment warning at outputlogic.sv(54): truncated value with size 32 to match size of target (4) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
+Warning (10230): Verilog HDL assignment warning at outputlogic.sv(55): truncated value with size 32 to match size of target (4) File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[0]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[1]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[2]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[3]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[4]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[5]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[6]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[7]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[8]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "registerFile:registerFileModule|Q1[9]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 15
+    Warning (13049): Converted tri-state buffer "controller:controllerModule|ALUcont[0]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 14
+    Warning (13049): Converted tri-state buffer "controller:controllerModule|ALUcont[1]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 14
+    Warning (13049): Converted tri-state buffer "controller:controllerModule|ALUcont[2]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 14
+    Warning (13049): Converted tri-state buffer "controller:controllerModule|ALUcont[3]" feeding internal logic into a wire File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/controller.sv Line: 14
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "registerFile:registerFileModule|registers" is uninferred due to inappropriate RAM size File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/registerFile.sv Line: 18
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Mod0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Div0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Mod1" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "outputlogic:outputLogicModule|Div1" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
+Info (12130): Elaborated megafunction instantiation "outputlogic:outputLogicModule|lpm_divide:Mod0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
+Info (12133): Instantiated megafunction "outputlogic:outputLogicModule|lpm_divide:Mod0" with the following parameter: File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 53
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lll.tdf
+    Info (12023): Found entity 1: lpm_divide_lll File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_lll.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/sign_div_unsign_klh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ihe.tdf
+    Info (12023): Found entity 1: alt_u_div_ihe File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/alt_u_div_ihe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "outputlogic:outputLogicModule|lpm_divide:Div0" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
+Info (12133): Instantiated megafunction "outputlogic:outputLogicModule|lpm_divide:Div0" with the following parameter: File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 54
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_itl.tdf
+    Info (12023): Found entity 1: lpm_divide_itl File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_itl.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "outputlogic:outputLogicModule|lpm_divide:Div1" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
+Info (12133): Instantiated megafunction "outputlogic:outputLogicModule|lpm_divide:Div1" with the following parameter: File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/outputlogic.sv Line: 55
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ltl.tdf
+    Info (12023): Found entity 1: lpm_divide_ltl File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/lpm_divide_ltl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/sign_div_unsign_nlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ohe.tdf
+    Info (12023): Found entity 1: alt_u_div_ohe File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/db/alt_u_div_ohe.tdf Line: 27
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[0]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[0]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[1]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[1]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[2]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[2]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[3]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[3]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[4]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[4]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[5]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[5]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[6]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[6]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[7]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[7]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[8]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[8]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[9]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+    Warning (13035): Inserted always-enabled tri-state buffer between "LED_B_Data_Bus[9]" and its non-tri-state driver. File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[0]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[0]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[1]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[1]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[2]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[2]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[3]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[3]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[4]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[4]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[5]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[5]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[6]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[6]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[7]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[7]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[8]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[8]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
+Error (13076): The pin "LED_B_Data_Bus[9]" has multiple drivers due to the non-tri-state driver "inputlogic:inputLogicModule|databus[9]" File: D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/SV Module Files/Bitblaster_10Bit_Processor.sv Line: 9
 Info (144001): Generated suppressed messages file D:/OneDrive - South Dakota State University - SDSU/#SDSU Courses/CSC 244 - Digital Logic/BitBlaster_10bit_Processor/Bitblaster_10Bit_Processor/output_files/Bitblaster_10Bit_Processor.map.smsg
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 5 warnings
-    Error: Peak virtual memory: 4718 megabytes
-    Error: Processing ended: Sat Nov 25 19:24:23 2023
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:04
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 10 errors, 41 warnings
+    Error: Peak virtual memory: 4748 megabytes
+    Error: Processing ended: Sun Nov 26 13:02:31 2023
+    Error: Elapsed time: 00:00:09
+    Error: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+
