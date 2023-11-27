@@ -1,3 +1,13 @@
+// Authors: John Akujobi, LNU Sukhman Singh
+// Date: November, Fall, 2023
+// Name: Controller
+// Filename: controller.sv
+// Description: This module acts as the central controller for the processor.
+// It interprets instructions and sets control signals accordingly.
+// The controller orchestrates the sequence of operations in the processor,
+// managing data flow between registers, ALU, and other components.
+
+
 module controller(
     input logic [9:0] INST,     //Immediatevalue to be used for the two immediate instructions
     input logic [1:0] T,        //Current timestep

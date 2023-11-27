@@ -1,13 +1,13 @@
-// ALU
+// Authors: John Akujobi
+// Date: November, Fall, 2023
+// Name: Arithmetic Logic Unit (ALU)
+// Filename: ALU.sv
+// Description: The ALU performs arithmetic and logical operations.
+// It supports various operations like addition, subtraction, bitwise operations, 
+// and shifts. The ALU takes inputs from the A register and OP, performs the
+// specified operation, and outputs the result to the G register.
 
-/*
-- The multi-stage ALU shown in Fig. 2, which performs the useful arithmetic operations on data held in the registers, is very similar to Lab 7.
-- The ALU takes one common operand through the OP input.
-- To perform an arithmetic or logic operation on two inputs, an ‘A’ register is used to stage the inputs.
-- The ALU always outputs (combinational logic) A FN OP, where FN is one of the operations in the instruction set specified by ALUcont.
-- Two additional control signals determine when the result should be saved (Gin) and when the result should output (Gout).
-- Both of the registers operate on a synchronized negative-edge triggered clock signal.
-*/
+
 module ALU (
     input logic [9:0] OP,
     input logic [3:0] FN,
@@ -57,7 +57,7 @@ always_comb begin
         COPY:  Result_from_ALU = A;  //Copy
         ADD:   Result_from_ALU = A + OP;  // Add
         SUB:   Result_from_ALU = A - OP;
-        INV:   Result_from_ALU = (~A) +1; // Twos complement
+        INV:   Result_from_ALU = (~OP) + 1; // Twos complement
         FLIP:  Result_from_ALU = ~A; // Bitwise NOT
         AND:   Result_from_ALU = A & OP;
         OR:    Result_from_ALU = A | OP;
@@ -91,7 +91,17 @@ end
 endmodule
 
 
+
 /*
+- The multi-stage ALU shown in Fig. 2, which performs the useful arithmetic operations on data held in the registers, is very similar to Lab 7.
+- The ALU takes one common operand through the OP input.
+- To perform an arithmetic or logic operation on two inputs, an ‘A’ register is used to stage the inputs.
+- The ALU always outputs (combinational logic) A FN OP, where FN is one of the operations in the instruction set specified by ALUcont.
+- Two additional control signals determine when the result should be saved (Gin) and when the result should output (Gout).
+- Both of the registers operate on a synchronized negative-edge triggered clock signal.
+*/
+
+/* 
 ld Rx (00_XX_UUU_0000)
     - Load data into Rx from the slide switches (external data input): Rx ← Data
 cp Rx, Ry (00_XX_YY_0001)
@@ -121,4 +131,5 @@ addi Rx, 6’bIIIIII (10_XX_IIIIII)
 subi Rx, 6’bIIIIII (11_XX_IIIIII)
     - Subtract the 6-bit immediate value 10’b0000IIIIII (left-padded with zeros) from the value in Rx
     - then store in Rx: Rx ← [Rx] - 10’b0000IIIIII
+- Instructions by Galipeau (2023)
 */

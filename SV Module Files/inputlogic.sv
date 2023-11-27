@@ -1,9 +1,11 @@
-//input logic
-/*
-Author: John Akujobi
-Date: 11/5/2023
-
-*/
+// Authors: John Akujobi
+// Date: November, Fall, 2023
+// Name: Input Logic
+// Filename: inputlogic.sv
+// Description: The input logic module manages external inputs to the processor.
+// It includes debouncing logic for stable input signals and routes external
+// data to the processor's internal bus. It plays a vital role in interfacing
+// the processor with external sources like switches and buttons.
 
 module inputlogic (
     input logic [9:0] RawData,

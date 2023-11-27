@@ -1,3 +1,12 @@
+// Author:     John Akujobi
+// Date:       November, Fall, 2023
+// Name:       Bitblaster 10-Bit Processor
+// Filename:   Bitblaster_10Bit_Processor.sv
+// Description: This is the top-level module for the Bitblaster 10-bit processor.
+// It integrates various components like ALU, register file, controller, and input/output logic
+// to simulate a complete processor architecture. This module coordinates the flow of data 
+// and control signals across the processor.
+
 // 10-bit processor
 // This is the top level file
 module Bitblaster_10Bit_Processor (
@@ -143,6 +152,16 @@ outputlogic outputLogicModule(
 );
 
 endmodule
+
+
+// Author:     John Akujobi
+// Date:       November, Fall, 2023
+// Name:       Bitblaster 10-Bit Processor
+// Filename:   Bitblaster_10Bit_Processor.sv
+// Description: This is the top-level module for the Bitblaster 10-bit processor.
+// It integrates various components like ALU, register file, controller, and input/output logic
+// to simulate a complete processor architecture. This module coordinates the flow of data 
+// and control signals across the processor.
 
 /*
 You will build the processor shown in Fig. 1 with the set of instructions in Section 3.2.

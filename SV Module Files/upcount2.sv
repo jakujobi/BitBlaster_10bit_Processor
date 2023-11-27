@@ -1,3 +1,12 @@
+// Authors: John Akujobi, LNU Sukhman Singh
+// Date: November, Fall, 2023
+// Name: 2-bit Up-Counter
+// Filename: upcount2.sv
+// Description: This module implements a 2-bit up-counter with an active-high synchronous clear.
+// The counter increments on each negative edge of the clock (CLKb) and resets to 0 on a high CLR signal.
+// It is primarily used to track the timestep of the current instruction in the processor.
+
+
 module upcount2 (
     input logic CLR,      // Active-high synchronous clear signal
     input logic CLKb,     // Clock signal (negative edge triggered)

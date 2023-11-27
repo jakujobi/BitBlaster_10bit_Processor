@@ -1,3 +1,11 @@
+// Authors: John Akujobi,
+// Date: November, Fall, 2023
+// Name: Output Logic
+// Filename: outputlogic.sv
+// Description: This module is designed for visualizing internal processor signals. 
+// It provides a user-friendly interface to monitor the current state of the processor's data bus, register outputs, and current timestep.
+// The module drives LEDs and 7-segment displays based on the processor's internal data for real-time observation and debugging.
+
 module outputlogic(
     input logic [9:0] BUS,
     input logic [9:0] REG,

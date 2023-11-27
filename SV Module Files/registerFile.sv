@@ -1,3 +1,11 @@
+// Authors: John Akujobi
+// Date: November, Fall, 2023
+// Name: Register File
+// Filename: registerFile.sv
+// Description: This module represents a collection of registers in the processor.
+// It facilitates reading from and writing to the registers.
+// The register file is crucial for storing intermediate data and states
+// during instruction execution.
 
 module registerFile (
     input logic [9:0] D,    // Common 10-bit input data
