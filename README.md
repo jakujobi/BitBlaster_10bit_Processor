@@ -60,7 +60,7 @@ As for license, the project is under the GNU General Public License.
 
 ## Authors
 
-* [**John Akujobi**](jakujobi.com) - Bitblaster_10Bit_Processor.sv, controller.sv, ALU.sv, registerFile.sv, inputlogic.sv, outputlogic.sv, upcount2.sv, reg10.sv, Quartus Poject setup, Debugging.
+* **[John Akujobi](www.jakujobi.com)** - Bitblaster_10Bit_Processor.sv, controller.sv, ALU.sv, registerFile.sv, inputlogic.sv, outputlogic.sv, upcount2.sv, reg10.sv, Quartus Poject setup, Debugging.
 * **LNU Sukhman Singh** - Controller, Pin assignment, Debugging, Testing
 
 ## End
