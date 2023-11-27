@@ -1,34 +1,35 @@
 
 module registerFile (
-    input logic [9:0] D,     // Common 10-bit input data
-    input logic ENW,         // Write enable to QO
-    input logic ENR0,        // Read enable for Register
-    input logic ENR1,        // Read enable for register peek
-    input logic CLKb,        // Clock signal (negative edge triggered)
+    input logic [9:0] D,    // Common 10-bit input data
+    input logic ENW,        // Enable the register to read from the bus
+    input logic ENR0,       // Read enable for Register This allows us to read the data that is on the bus
+    input logic ENR1,       // Read enable for register peek This enable is used for speaking to see what is stored in which register
+    input logic CLKb,       // Clock signal (negative edge triggered)
 
-    input logic [1:0] WRA,   // Write address (2-bit)
-    input logic [1:0] RDA0,  // Read address for Q0 (2-bit)
-    input logic [1:0] RDA1,  // Read address for Q1 (2-bit)
+    input logic [1:0] WRA,  // The register address that will read from the bus.
+    
+    input logic [1:0] RDA0, // Register to write into Q0 bus (2-bit)
+    input logic [1:0] RDA1, // Register to write into Q1 (2-bit)
 
-    output logic [9:0] Q0,   // Output data for Q0 to the shared bus
-    output logic [9:0] Q1    // Output data for Q1
+    output logic [9:0] Q0,  // Output data for Q0 to the shared bus
+    output logic [9:0] Q1   // Output data for Q1
 );
 
-// Define four 10-bit registers
-logic [9:0] registers[3:0];
+logic [9:0] registers[3:0]; // Define four 10-bit registers
 
-// // Initial block to set all registers to zero
-// initial begin
-//     registers[0] = 10'b0000000001;   //Todo
-//     registers[1] = 10'b0000000001;   //todo
-//     registers[2] = 10'b0;
-//     registers[3] = 10'b0;
-// end
+
+// Initial block to set all registers to zero
+initial begin
+    registers[0] = 10'b0;   
+    registers[1] = 10'b0; 
+    registers[2] = 10'b0;
+    registers[3] = 10'b0;
+end
 
 // assign Q0 = 10'bzzzzzzzzzz;
 // assign Q1 = 10'bzzzzzzzzzz;
 
-// Write operation (Clocked) to the registers
+// Read from the bus and write (Clocked) to the registers
 always_ff @(negedge CLKb) begin
     if (ENW) begin
         registers[WRA] <= D; // Write data into the register specified by WRA
@@ -36,7 +37,7 @@ always_ff @(negedge CLKb) begin
 end
 
 
-// Read operation (Combinational)
+// Write into the bus from the register (Combinational)
 always_comb begin
     if (ENR0) begin
         Q0 = registers[RDA0]; // Output data from the register specified by RDA0
