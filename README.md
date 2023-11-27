@@ -56,7 +56,7 @@ In this repository, we have stored the entire processor project which can be dow
 
 Other wise, to use the modules, import them into your SystemVerilog project and instantiate them according to your needs. The top-level module (`Bitblaster_10Bit_Processor`) serves as a reference for how these modules interact.
 
-As for license, the project is under the GNU General Public License.
+As for license, the project is under the GNU General Public License. Please cite and give credit when using parts or whole of this project. Thanks!
 
 ## Authors
 
