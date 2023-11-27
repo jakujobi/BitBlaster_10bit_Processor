@@ -79,7 +79,6 @@ always_comb begin
         IMM = 10'bzzzzzzzzzz;   // Default value for IMM
         Rin = 2'b0;             // Default value for Rin
         Rout = 2'b0;            // Default value for Rout
-        ENW = 1'b0;             // Default value for ENW
         ENR = 1'b0;             // Default value for ENR
         Ain = 1'b0;             // Default value for Ain
         Gin = 1'b0;             // Default value for Gin
@@ -96,22 +95,23 @@ always_comb begin
             // IMM[9:2] = 7'b00000000;    //Set the bits to 0
             Ext = 1;                    //Allow external data input
             Rin = INST[7:6];            //Load the data into the Rx register
-            ENR = 1;                    //Let the register file read
+
+            ENW = 1;                    //Let the register file read
             Clr = 1;                    //Done with the operation, reset the counter
         end
         
-        else if (INST[9:8] == 2'b00 && INST[3:0] == COPY) begin //4'b0001 equals to COPY
-            Rout = INST[7:6];           //Prep the Rx register to write
-            ENW = 1;                    //Let the register file write to the bus
+        else if (INST[9:8] == 2'b00 && INST[3:0] == 4'b0001) begin //4'b0001 equals to COPY
+            Rout = INST[5:4];           //Prep the Rx register to write
+            ENR = 1;                    //Let the register file write to the bus
 
-            Rin = INST[5:4];            //Load the data into the Rx register
-            ENR = 1;                    //Let the register file read
+            Rin = INST[7:6];            //Load the data into the Rx register
+            ENW = 1;                    //Let the register file read
             Clr = 1;                    //Done with the operation, reset the counter
         end
 
         else begin
             Rout = INST[7:6];           //Prep the Rx register to write
-            ENW = 1;                    //Let the register file write to the bus
+            ENR = 1;                    //Let the register file write to the bus
             Ain = 1;                    //Let the A register save the value from the bus
         end
     end
