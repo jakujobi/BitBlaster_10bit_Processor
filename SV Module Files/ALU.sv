@@ -57,7 +57,7 @@ always_comb begin
         COPY:  Result_from_ALU = A;  //Copy
         ADD:   Result_from_ALU = A + OP;  // Add
         SUB:   Result_from_ALU = A - OP;
-        INV:   Result_from_ALU = ~A; // Twos complement
+        INV:   Result_from_ALU = (~A) +1; // Twos complement
         FLIP:  Result_from_ALU = ~A; // Bitwise NOT
         AND:   Result_from_ALU = A & OP;
         OR:    Result_from_ALU = A | OP;
@@ -78,8 +78,7 @@ always_ff @(negedge CLKb) begin
     end
 end
 
-
-// Make RES
+// Put the result from the G register into RES
 always_comb begin
     if (Gout == 1'b1) begin
         RES = G;
@@ -88,7 +87,6 @@ always_comb begin
         RES = 10'bz;
     end
 end
-
 
 endmodule
 
