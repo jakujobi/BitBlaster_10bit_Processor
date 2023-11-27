@@ -1,5 +1,5 @@
 Timing Analyzer report for Bitblaster_10Bit_Processor
-Sun Nov 26 18:08:18 2023
+Sun Nov 26 18:20:47 2023
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -92,13 +92,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 1.39        ;
+; Average used               ; 1.26        ;
 ; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   4.4%      ;
-;     Processors 3-10        ;   4.3%      ;
+;     Processor 2            ;   3.0%      ;
+;     Processors 3-10        ;   2.9%      ;
 +----------------------------+-------------+
 
 
@@ -117,8 +117,8 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                            ; Note ;
 +------------+-----------------+-------------------------------------------------------+------+
-; 113.7 MHz  ; 113.7 MHz       ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ;      ;
-; 190.73 MHz ; 190.73 MHz      ; Clock_50MHz                                           ;      ;
+; 107.09 MHz ; 107.09 MHz      ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ;      ;
+; 188.01 MHz ; 188.01 MHz      ; Clock_50MHz                                           ;      ;
 +------------+-----------------+-------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -128,8 +128,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.795 ; -404.470      ;
-; Clock_50MHz                                           ; -4.243 ; -114.337      ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -8.338 ; -423.505      ;
+; Clock_50MHz                                           ; -4.319 ; -113.629      ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -139,7 +139,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 ; Clock                                                 ; Slack ; End Point TNS ;
 +-------------------------------------------------------+-------+---------------+
 ; Clock_50MHz                                           ; 0.341 ; 0.000         ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.348 ; 0.000         ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.349 ; 0.000         ;
 +-------------------------------------------------------+-------+---------------+
 
 
@@ -176,8 +176,8 @@ No synchronizer chains to report.
 +------------+-----------------+-------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                            ; Note ;
 +------------+-----------------+-------------------------------------------------------+------+
-; 123.41 MHz ; 123.41 MHz      ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ;      ;
-; 204.92 MHz ; 204.92 MHz      ; Clock_50MHz                                           ;      ;
+; 116.82 MHz ; 116.82 MHz      ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ;      ;
+; 201.86 MHz ; 201.86 MHz      ; Clock_50MHz                                           ;      ;
 +------------+-----------------+-------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -187,8 +187,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.103 ; -369.204      ;
-; Clock_50MHz                                           ; -3.880 ; -103.485      ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.560 ; -385.910      ;
+; Clock_50MHz                                           ; -3.954 ; -103.126      ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -197,7 +197,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------+-------+---------------+
 ; Clock                                                 ; Slack ; End Point TNS ;
 +-------------------------------------------------------+-------+---------------+
-; Clock_50MHz                                           ; 0.307 ; 0.000         ;
+; Clock_50MHz                                           ; 0.306 ; 0.000         ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.312 ; 0.000         ;
 +-------------------------------------------------------+-------+---------------+
 
@@ -235,8 +235,8 @@ No synchronizer chains to report.
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -2.657 ; -131.210      ;
-; Clock_50MHz                                           ; -1.292 ; -28.886       ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -2.840 ; -137.774      ;
+; Clock_50MHz                                           ; -1.321 ; -28.647       ;
 +-------------------------------------------------------+--------+---------------+
 
 
@@ -245,7 +245,7 @@ No synchronizer chains to report.
 +-------------------------------------------------------+-------+---------------+
 ; Clock                                                 ; Slack ; End Point TNS ;
 +-------------------------------------------------------+-------+---------------+
-; Clock_50MHz                                           ; 0.149 ; 0.000         ;
+; Clock_50MHz                                           ; 0.148 ; 0.000         ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0.151 ; 0.000         ;
 +-------------------------------------------------------+-------+---------------+
 
@@ -267,7 +267,7 @@ No paths to report.
 +-------------------------------------------------------+--------+---------------+
 ; Clock                                                 ; Slack  ; End Point TNS ;
 +-------------------------------------------------------+--------+---------------+
-; Clock_50MHz                                           ; -3.000 ; -38.215       ;
+; Clock_50MHz                                           ; -3.000 ; -38.156       ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -1.000 ; -72.000       ;
 +-------------------------------------------------------+--------+---------------+
 
@@ -283,12 +283,12 @@ No synchronizer chains to report.
 +--------------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                                  ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                                       ; -7.795   ; 0.149 ; N/A      ; N/A     ; -3.000              ;
-;  Clock_50MHz                                           ; -4.243   ; 0.149 ; N/A      ; N/A     ; -3.000              ;
-;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -7.795   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS                                        ; -518.807 ; 0.0   ; 0.0      ; 0.0     ; -151.718            ;
-;  Clock_50MHz                                           ; -114.337 ; 0.000 ; N/A      ; N/A     ; -50.702             ;
-;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -404.470 ; 0.000 ; N/A      ; N/A     ; -101.016            ;
+; Worst-case Slack                                       ; -8.338   ; 0.148 ; N/A      ; N/A     ; -3.000              ;
+;  Clock_50MHz                                           ; -4.319   ; 0.148 ; N/A      ; N/A     ; -3.000              ;
+;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -8.338   ; 0.151 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS                                        ; -537.134 ; 0.0   ; 0.0      ; 0.0     ; -151.718            ;
+;  Clock_50MHz                                           ; -113.629 ; 0.000 ; N/A      ; N/A     ; -50.702             ;
+;  inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; -423.505 ; 0.000 ; N/A      ; N/A     ; -101.016            ;
 +--------------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -519,7 +519,7 @@ No synchronizer chains to report.
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 ; Clock_50MHz                                           ; Clock_50MHz                                           ; 697      ; 0        ; 0        ; 0        ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; Clock_50MHz                                           ; 17       ; 17       ; 0        ; 0        ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 83164    ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 59281    ;
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -531,7 +531,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 ; Clock_50MHz                                           ; Clock_50MHz                                           ; 697      ; 0        ; 0        ; 0        ;
 ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; Clock_50MHz                                           ; 17       ; 17       ; 0        ; 0        ;
-; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 83164    ;
+; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; inputlogic:inputLogicModule|debouncer:clk_debouncer|A ; 0        ; 0        ; 0        ; 59281    ;
 +-------------------------------------------------------+-------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -710,7 +710,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Nov 26 18:08:14 2023
+    Info: Processing started: Sun Nov 26 18:20:43 2023
 Info: Command: quartus_sta Bitblaster_10Bit_Processor -c Bitblaster_10Bit_Processor
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -728,16 +728,16 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -7.795
+Info (332146): Worst-case setup slack is -8.338
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.795            -404.470 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-    Info (332119):    -4.243            -114.337 Clock_50MHz 
+    Info (332119):    -8.338            -423.505 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -4.319            -113.629 Clock_50MHz 
 Info (332146): Worst-case hold slack is 0.341
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.341               0.000 Clock_50MHz 
-    Info (332119):     0.348               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):     0.349               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
@@ -750,15 +750,15 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -7.103
+Info (332146): Worst-case setup slack is -7.560
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.103            -369.204 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-    Info (332119):    -3.880            -103.485 Clock_50MHz 
-Info (332146): Worst-case hold slack is 0.307
+    Info (332119):    -7.560            -385.910 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -3.954            -103.126 Clock_50MHz 
+Info (332146): Worst-case hold slack is 0.306
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.307               0.000 Clock_50MHz 
+    Info (332119):     0.306               0.000 Clock_50MHz 
     Info (332119):     0.312               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
@@ -770,29 +770,29 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -2.657
+Info (332146): Worst-case setup slack is -2.840
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.657            -131.210 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
-    Info (332119):    -1.292             -28.886 Clock_50MHz 
-Info (332146): Worst-case hold slack is 0.149
+    Info (332119):    -2.840            -137.774 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
+    Info (332119):    -1.321             -28.647 Clock_50MHz 
+Info (332146): Worst-case hold slack is 0.148
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.149               0.000 Clock_50MHz 
+    Info (332119):     0.148               0.000 Clock_50MHz 
     Info (332119):     0.151               0.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -38.215 Clock_50MHz 
+    Info (332119):    -3.000             -38.156 Clock_50MHz 
     Info (332119):    -1.000             -72.000 inputlogic:inputLogicModule|debouncer:clk_debouncer|A 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4906 megabytes
-    Info: Processing ended: Sun Nov 26 18:08:18 2023
+    Info: Peak virtual memory: 4902 megabytes
+    Info: Processing ended: Sun Nov 26 18:20:47 2023
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 
