@@ -134,21 +134,20 @@ always_comb begin
 
         Gin = 1;                        //Let the G register save the value from the bus
         if (INST[9:8] == 2'b00) begin
-            IMM = 10'bz;                //Don't let IMM write to the bus from the controller
-
             Rout = INST [5:4];          //Prep the Ry register to write
-            ENW = 1;                    //Let the register file write to the bus
+            ENR = 1;                    //Let the register file write to the bus
+
             ALUcont = INST[3:0];        //Get the ALU operation from the instruction
 
         end else if (INST[9:8] == 2'b10) begin
-            ENW = 0;                    //Don't let the register file write to the bus
+            ENR = 0;                    //Don't let the register file write to the bus
             
             IMM[5:0] = INST[5:0];       //Get the immediate value from the instruction
             IMM[9:6] = 4'b0000;         //Set the other bit to 0
             ALUcont = 4'b0010;          //Get the ALU operation from the instruction
 
         end else if (INST[9:8] == 11) begin
-            ENW = 0;                    //Don't let the register file write to the bus
+            ENR = 0;                    //Don't let the register file write to the bus
             IMM[5:0] = INST[5:0];       //Get the immediate value from the instruction
             IMM[10:6] = 4'b0000;        //Set the other bit to 0
             ALUcont = 4'b0011;          //Get the ALU operation from the instruction
@@ -163,8 +162,8 @@ always_comb begin
             IMM = 10'bzzzzzzzzzz;   // Default value for IMM
             Rin = 2'b0;             // Default value for Rin
             Rout = 2'b0;            // Default value for Rout
-            ENW = 1'b0;             // Default value for ENW
-            //ENR = 1'b0;             // Default value for ENR
+            //ENW = 1'b0;             // Default value for ENW
+            ENR = 1'b0;             // Default value for ENR
             Ain = 1'b0;             // Default value for Ain
             Gin = 1'b0;             // Default value for Gin
             //Gout = 1'b0;            // Default value for Gout
@@ -179,7 +178,7 @@ always_comb begin
 
             Gout = 1;                       //Let the G register save the value from the bus
             Rin = INST[7:6];                //Prep Rx register to save the value from the bus
-            ENR = 1;                        //Let the register file to read the value from the bus
+            ENW = 1;                        //Let the register file to read the value from the bus
             Clr = 1;                        //Done with the operation, reset the counter
     end else begin
         //Do nothing
