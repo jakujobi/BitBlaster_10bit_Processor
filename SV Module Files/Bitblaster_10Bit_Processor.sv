@@ -3,9 +3,9 @@
 // Name:       Bitblaster 10-Bit Processor
 // Filename:   Bitblaster_10Bit_Processor.sv
 // Description: This is the top-level module for the Bitblaster 10-bit processor.
-// It integrates various components like ALU, register file, controller, and input/output logic
-// to simulate a complete processor architecture. This module coordinates the flow of data 
-// and control signals across the processor.
+//  It integrates various components like ALU, register file, controller, and input/output logic
+//  to simulate a complete processor architecture. This module coordinates the flow of data 
+//  and control signals across the processor.
 
 // 10-bit processor
 // This is the top level file
@@ -15,24 +15,24 @@ module Bitblaster_10Bit_Processor (
     input logic Peek_Button,
     input logic Clock_Button,
 
-    output logic [9:0] LED_B_Data_Bus,              //LEDR[9:0] data bus for current values on the Data bus
-    output logic [6:0] DHEX0,                       //HEX0[6:0] data bus current 10-bit value on the data bus decoded to three 7-segment displays or output of 2nd read port of register file
-    output logic [6:0] DHEX1,                       //HEX1[6:0] data bus
-    output logic [6:0] DHEX2,                       //HEX2[6:0] data bus
-    output logic [6:0] THEX_Current_Timestep,       //HEX5 [6:0] Current Timestep
+    output logic [9:0] LED_B_Data_Bus,          //LEDR[9:0] data bus for current values on the Data bus
+    output logic [6:0] DHEX0,                   //HEX0[6:0] data bus current 10-bit value on the data bus decoded to three 7-segment displays or output of 2nd read port of register file
+    output logic [6:0] DHEX1,                   //HEX1[6:0] data bus
+    output logic [6:0] DHEX2,                   //HEX2[6:0] data bus
+    output logic [6:0] THEX_Current_Timestep,   //HEX5 [6:0] Current Timestep
     output logic LED_D_Done
 );
 
-logic Extrn_Enable_Signal;               //External Data Receiver Enable
-logic [9:0] Instruction_From_IR;              //Goes from the output of the instruction register to the INSTR instruction input of the ALU
-logic [1:0] Timestep_2_bits;            //Timestep counter: Goes from output of Counter to
-wire [9:0] Shared_Data_Bus;             //Shared Data Bus 
+logic Extrn_Enable_Signal;                      //External Data Receiver Enable
+logic [9:0] Instruction_From_IR;                //Goes from the output of the instruction register to the INSTR instruction input of the ALU
+logic [1:0] Timestep_2_bits;                    //Timestep counter: Goes from output of Counter to
+wire [9:0] Shared_Data_Bus;                     //Shared Data Bus 
 logic [9:0] Q1_REG_Read_From_Register_File;
-logic Debounced_Clock;           //Debounced
-logic IR_Enable;                        //Enable signal for the instruction register
-logic [1:0] Data_2_bits;                //Data last 2 bits of data bus
+logic Debounced_Clock;                          //Debounced
+logic IR_Enable;                                //Enable signal for the instruction register
+logic [1:0] Data_2_bits;                        //Data last 2 bits of data bus
 logic Debounced_Peek;
-logic Clear_Signal;                     //Clear signal for the instruction register and outputLogicModule
+logic Clear_Signal;                             //Clear signal for the instruction register and outputLogicModule
 
 
 
@@ -68,15 +68,15 @@ reg10 instructionRegister (
 
 //!____________________________________________________________________________________________________________________________________
 logic ENW_ENW;
-logic [1:0] Rin_WRA;    //The address of the register to write to
+logic [1:0] Rin_WRA;                            //The address of the register to write to
 logic [1:0] Rout_RDA0;
 logic ENR_ENR0;
 
 
-logic Ain_Ain;              //Enable signal to save data to the intermediate ALU input “A”
-logic Gin_Gin;              //Enable signal to save data to the intermediate ALU input “G”
-logic Gout_Gout;             //Enable signal to save data from the intermediate ALU output “G”
-logic [3:0] ALUcont_FN;      //Signal to control which arithmetic or logic operation the ALU should perform
+logic Ain_Ain;                                  //Enable signal to save data to the intermediate ALU input “A”
+logic Gin_Gin;                                  //Enable signal to save data to the intermediate ALU input “G”
+logic Gout_Gout;                                //Enable signal to save data from the intermediate ALU output “G”
+logic [3:0] ALUcont_FN;                         //Signal to control which arithmetic or logic operation the ALU should perform
 
 //! Controller
 controller controllerModule(
@@ -105,19 +105,19 @@ controller controllerModule(
 
 //! Register File
 registerFile registerFileModule (
-    .D (Shared_Data_Bus),   // Common 10-bit input data
-    .ENR0(ENR_ENR0),        // Read enable for Normal
-    .ENR1(ENR1_1bit),       // Read enable for Q1
+    .D (Shared_Data_Bus),                       // Common 10-bit input data
+    .ENR0(ENR_ENR0),                            // Read enable for Normal
+    .ENR1(ENR1_1bit),                           // Read enable for Q1
 
-    .CLKb(Debounced_Clock), // Clock signal (negative edge triggered)
+    .CLKb(Debounced_Clock),                     // Clock signal (negative edge triggered)
 
-    .ENW (ENW_ENW),         // Write enable
-    .WRA(Rin_WRA),          // Read address (2-bit) This means read from the databus and write on the rx register inside it
-    .RDA0(Rout_RDA0),       // Read address for Q0 (2-bit)
-    .RDA1(Data_2_bits),     // Read address for Q1 (2-bit)
+    .ENW (ENW_ENW),                             // Write enable
+    .WRA(Rin_WRA),                              // Read address (2-bit) This means read from the databus and write on the rx register inside it
+    .RDA0(Rout_RDA0),                           // Read address for Q0 (2-bit)
+    .RDA1(Data_2_bits),                         // Read address for Q1 (2-bit)
     
-    .Q0(Shared_Data_Bus),   // Output data for Q0
-    .Q1(Q1_REG_Read_From_Register_File)    // Output data for Q1
+    .Q0(Shared_Data_Bus),                       // Output data for Q0
+    .Q1(Q1_REG_Read_From_Register_File)         // Output data for Q1
 );
 
 
@@ -203,3 +203,13 @@ Opcode          Mnemonic            Instruction
 11_XX_IIIIII    subi Rx, 6’bIIIIII  Subtract the 6-bit immediate value 10’b0000IIIIII (left-padded with zeros) from the value in Rx and store in Rx: Rx ← [Rx] - 10’b0000IIIIII
 
 */
+
+
+// Author:     John Akujobi
+// Date:       November, Fall, 2023
+// Name:       Bitblaster 10-Bit Processor
+// Filename:   Bitblaster_10Bit_Processor.sv
+// Description: This is the top-level module for the Bitblaster 10-bit processor.
+//  It integrates various components like ALU, register file, controller, and input/output logic
+//  to simulate a complete processor architecture. This module coordinates the flow of data 
+//  and control signals across the processor.
