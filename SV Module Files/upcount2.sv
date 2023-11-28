@@ -3,28 +3,25 @@
 // Name: 2-bit Up-Counter
 // Filename: upcount2.sv
 // Description: This module implements a 2-bit up-counter with an active-high synchronous clear.
-// The counter increments on each negative edge of the clock (CLKb) and resets to 0 on a high CLR signal.
-// It is primarily used to track the timestep of the current instruction in the processor.
+//  The counter increments on each negative edge of the clock (CLKb) and resets to 0 on a high CLR signal.
+//  It is primarily used to track the timestep of the current instruction in the processor.
 
 
 module upcount2 (
-    input logic CLR,      // Active-high synchronous clear signal
-    input logic CLKb,     // Clock signal (negative edge triggered)
+    input logic CLR,        // Active-high synchronous clear signal
+    input logic CLKb,       // Clock signal (negative edge triggered)
 
-    output logic [1:0] CNT // 2-bit counter output
+    output logic [1:0] CNT  // 2-bit counter output
 );
 
 
 // The counter logic
 // It increments on the negative edge of CLKb and resets to 0 when CLR is high
-//always_ff @(negedge CLKb or posedge CLR) begin
 always_ff @(negedge CLKb) begin
     if (CLR) begin
-        // Reset counter to 0 when CLR is high
-        CNT <= 2'b00;
+        CNT <= 2'b00;       // Reset counter to 0 when CLR is high
     end else begin
-        // Increment counter on the negative edge of CLKb
-        CNT <= CNT + 1'b1;
+        CNT <= CNT + 1'b1;  // Increment counter on the negative edge of CLKb
     end
 end
 
@@ -47,3 +44,13 @@ A negative-edge triggered 2-bit up-counter with active-high synchronous clear is
 4. **Sequential Logic Implementation**: The `always_ff` block is used for sequential logic, which is appropriate for counters.
     The sensitivity list includes `negedge CLKb` and `posedge CLR`, ensuring the counter reacts to the falling edge of the clock and the rising edge of the clear signal.
 */
+
+
+
+// Authors: John Akujobi, LNU Sukhman Singh
+// Date: November, Fall, 2023
+// Name: 2-bit Up-Counter
+// Filename: upcount2.sv
+// Description: This module implements a 2-bit up-counter with an active-high synchronous clear.
+//  The counter increments on each negative edge of the clock (CLKb) and resets to 0 on a high CLR signal.
+//  It is primarily used to track the timestep of the current instruction in the processor.
