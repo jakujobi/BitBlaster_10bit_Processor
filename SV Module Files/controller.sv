@@ -1,11 +1,11 @@
-// Authors: John Akujobi, LNU Sukhman Singh
+// Authors: John Akujobi, LNU Sukhman Singh, Kay Humphrey
 // Date: November, Fall, 2023
 // Name: Controller
 // Filename: controller.sv
 // Description: This module acts as the central controller for the processor.
-// It interprets instructions and sets control signals accordingly.
-// The controller orchestrates the sequence of operations in the processor,
-// managing data flow between registers, ALU, and other components.
+//  It interprets instructions and sets control signals accordingly.
+//  The controller orchestrates the sequence of operations in the processor,
+//  managing data flow between registers, ALU, and other components.
 
 module controller(
     input logic [9:0] INST,     //Immediatevalue to be used for the two immediate instructions
@@ -96,6 +96,8 @@ always_comb begin
 
         //Rx = INST[7:6];       //Get the Rx register
         //Ry = INST[5:4];       //Get the Ry register
+
+        //LOAD operation
         if (INST[9:8] == 2'b00 && INST[3:0] == LOAD) begin //4'b0000 equals to LOAD
             Ext = 1;            //Allow external data input
             Rin = INST[7:6];    //Load the data into the Rx register
@@ -103,6 +105,7 @@ always_comb begin
             Clr = 1;            //Done with the operation, reset the counter
         end
         
+        //COPY operation
         else if (INST[9:8] == 2'b00 && INST[3:0] == 4'b0001) begin //4'b0001 equals to COPY
             Rout = INST[5:4];   //Prep the Rx register to write
             ENR = 1;            //Let the register file write to the bus
@@ -111,6 +114,7 @@ always_comb begin
             Clr = 1;            //Done with the operation, reset the counter
         end
 
+        //Other ALU operations
         else begin
             Rout = INST[7:6];   //Prep the Rx register to write
             ENR = 1;            //Let the register file write to the bus
@@ -127,25 +131,27 @@ always_comb begin
         ENW = 1'b0;             // Default value for ENW
         ENR = 1'b0;             // Default value for ENR
         Ain = 1'b0;             // Default value for Ain
-        //Gin = 1'b0;             // Default value for Gin
         Gout = 1'b0;            // Default value for Gout
         ALUcont = 4'bzzzz;      // Default value for ALUcont
         Ext = 1'b0;             // Default value for Ext
         IRin = 1'b0;            // Default value for IRin
         Clr = 1'b0;             // Default value for Clr
-
         Gin = 1;                //Let the G register save the value from the bus
+
+        //Normal ALU operations
         if (INST[9:8] == 2'b00) begin
             Rout = INST [5:4];  //Prep the Ry register to write
             ENR = 1;            //Let the register file write to the bus
             ALUcont = INST[3:0];//Get the ALU operation from the instruction
 
-        end else if (INST[9:8] == 2'b10) begin
+        //ADDI operation
+        end else if (INST[9:8] == 2'b10) begin 
             ENR = 0;             //Don't let the register file write to the bus
             IMM[5:0] = INST[5:0];//Get the immediate value from the instruction
             IMM[9:6] = 4'b0000;  //Set the other bit to 0
             ALUcont = 4'b0010;   //Get the ALU operation from the instruction
 
+        //SUBI operation
         end else if (INST[9:8] == 11) begin
             ENR = 0;             //Don't let the register file write to the bus
             IMM[5:0] = INST[5:0];//Get the immediate value from the instruction
@@ -162,16 +168,14 @@ always_comb begin
         IMM = 10'bzzzzzzzzzz;   // Default value for IMM
         Rin = 2'b0;             // Default value for Rin
         Rout = 2'b0;            // Default value for Rout
-        //ENW = 1'b0;             // Default value for ENW
         ENR = 1'b0;             // Default value for ENR
         Ain = 1'b0;             // Default value for Ain
         Gin = 1'b0;             // Default value for Gin
-        //Gout = 1'b0;            // Default value for Gout
         ALUcont = 4'bzzzz;      // Default value for ALUcont
         Ext = 1'b0;             // Default value for Ext
         IRin = 1'b0;            // Default value for IRin
-        //Clr = 1'b0;             // Default value for Clr
 
+        //Store the value from the bus into the G register and into the Rx register
         Gout = 1;              //Let the G register save the value from the bus
         Rin = INST[7:6];       //Prep Rx register to save the value from the bus
         ENW = 1;               //Let the register file to read the value from the bus
@@ -240,3 +244,13 @@ subi Rx, 6’bIIIIII (11_XX_IIIIII)
     - then store in Rx: Rx ← [Rx] - 10’b0000IIIIII
 */
 //        
+
+
+// Authors: John Akujobi, LNU Sukhman Singh, Kay Humphrey
+// Date: November, Fall, 2023
+// Name: Controller
+// Filename: controller.sv
+// Description: This module acts as the central controller for the processor.
+//  It interprets instructions and sets control signals accordingly.
+//  The controller orchestrates the sequence of operations in the processor,
+//  managing data flow between registers, ALU, and other components.
