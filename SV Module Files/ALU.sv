@@ -7,16 +7,15 @@
 // and shifts. The ALU takes inputs from the A register and OP, performs the
 // specified operation, and outputs the result to the G register.
 
-
 module ALU (
-    input logic [9:0] OP,
-    input logic [3:0] FN,
-    input logic Ain,    //Register A used to stage the inputs
-    input logic Gin,
-    input logic Gout,
-    input logic CLKb,
+    input logic [9:0] OP,       //Number from the shared bus
+    input logic [3:0] FN,       //Operation to be performed from ALUcont from the controller
+    input logic Ain,            //Register A used to stage the inputs
+    input logic Gin,            //Enable the G register to store the result
+    input logic Gout,           //Enable the G register to write the result to RES
+    input logic CLKb,           //Clock input
 
-    output logic [9:0] RES
+    output logic [9:0] RES      //Result from the ALU
 );
 
 parameter 
@@ -35,12 +34,9 @@ parameter
     ADDI = 4'b1100, //addi Rx, 6’bIIIIII; Add the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] + [6’bIIIIII]
     SUBI = 4'b1101; //subi Rx, 6’bIIIIII; Subtract the value in Rx and the 6’bIIIIII and store the result inRx:  Rx←[Rx] − [6’bIIIIII]
 
-logic [9:0] A; //Register A
-logic [9:0] Result_from_ALU; //Result from the ALU
-logic [9:0] G; //Register G (result)
-
-
-//assign RES = 10'bzzzzzzzzzz;
+logic [9:0] A;                  //Register A
+logic [9:0] Result_from_ALU;    //Result from the ALU
+logic [9:0] G;                  //Register G (result)
 
 // Prepping the input to register A
 always_ff @(negedge CLKb) begin
@@ -53,21 +49,21 @@ end
 // Logic for ALU operations
 always_comb begin
     case (FN)
-        LOAD:  Result_from_ALU = OP;
-        COPY:  Result_from_ALU = A;  //Copy
-        ADD:   Result_from_ALU = A + OP;  // Add
-        SUB:   Result_from_ALU = A - OP;
+        LOAD:  Result_from_ALU = OP;        //Load
+        COPY:  Result_from_ALU = A;         //Copy
+        ADD:   Result_from_ALU = A + OP;    // Add
+        SUB:   Result_from_ALU = A - OP;    // Subtract
         INV:   Result_from_ALU = (~OP) + 1; // Twos complement
-        FLIP:  Result_from_ALU = ~A; // Bitwise NOT
-        AND:   Result_from_ALU = A & OP;
-        OR:    Result_from_ALU = A | OP;
-        XOR:   Result_from_ALU = A ^ OP;
-        LSL:   Result_from_ALU = A << OP; // Logical shift left
-        LSR:   Result_from_ALU = A >> OP; // Logical shift right
-        ASR:   Result_from_ALU = A >>> OP;    // Arithmetic shift right
-        ADDI:  Result_from_ALU = A + OP;  // Immediate value is part of OP
-        SUBI:  Result_from_ALU = A - OP;  // Immediate value is part of OP
-        default: Result_from_ALU = 10'b0; // Default case to handle undefined operations
+        FLIP:  Result_from_ALU = ~A;        // Bitwise NOT
+        AND:   Result_from_ALU = A & OP;    // Bitwise AND
+        OR:    Result_from_ALU = A | OP;    // Bitwise OR
+        XOR:   Result_from_ALU = A ^ OP;    // Bitwise XOR
+        LSL:   Result_from_ALU = A << OP;   // Logical shift left
+        LSR:   Result_from_ALU = A >> OP;   // Logical shift right
+        ASR:   Result_from_ALU = A >>> OP;  // Arithmetic shift right
+        ADDI:  Result_from_ALU = A + OP;    // Immediate value is part of OP
+        SUBI:  Result_from_ALU = A - OP;    // Immediate value is part of OP
+      default: Result_from_ALU = 10'b0;     // Default case to handle undefined operations
     endcase
 end
 
@@ -80,10 +76,10 @@ end
 
 // Put the result from the G register into RES
 always_comb begin
-    if (Gout == 1'b1) begin
+    if (Gout == 1'b1) begin     // If Gout is enabled, put G into RES
         RES = G;
     end
-    else begin
+    else begin                  // If Gout is disabled, put 10'bz into RES
         RES = 10'bz;
     end
 end
@@ -133,3 +129,12 @@ subi Rx, 6’bIIIIII (11_XX_IIIIII)
     - then store in Rx: Rx ← [Rx] - 10’b0000IIIIII
 - Instructions by Galipeau (2023)
 */
+
+// Authors: John Akujobi
+// Date: November, Fall, 2023
+// Name: Arithmetic Logic Unit (ALU)
+// Filename: ALU.sv
+// Description: The ALU performs arithmetic and logical operations.
+// It supports various operations like addition, subtraction, bitwise operations, 
+// and shifts. The ALU takes inputs from the A register and OP, performs the
+// specified operation, and outputs the result to the G register.
