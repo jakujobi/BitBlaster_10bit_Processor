@@ -64,9 +64,9 @@ function [20:0] value_to_7seg(input [9:0] value);
     logic [3:0] digit[2:0]; // Each digit of the 10-bit value
     begin
         // Splitting 10-bit value into 3 digits
-        digit[0] = value % 10;                      // Least significant digit
-        digit[1] = (value / 10) % 10;               // Middle digit
-        digit[2] = value / 100;                     // Most significant digit
+        digit[0] = value % 16;                      // Least significant digit
+        digit[1] = (value / 16) % 16;               // Middle digit
+        digit[2] = value / 256;                     // Most significant digit
 
         // Convert each digit to 7-segment
         value_to_7seg = {digit_to_7seg(digit[2]), digit_to_7seg(digit[1]), digit_to_7seg(digit[0])};
