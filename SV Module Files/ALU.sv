@@ -60,7 +60,7 @@ always_comb begin
         XOR:   Result_from_ALU = A ^ OP;    // Bitwise XOR
         LSL:   Result_from_ALU = A << OP;   // Logical shift left
         LSR:   Result_from_ALU = A >> OP;   // Logical shift right
-        ASR:   Result_from_ALU = A >>> OP;  // Arithmetic shift right
+        ASR:   Result_from_ALU = $signed(A) >>> OP;  // Arithmetic shift right
         ADDI:  Result_from_ALU = A + OP;    // Immediate value is part of OP
         SUBI:  Result_from_ALU = A - OP;    // Immediate value is part of OP
       default: Result_from_ALU = 10'b0;     // Default case to handle undefined operations
