@@ -104,10 +104,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "DHEX2[1]",
-					"strict" : false
-				},
-				{
 					"name" : "DHEX2[2]",
 					"strict" : false
 				},
@@ -164,27 +160,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "Raw_Data_From_Switches[9]",
-					"strict" : false
-				},
-				{
-					"name" : "Raw_Data_From_Switches[8]",
-					"strict" : false
-				},
-				{
-					"name" : "Raw_Data_From_Switches[7]",
-					"strict" : false
-				},
-				{
-					"name" : "Raw_Data_From_Switches[6]",
-					"strict" : false
-				},
-				{
-					"name" : "Raw_Data_From_Switches[5]",
-					"strict" : false
-				},
-				{
-					"name" : "Raw_Data_From_Switches[4]",
+					"name" : "Raw_Data_From_Switches[2]",
 					"strict" : false
 				},
 				{
@@ -192,7 +168,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "Raw_Data_From_Switches[2]",
+					"name" : "Raw_Data_From_Switches[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Raw_Data_From_Switches[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Raw_Data_From_Switches[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Raw_Data_From_Switches[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Raw_Data_From_Switches[8]",
+					"strict" : false
+				},
+				{
+					"name" : "Raw_Data_From_Switches[9]",
 					"strict" : false
 				},
 				{
