@@ -107,7 +107,7 @@ always_comb begin
         
         //COPY operation
         else if (INST[9:8] == 2'b00 && INST[3:0] == 4'b0001) begin //4'b0001 equals to COPY
-            Rout = INST[5:4];   //Prep the Rx register to write
+            Rout = INST[5:4];   //Prep the Ry register to write
             ENR = 1;            //Let the register file write to the bus
             Rin = INST[7:6];    //Load the data into the Rx register
             ENW = 1;            //Let the register file read
